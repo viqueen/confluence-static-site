@@ -1,0 +1,34 @@
+{
+  "name": "confluence-static-site",
+  "version": "1.0.0",
+  "description": "confluence static site",
+  "main": "index.js",
+  "scripts": {
+    "site:watch": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viqueen/confluence-static-site.git"
+  },
+  "keywords": [
+    "confluence",
+    "static",
+    "site"
+  ],
+  "author": "Hasnae R.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/viqueen/confluence-static-site/issues"
+  },
+  "homepage": "https://github.com/viqueen/confluence-static-site#readme",
+  "devDependencies": {
+    "@types/node": "^18.7.23",
+    "prettier": "^2.7.1",
+    "ts-loader": "^9.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

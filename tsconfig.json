@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "es6"],
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "output",
+    "target": "es5",
+    "sourceMap": true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "jsx": "react",
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.snap"
+  ]
+}
