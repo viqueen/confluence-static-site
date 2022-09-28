@@ -34,10 +34,12 @@
   "workspaces": [
     "modules/configuration",
     "modules/confluence-api",
-    "modules/content-extractor"
+    "modules/content-extractor",
+    "modules/cli"
   ],
   "dependencies": {
     "axios": "^0.27.2",
+    "commander": "^9.4.0",
     "dotenv": "^16.0.2"
   }
 }
