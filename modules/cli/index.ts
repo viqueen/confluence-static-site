@@ -1,4 +1,4 @@
-#! /usr/bin/env ts-node
+#! /usr/bin/env node
 
 import { Command } from 'commander';
 import * as path from 'path';
@@ -25,5 +25,5 @@ program
         await extractBlogs(spaceKey, output);
     });
 
-program.version(require('./package.json').version);
+program.version(require('../../package.json').version);
 program.parse(process.argv);

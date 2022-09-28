@@ -2,7 +2,9 @@
   "name": "confluence-static-site",
   "version": "1.0.0",
   "description": "confluence static site",
-  "main": "index.js",
+  "bin": {
+    "confsite": "./dist/cli/index.js"
+  },
   "scripts": {
     "build": "tsc --watch",
     "ci:build": "tsc",
