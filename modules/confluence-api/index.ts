@@ -70,7 +70,7 @@ class ConfluenceApi {
             `/wiki/rest/api/search?${query.toString()}`
         );
         const item = data.results[0]; // TODO: handle edge case
-        const { content } = item;
+        const { content, lastModified } = item;
         const { children, id, title, type } = content;
 
         const childPages = children.page?.results || [];
@@ -78,7 +78,8 @@ class ConfluenceApi {
         return {
             identifier: { id, title },
             type,
-            children: childPages.map(identifier)
+            children: childPages.map(identifier),
+            lastModifiedDate: new Date(lastModified).getTime()
         };
     }
 }

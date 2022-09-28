@@ -15,7 +15,7 @@
     "jsx": "react",
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["modules"],
   "exclude": [
     "node_modules",
     "src/**/*.test.ts",

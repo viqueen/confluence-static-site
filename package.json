@@ -4,6 +4,8 @@
   "description": "confluence static site",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --watch",
+    "ci:build": "tsc",
     "format:check": "prettier --check .",
     "format": "prettier --check --write .",
     "site:watch": "webpack serve"
