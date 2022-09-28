@@ -28,6 +28,25 @@ class ConfluenceApi {
         return { id, title };
     }
 
+    async getSpaceBlogs(spaceKey: string): Promise<Content[]> {
+        const query = new URLSearchParams({
+            cql: `space=${spaceKey} and type=blogpost order by created desc`,
+            expand: 'content.history'
+        });
+        const { data } = await this.client.get(
+            `/wiki/rest/api/search?${query.toString()}`
+        );
+        const { results } = data;
+        return results.map((item: any) => {
+            const { content } = item;
+            const { id, title, type } = content;
+            return {
+                identifier: { id, title },
+                type
+            };
+        });
+    }
+
     async getContentById(
         contentId: Pick<Identifier, 'id'>,
         asHomepage = false
