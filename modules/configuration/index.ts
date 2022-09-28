@@ -28,7 +28,8 @@ const initOutput = (props: {
         attachments: path.resolve(siteOutput, 'attachments'),
         pages: path.resolve(siteOutput, 'notes'),
         blogs: path.resolve(siteOutput, 'articles'),
-        objectResolver: path.resolve(siteOutput, 'object-resolver')
+        objectResolver: path.resolve(siteOutput, 'object-resolver'),
+        templates: path.resolve(destination, 'templates', spaceKey)
     };
     makeOutputDirectories(output);
     return output;

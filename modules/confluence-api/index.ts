@@ -76,7 +76,7 @@ class ConfluenceApi {
             `/wiki/rest/api/search?${query.toString()}`
         );
         const item = data.results[0]; // TODO: handle edge case
-        const { content, lastModified } = item;
+        const { content, excerpt, lastModified } = item;
         const { children, id, title, type, body, history } = content;
 
         const { createdBy } = history;
@@ -103,6 +103,8 @@ class ConfluenceApi {
         return {
             author,
             identifier: { id, title },
+            asHomepage,
+            excerpt,
             type,
             body: JSON.parse(body.atlas_doc_format.value),
             lastModifiedDate: new Date(lastModified).getTime(),

@@ -18,6 +18,8 @@ export type Content = {
     identifier: Identifier;
     type: 'page' | 'blogpost';
     body: any;
+    excerpt: string;
+    asHomepage: boolean;
 
     author: Identifier & { avatar: string; accountId: string };
     lastModifiedDate: number;

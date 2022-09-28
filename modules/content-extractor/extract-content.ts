@@ -1,11 +1,14 @@
+import * as fs from 'fs';
+import * as path from 'path';
+import ReactDOMServer from 'react-dom/server';
 import { Content } from '../confluence-api/types';
 import { Output } from '../configuration/types';
 import { titleToPath } from '../confluence-api/helpers';
-import * as path from 'path';
-import * as fs from 'fs';
 import { extractObjects } from './extract-objects';
 import { extractAttachments } from './extract-attachments';
 import { extractAssets } from './extract-assets';
+import { saveContentData } from './save-content-data';
+import { StaticWrapper } from './static-wrapper';
 
 const shouldExtractContentData = (
     content: Content,
@@ -26,12 +29,23 @@ const shouldExtractContentData = (
     return lastUpdated < content.lastModifiedDate;
 };
 
-const saveContentData = async (content: Content, output: Output) => {
-    // TODO: write data.json
-};
-
 const saveContentHtml = async (content: Content, output: Output) => {
-    // TODO: write index.html
+    const indexHtml = ReactDOMServer.renderToStaticMarkup(
+        StaticWrapper(content)
+    );
+    const subPath = content.type === 'page' ? 'notes' : 'articles';
+    const templatePath = content.asHomepage
+        ? output.templates
+        : path.resolve(
+              output.templates,
+              subPath,
+              titleToPath(content.identifier.title)
+          );
+    fs.mkdirSync(templatePath, { recursive: true });
+    fs.writeFileSync(
+        path.resolve(templatePath, 'index.html'),
+        `<!DOCTYPE html>\n${indexHtml}`
+    );
 };
 
 export const extractContent = async (

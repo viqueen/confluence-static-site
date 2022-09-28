@@ -5,6 +5,8 @@ export type Configuration = {
     CONFLUENCE_CLOUD_TOKEN: string;
 
     TARGET_SITE: string;
+    TWITTER_SITE: string;
+    GA_TRACKING_ID: string;
 };
 
 export type Output = {
@@ -14,4 +16,5 @@ export type Output = {
     blogs: string;
     home: string;
     objectResolver: string;
+    templates: string;
 };
