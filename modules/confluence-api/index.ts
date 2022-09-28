@@ -1,6 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
 import { configuration } from '../configuration';
-import { Content, Identifier } from './types';
+import {
+    Content,
+    Identifier,
+    ResourceDefinition,
+    ResourceObject
+} from './types';
 
 const identifier = (item: any): Identifier => ({
     id: item.id,
@@ -71,16 +76,34 @@ class ConfluenceApi {
         );
         const item = data.results[0]; // TODO: handle edge case
         const { content, lastModified } = item;
-        const { children, id, title, type } = content;
+        const { children, id, title, type, body } = content;
 
         const childPages = children.page?.results || [];
 
         return {
             identifier: { id, title },
             type,
+            body: JSON.parse(body.atlas_doc_format.value),
             children: childPages.map(identifier),
             lastModifiedDate: new Date(lastModified).getTime()
         };
+    }
+
+    async getObjects(
+        resourceUrls: Array<ResourceObject>
+    ): Promise<Array<{ body: { data: ResourceDefinition } }>> {
+        const { data } = await this.client.post(
+            '/gateway/api/object-resolver/resolve/batch',
+            resourceUrls,
+            {
+                headers: {
+                    'sec-fetch-mode': 'cors',
+                    'sec-fetch-site': 'same-origin',
+                    cookie: `cloud.session.token=${configuration.CONFLUENCE_CLOUD_TOKEN}`
+                }
+            }
+        );
+        return data;
     }
 }
 

@@ -3,7 +3,7 @@
     "lib": ["dom", "es6"],
     "module": "commonjs",
     "rootDir": "modules",
-    "outDir": "output",
+    "outDir": "dist",
     "target": "es5",
     "sourceMap": true,
     "declaration": false,

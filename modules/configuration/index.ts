@@ -18,7 +18,8 @@ const initOutput = (destination: string): Output => {
     const output: Output = {
         home: siteOutput,
         pages: path.resolve(siteOutput, 'notes'),
-        blogs: path.resolve(siteOutput, 'articles')
+        blogs: path.resolve(siteOutput, 'articles'),
+        objectResolver: path.resolve(siteOutput, 'object-resolver')
     };
     makeOutputDirectories(output);
     return output;
