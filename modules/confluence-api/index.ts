@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { configuration } from '../configuration';
 import {
+    AttachmentData,
     Content,
     Identifier,
     ResourceDefinition,
@@ -79,13 +80,26 @@ class ConfluenceApi {
         const { children, id, title, type, body } = content;
 
         const childPages = children.page?.results || [];
+        const files = children.attachment?.results || [];
+
+        const attachments = files.map(
+            ({ extensions, _links, metadata }: any) => ({
+                fileId: extensions.fileId,
+                downloadUrl: _links.download,
+                mediaType: extensions.mediaType,
+                isCover: metadata.labels.results.some(
+                    (i: any) => i.name === 'cover'
+                )
+            })
+        );
 
         return {
             identifier: { id, title },
             type,
             body: JSON.parse(body.atlas_doc_format.value),
+            lastModifiedDate: new Date(lastModified).getTime(),
             children: childPages.map(identifier),
-            lastModifiedDate: new Date(lastModified).getTime()
+            attachments
         };
     }
 
@@ -104,6 +118,16 @@ class ConfluenceApi {
             }
         );
         return data;
+    }
+
+    async getAttachmentData(
+        targetUrl: string,
+        prefix: string = '/wiki'
+    ): Promise<AttachmentData> {
+        const { data } = await this.client.get(`${prefix}${targetUrl}`, {
+            responseType: 'stream'
+        });
+        return { stream: data };
     }
 }
 

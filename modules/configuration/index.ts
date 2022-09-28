@@ -13,10 +13,15 @@ const makeOutputDirectories = (data: any) => {
     }
 };
 
-const initOutput = (destination: string): Output => {
-    const siteOutput = path.resolve(destination, 'site');
+const initOutput = (props: {
+    spaceKey: string;
+    destination: string;
+}): Output => {
+    const { spaceKey, destination } = props;
+    const siteOutput = path.resolve(destination, 'site', spaceKey);
     const output: Output = {
         home: siteOutput,
+        attachments: path.resolve(siteOutput, 'attachments'),
         pages: path.resolve(siteOutput, 'notes'),
         blogs: path.resolve(siteOutput, 'articles'),
         objectResolver: path.resolve(siteOutput, 'object-resolver')

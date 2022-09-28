@@ -11,8 +11,8 @@ program
     .command(`extract <spaceKey>`)
     .description(`extract all content and media from a confluence space`)
     .action(async (spaceKey: string) => {
-        const outputDirectory = path.resolve(process.cwd(), 'output');
-        const output = initOutput(outputDirectory);
+        const destination = path.resolve(process.cwd(), 'output');
+        const output = initOutput({ spaceKey, destination });
         await extractSpace(spaceKey, output);
     });
 

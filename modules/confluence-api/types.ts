@@ -3,6 +3,17 @@ export type Identifier = {
     title: string;
 };
 
+export type Attachment = {
+    fileId: string;
+    downloadUrl: string;
+    mediaType: string;
+    isCover: boolean;
+};
+
+export type AttachmentData = {
+    stream: any;
+};
+
 export type Content = {
     identifier: Identifier;
     type: 'page' | 'blogpost';
@@ -11,6 +22,8 @@ export type Content = {
     lastModifiedDate: number;
 
     children?: Identifier[];
+    attachments?: Attachment[];
+    cover?: Attachment;
 };
 
 export type ResourceObject = {

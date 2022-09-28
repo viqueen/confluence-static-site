@@ -8,6 +8,7 @@ export type Configuration = {
 };
 
 export type Output = {
+    attachments: string;
     pages: string;
     blogs: string;
     home: string;
