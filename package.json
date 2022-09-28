@@ -33,7 +33,8 @@
   },
   "workspaces": [
     "modules/configuration",
-    "modules/confluence-api"
+    "modules/confluence-api",
+    "modules/content-extractor"
   ],
   "dependencies": {
     "axios": "^0.27.2",
