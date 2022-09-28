@@ -1,7 +1,7 @@
-import { Output } from '../configuration/types';
-import { api } from '../confluence-api';
 import { extractPageTree } from './extract-page-tree';
 import { extractBlogs } from './extract-blogs';
+import { Output } from '../../../configuration/types';
+import { api } from '../../../confluence-api';
 
 export const extractSpace = async (spaceKey: string, output: Output) => {
     console.info(`🪐 extract-space: ${spaceKey}`);

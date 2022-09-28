@@ -1,9 +1,9 @@
-import { Content } from '../confluence-api/types';
-import { Output } from '../configuration/types';
-import { scrubContent } from '../confluence-api/adf-processor';
 import fs from 'fs';
 import path from 'path';
-import { titleToPath } from '../confluence-api/helpers';
+import { Content } from '../../../confluence-api/types';
+import { Output } from '../../../configuration/types';
+import { titleToPath } from '../../../confluence-api/helpers';
+import { scrubContent } from '../../../confluence-api/adf-processor';
 
 const resolveContentPath = (content: Content, output: Output) => {
     if (content.asHomepage) return output.home;

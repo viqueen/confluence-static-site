@@ -1,6 +1,6 @@
 import React from 'react';
-import { Content } from '../confluence-api/types';
-import { configuration } from '../configuration';
+import { Content } from '../../../confluence-api/types';
+import { configuration } from '../../../configuration';
 
 export const StaticWrapper = (content: Content) => {
     const withCover = () => {

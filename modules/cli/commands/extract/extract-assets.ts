@@ -1,11 +1,11 @@
-import { Content } from '../confluence-api/types';
-import { Output } from '../configuration/types';
 import * as path from 'path';
 import * as fs from 'fs';
-import { api } from '../confluence-api';
 import axios, { AxiosInstance } from 'axios';
 import { traverse } from '@atlaskit/adf-utils/traverse';
 import { ADFEntity } from '@atlaskit/adf-utils/types';
+import { Content } from '../../../confluence-api/types';
+import { Output } from '../../../configuration/types';
+import { api } from '../../../confluence-api';
 
 const extractAvatars = async (content: Content, output: Output) => {
     const { author } = content;

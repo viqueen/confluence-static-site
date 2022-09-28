@@ -1,14 +1,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import ReactDOMServer from 'react-dom/server';
-import { Content } from '../confluence-api/types';
-import { Output } from '../configuration/types';
-import { titleToPath } from '../confluence-api/helpers';
 import { extractObjects } from './extract-objects';
 import { extractAttachments } from './extract-attachments';
 import { extractAssets } from './extract-assets';
 import { saveContentData } from './save-content-data';
 import { StaticWrapper } from './static-wrapper';
+import { Content } from '../../../confluence-api/types';
+import { Output } from '../../../configuration/types';
+import { titleToPath } from '../../../confluence-api/helpers';
 
 const shouldExtractContentData = (
     content: Content,

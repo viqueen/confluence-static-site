@@ -1,8 +1,8 @@
-import { Content } from '../confluence-api/types';
-import { Output } from '../configuration/types';
-import { api } from '../confluence-api';
 import * as path from 'path';
 import * as fs from 'fs';
+import { Content } from '../../../confluence-api/types';
+import { Output } from '../../../configuration/types';
+import { api } from '../../../confluence-api';
 
 export const extractAttachments = async (content: Content, output: Output) => {
     const { attachments } = content;

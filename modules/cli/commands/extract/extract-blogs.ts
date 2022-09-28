@@ -1,8 +1,8 @@
-import { Output } from '../configuration/types';
-import { api } from '../confluence-api';
 import { extractContent } from './extract-content';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Output } from '../../../configuration/types';
+import { api } from '../../../confluence-api';
 
 export const extractBlogs = async (spaceKey: string, output: Output) => {
     console.info('📙 extract blogs');

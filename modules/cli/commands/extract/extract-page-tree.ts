@@ -1,7 +1,7 @@
-import { Identifier } from '../confluence-api/types';
-import { Output } from '../configuration/types';
-import { api } from '../confluence-api';
 import { extractContent } from './extract-content';
+import { Identifier } from '../../../confluence-api/types';
+import { Output } from '../../../configuration/types';
+import { api } from '../../../confluence-api';
 
 export const extractPageTree = async (
     id: Identifier,
