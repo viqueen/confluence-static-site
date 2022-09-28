@@ -8,7 +8,7 @@ export type Configuration = {
 };
 
 export type Output = {
-    assets: { avatars: string };
+    assets: { avatars: string; emojis: string };
     attachments: string;
     pages: string;
     blogs: string;

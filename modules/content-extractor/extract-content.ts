@@ -6,7 +6,6 @@ import * as fs from 'fs';
 import { extractObjects } from './extract-objects';
 import { extractAttachments } from './extract-attachments';
 import { extractAssets } from './extract-assets';
-import { extractEmojis } from './extract-emojis';
 
 const shouldExtractContentData = (
     content: Content,
@@ -45,7 +44,6 @@ export const extractContent = async (
         await extractObjects(content, output);
         await extractAttachments(content, output);
         await extractAssets(content, output);
-        await extractEmojis(content, output);
         await saveContentData(content, output);
     } else {
         console.info(`⚡️ skipped content`, content.identifier);

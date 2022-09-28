@@ -22,7 +22,8 @@ const initOutput = (props: {
     const output: Output = {
         home: siteOutput,
         assets: {
-            avatars: path.resolve(siteOutput, 'assets', 'avatars')
+            avatars: path.resolve(siteOutput, 'assets', 'avatars'),
+            emojis: path.resolve(siteOutput, 'assets', 'emojis')
         },
         attachments: path.resolve(siteOutput, 'attachments'),
         pages: path.resolve(siteOutput, 'notes'),
