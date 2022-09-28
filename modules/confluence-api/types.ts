@@ -19,6 +19,7 @@ export type Content = {
     type: 'page' | 'blogpost';
     body: any;
 
+    author: Identifier & { avatar: string; accountId: string };
     lastModifiedDate: number;
 
     children?: Identifier[];

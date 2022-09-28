@@ -21,6 +21,9 @@ const initOutput = (props: {
     const siteOutput = path.resolve(destination, 'site', spaceKey);
     const output: Output = {
         home: siteOutput,
+        assets: {
+            avatars: path.resolve(siteOutput, 'assets', 'avatars')
+        },
         attachments: path.resolve(siteOutput, 'attachments'),
         pages: path.resolve(siteOutput, 'notes'),
         blogs: path.resolve(siteOutput, 'articles'),

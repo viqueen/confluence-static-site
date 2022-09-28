@@ -77,8 +77,9 @@ class ConfluenceApi {
         );
         const item = data.results[0]; // TODO: handle edge case
         const { content, lastModified } = item;
-        const { children, id, title, type, body } = content;
+        const { children, id, title, type, body, history } = content;
 
+        const { createdBy } = history;
         const childPages = children.page?.results || [];
         const files = children.attachment?.results || [];
 
@@ -92,8 +93,15 @@ class ConfluenceApi {
                 )
             })
         );
+        const author = {
+            id: createdBy.publicName,
+            title: createdBy.displayName,
+            accountId: createdBy.accountId,
+            avatar: createdBy.profilePicture.path
+        };
 
         return {
+            author,
             identifier: { id, title },
             type,
             body: JSON.parse(body.atlas_doc_format.value),
