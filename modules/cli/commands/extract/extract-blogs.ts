@@ -4,13 +4,17 @@ import * as path from 'path';
 import { Output } from '../../../configuration/types';
 import { api } from '../../../confluence-api';
 
-export const extractBlogs = async (spaceKey: string, output: Output) => {
+export const extractBlogs = async (
+    spaceKey: string,
+    output: Output,
+    options = { force: false }
+) => {
     console.info('📙 extract blogs');
     const blogs = await api.getSpaceBlogs(spaceKey);
 
     for (const blog of blogs) {
         const content = await api.getContentById(blog.identifier);
-        await extractContent(content, output);
+        await extractContent(content, output, options);
     }
 
     fs.writeFileSync(

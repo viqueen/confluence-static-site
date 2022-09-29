@@ -11,10 +11,11 @@ const program = new Command();
 program
     .command(`extract <spaceKey>`)
     .description(`extract all content and media from a confluence space`)
-    .action(async (spaceKey: string) => {
+    .option('--force', 'enforce extracting content assets', false)
+    .action(async (spaceKey: string, options) => {
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
-        await extractSpace(spaceKey, output);
+        await extractSpace(spaceKey, output, { ...options });
     });
 
 program
