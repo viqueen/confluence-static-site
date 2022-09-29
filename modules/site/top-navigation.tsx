@@ -3,27 +3,32 @@ import {
     AtlassianNavigation,
     PrimaryButton,
     generateTheme,
-    ProductHome
+    ProductHome,
+    CustomProductHome
 } from '@atlaskit/atlassian-navigation';
-import { AtlassianIcon, AtlassianLogo } from '@atlaskit/logo';
-import { NavigationHeader, SideNavigation } from '@atlaskit/side-navigation';
+import { siteProperties } from './site-properties';
 
-const theme = generateTheme({
-    name: 'high-contrast',
-    backgroundColor: 'rgb(0, 102, 68)',
-    highlightColor: '#FFFFFF'
-});
+const theme = generateTheme(siteProperties.theme);
 
 const HomeLink = () => {
     return (
         <a href="/" style={{ textDecoration: 'none' }}>
-            <PrimaryButton isHighlighted={true}>viqueen.org</PrimaryButton>
+            <PrimaryButton isHighlighted={true}>
+                {siteProperties.title}
+            </PrimaryButton>
         </a>
     );
 };
 
 const Home = () => {
-    return <ProductHome icon={AtlassianIcon} logo={AtlassianLogo} />;
+    return (
+        <CustomProductHome
+            iconAlt={siteProperties.title}
+            iconUrl={siteProperties.iconUrl}
+            logoAlt={siteProperties.title}
+            logoUrl={siteProperties.iconUrl}
+        />
+    );
 };
 
 export const TopNavigation = () => {
