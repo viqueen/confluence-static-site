@@ -4,7 +4,11 @@ import { MediaFile } from './media-file';
 
 export const viqueenMedia = (ext: ExtensionParams<any>) => {
     if (ext.extensionKey !== 'file') {
-        console.warn('** missing media extension handler', ext.extensionKey);
+        console.warn(
+            '** missing media extension handler',
+            ext.extensionKey,
+            ext
+        );
         return null;
     }
     const layout = ext.parameters.layout;
