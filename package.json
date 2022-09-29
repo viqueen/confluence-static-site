@@ -59,6 +59,8 @@
     "@atlaskit/date": "^0.9.4",
     "@atlaskit/editor-common": "^69.3.0",
     "@atlaskit/emoji": "^65.2.0",
+    "@atlaskit/heading": "^0.1.16",
+    "@atlaskit/icon-object": "^6.2.7",
     "@atlaskit/logo": "^13.9.0",
     "@atlaskit/page": "^12.2.0",
     "@atlaskit/renderer": "^101.1.0",

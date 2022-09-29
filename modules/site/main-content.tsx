@@ -5,6 +5,12 @@ import { Content } from '../confluence-api/types';
 import axios from 'axios';
 import { ContentRenderer } from './content/content-renderer';
 
+import './main-content.css';
+import { ContentAncestors } from './content/content-ancestors';
+import { ContentHeader } from './content/content-header';
+import { ContentByLine } from './content/content-byline';
+import { ContentCover } from './content/content-cover';
+
 export const MainContent = () => {
     const [loading, setLoading] = useState(true);
     const [content, setContent] = useState<Content | undefined>(undefined);
@@ -30,17 +36,16 @@ export const MainContent = () => {
                 </div>
             )}
             {!loading && content && (
-                <div
-                    style={{
-                        overflowY: 'auto',
-                        height: '90vh',
-                        padding: '2em',
-                        width: '100%'
-                    }}
-                >
+                <div className="main-content">
+                    <ContentAncestors content={content} />
                     <Page>
                         <Grid layout="fixed">
+                            <ContentCover content={content} />
                             <GridColumn medium={12}>
+                                <ContentHeader content={content} />
+                            </GridColumn>
+                            <GridColumn medium={12}>
+                                <ContentByLine content={content} />
                                 <ContentRenderer content={content} />
                             </GridColumn>
                         </Grid>
