@@ -13,5 +13,5 @@ export const extractSpace = async (
 
     console.info(`🏠 process space home`, homepage);
     await extractPageTree(homepage, output, { ...options, asHomepage: true });
-    await extractBlogs(spaceKey, output);
+    await extractBlogs(spaceKey, output, options);
 };

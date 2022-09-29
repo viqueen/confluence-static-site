@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { configuration } from '../configuration';
 import {
+    Attachment,
     AttachmentData,
     Content,
     Identifier,
@@ -107,6 +108,8 @@ class ConfluenceApi {
             avatar: createdBy.profilePicture.path
         };
 
+        const cover = attachments.find((a: Attachment) => a.isCover);
+
         return {
             author,
             identifier: { id, title },
@@ -117,7 +120,8 @@ class ConfluenceApi {
             lastModifiedDate: new Date(lastModified).getTime(),
             createdDate: new Date(createdDate).getTime(),
             children: childPages.map(identifier),
-            attachments
+            attachments,
+            cover
         };
     }
 
