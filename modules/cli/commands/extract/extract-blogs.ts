@@ -14,7 +14,7 @@ export const extractBlogs = async (spaceKey: string, output: Output) => {
     }
 
     fs.writeFileSync(
-        path.resolve(output.home, 'blog.json'),
+        path.resolve(output.home, 'blogs.json'),
         JSON.stringify(blogs)
     );
 };

@@ -1,9 +1,4 @@
-import { configuration } from '../configuration';
-
-export const titleToPath = (title: string): string => {
-    const noSpaces = title.replace(/\s+/g, '-');
-    return noSpaces.replace(/[,?]/g, '');
-};
+import { configuration } from '../../configuration';
 
 const isInternalUrl = (url: string): boolean => {
     return url.startsWith(`https://${configuration.CONFLUENCE_SITE}`);

@@ -23,6 +23,7 @@ export type Content = {
 
     author: Identifier & { avatar: string; accountId: string };
     lastModifiedDate: number;
+    createdDate: number;
 
     children?: Identifier[];
     attachments?: Attachment[];

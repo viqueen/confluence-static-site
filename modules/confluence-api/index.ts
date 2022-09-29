@@ -44,11 +44,18 @@ class ConfluenceApi {
         );
         const { results } = data;
         return results.map((item: any) => {
-            const { content } = item;
-            const { id, title, type } = content;
+            const { content, excerpt } = item;
+            const { id, title, type, history } = content;
+            const { createdBy, createdDate } = history;
             return {
                 identifier: { id, title },
-                type
+                type,
+                excerpt,
+                author: {
+                    id: createdBy.publicName,
+                    title: createdBy.displayName
+                },
+                createdDate: new Date(createdDate).getTime()
             };
         });
     }
@@ -79,7 +86,7 @@ class ConfluenceApi {
         const { content, excerpt, lastModified } = item;
         const { children, id, title, type, body, history } = content;
 
-        const { createdBy } = history;
+        const { createdBy, createdDate } = history;
         const childPages = children.page?.results || [];
         const files = children.attachment?.results || [];
 
@@ -108,6 +115,7 @@ class ConfluenceApi {
             type,
             body: JSON.parse(body.atlas_doc_format.value),
             lastModifiedDate: new Date(lastModified).getTime(),
+            createdDate: new Date(createdDate).getTime(),
             children: childPages.map(identifier),
             attachments
         };

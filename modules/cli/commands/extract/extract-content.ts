@@ -8,7 +8,7 @@ import { saveContentData } from './save-content-data';
 import { StaticWrapper } from './static-wrapper';
 import { Content } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
-import { titleToPath } from '../../../confluence-api/helpers';
+import { titleToPath } from '../../../confluence-api/helpers/title-to-path';
 
 const shouldExtractContentData = (
     content: Content,

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { Content } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
-import { titleToPath } from '../../../confluence-api/helpers';
+import { titleToPath } from '../../../confluence-api/helpers/title-to-path';
 import { scrubContent } from '../../../confluence-api/adf-processor';
 
 const resolveContentPath = (content: Content, output: Output) => {

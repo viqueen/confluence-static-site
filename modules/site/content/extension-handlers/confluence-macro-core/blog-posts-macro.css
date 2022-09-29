@@ -1,0 +1,16 @@
+.blog-post-item {
+    margin: 30px;
+}
+
+.blog-post-item author-avatar {
+    float: left;
+    margin-right: 10px;
+}
+
+.blog-post-item a {
+    font-size: 24px;
+    color: #0052cc;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
