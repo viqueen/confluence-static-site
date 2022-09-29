@@ -1,7 +1,10 @@
 import { hydrate, render } from 'react-dom';
 import React from 'react';
 import { fontFamily } from '@atlaskit/theme';
-import { Navigation } from './navigation';
+import { TopNavigation } from './top-navigation';
+import { MainContent } from './main-content';
+
+// TODO: top-navigation should be customizable
 
 const Site = () => {
     return (
@@ -14,7 +17,8 @@ const Site = () => {
                 fontFamily: fontFamily()
             }}
         >
-            <Navigation />
+            <TopNavigation />
+            <MainContent />
         </div>
     );
 };

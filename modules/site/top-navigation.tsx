@@ -6,6 +6,7 @@ import {
     ProductHome
 } from '@atlaskit/atlassian-navigation';
 import { AtlassianIcon, AtlassianLogo } from '@atlaskit/logo';
+import { NavigationHeader, SideNavigation } from '@atlaskit/side-navigation';
 
 const theme = generateTheme({
     name: 'high-contrast',
@@ -25,7 +26,7 @@ const Home = () => {
     return <ProductHome icon={AtlassianIcon} logo={AtlassianLogo} />;
 };
 
-export const Navigation = () => {
+export const TopNavigation = () => {
     return (
         <AtlassianNavigation
             label="viqueen.org"

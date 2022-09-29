@@ -34,7 +34,14 @@ export const webpackConfig = (
             site: path.resolve(siteSources, 'index.tsx')
         },
         resolve: {
-            extensions: ['.tsx', '.ts', '.js']
+            extensions: ['.tsx', '.ts', '.js'],
+            fallback: {
+                crypto: require.resolve('crypto-browserify'),
+                stream: require.resolve('stream-browserify')
+            }
+        },
+        stats: {
+            warningsFilter: [/Should not import the named export/]
         },
         module: {
             rules: [
