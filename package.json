@@ -51,6 +51,8 @@
   "dependencies": {
     "@atlaskit/adf-utils": "^17.1.3",
     "@atlaskit/atlassian-navigation": "^2.2.8",
+    "@atlaskit/editor-common": "^69.3.0",
+    "@atlaskit/emoji": "^65.2.0",
     "@atlaskit/logo": "^13.9.0",
     "@atlaskit/page": "^12.2.0",
     "@atlaskit/renderer": "^101.1.0",

@@ -33,6 +33,7 @@ export const scrubContent = (doc: any) => {
         nodeReplacements: {
             bulletList: identityProcessor,
             codeBlock: identityProcessor,
+            emoji: identityProcessor,
             expand: identityProcessor,
             extension: identityProcessor,
             heading: identityProcessor,
