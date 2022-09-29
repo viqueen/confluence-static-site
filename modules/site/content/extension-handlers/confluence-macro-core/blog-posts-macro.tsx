@@ -24,7 +24,7 @@ const unescapeExcerpt = (excerpt: string) => {
 const BlogPostItem = ({ content }: { content: Content }) => {
     return (
         <div className="blog-post-item">
-            <a href={`/articles/${titleToPath(content.identifier.title)}`}>
+            <a href={`/articles/${titleToPath(content.identifier.title)}/`}>
                 {content.identifier.title}
             </a>
             <Avatar
@@ -77,8 +77,8 @@ export const BlogPostsMacro = () => {
             {loading && <Spinner size="large" />}
             {!loading && articles.length > 0 && (
                 <div>
-                    {articles.map((item: Content) => {
-                        return <BlogPostItem content={item} />;
+                    {articles.map((item: Content, index: number) => {
+                        return <BlogPostItem content={item} key={index} />;
                     })}
                 </div>
             )}
