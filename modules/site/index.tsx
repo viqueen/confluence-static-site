@@ -6,9 +6,11 @@ import {
     PageLayout,
     TopNavigation,
     Content,
-    Main
+    Main,
+    LeftSidebar
 } from '@atlaskit/page-layout';
 import { SiteTopNavigation } from './site-top-navigation';
+import { SiteLeftNavigation } from './site-left-navigation';
 
 const StaticSite = () => {
     return (
@@ -18,6 +20,9 @@ const StaticSite = () => {
                     <SiteTopNavigation />
                 </TopNavigation>
                 <Content>
+                    <LeftSidebar>
+                        <SiteLeftNavigation />
+                    </LeftSidebar>
                     <Main>
                         <SiteContent />
                     </Main>

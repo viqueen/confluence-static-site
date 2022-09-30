@@ -11,6 +11,7 @@ import { ContentByLine } from './content/content-byline';
 import { ContentCover } from './content/content-cover';
 
 import './site-content.css';
+import { siteProperties } from './site-properties';
 
 export const SiteContent = () => {
     const [loading, setLoading] = useState(true);
@@ -23,7 +24,7 @@ export const SiteContent = () => {
             return data;
         };
         fetchData().then((data) => {
-            document.title = `${data.identifier.title}`;
+            document.title = `${siteProperties.prefix} - ${data.identifier.title}`;
             setContent(data);
             setLoading(false);
         });
