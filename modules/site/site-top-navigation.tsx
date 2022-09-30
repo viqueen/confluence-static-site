@@ -3,7 +3,6 @@ import {
     AtlassianNavigation,
     PrimaryButton,
     generateTheme,
-    ProductHome,
     CustomProductHome
 } from '@atlaskit/atlassian-navigation';
 import { siteProperties } from './site-properties';
@@ -31,7 +30,7 @@ const Home = () => {
     );
 };
 
-export const TopNavigation = () => {
+export const SiteTopNavigation = () => {
     return (
         <AtlassianNavigation
             label="viqueen.org"

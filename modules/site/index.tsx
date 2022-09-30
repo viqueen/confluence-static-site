@@ -1,31 +1,35 @@
 import { hydrate, render } from 'react-dom';
 import React from 'react';
 import { fontFamily } from '@atlaskit/theme';
-import { TopNavigation } from './top-navigation';
-import { MainContent } from './main-content';
+import { SiteContent } from './site-content';
+import {
+    PageLayout,
+    TopNavigation,
+    Content,
+    Main
+} from '@atlaskit/page-layout';
+import { SiteTopNavigation } from './site-top-navigation';
 
-// TODO: top-navigation should be customizable
-
-const Site = () => {
+const StaticSite = () => {
     return (
-        <div
-            style={{
-                top: 0,
-                left: 0,
-                position: 'fixed',
-                width: '100%',
-                fontFamily: fontFamily()
-            }}
-        >
-            <TopNavigation />
-            <MainContent />
+        <div style={{ fontFamily: fontFamily() }}>
+            <PageLayout>
+                <TopNavigation>
+                    <SiteTopNavigation />
+                </TopNavigation>
+                <Content>
+                    <Main>
+                        <SiteContent />
+                    </Main>
+                </Content>
+            </PageLayout>
         </div>
     );
 };
 
 const rootElm = document.querySelector('#root')!;
 if (rootElm.hasChildNodes()) {
-    hydrate(<Site />, rootElm);
+    hydrate(<StaticSite />, rootElm);
 } else {
-    render(<Site />, rootElm);
+    render(<StaticSite />, rootElm);
 }

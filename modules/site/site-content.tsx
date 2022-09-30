@@ -5,13 +5,14 @@ import { Content } from '../confluence-api/types';
 import axios from 'axios';
 import { ContentRenderer } from './content/content-renderer';
 
-import './main-content.css';
 import { ContentAncestors } from './content/content-ancestors';
 import { ContentHeader } from './content/content-header';
 import { ContentByLine } from './content/content-byline';
 import { ContentCover } from './content/content-cover';
 
-export const MainContent = () => {
+import './site-content.css';
+
+export const SiteContent = () => {
     const [loading, setLoading] = useState(true);
     const [content, setContent] = useState<Content | undefined>(undefined);
 
@@ -36,7 +37,8 @@ export const MainContent = () => {
                 </div>
             )}
             {!loading && content && (
-                <div className="main-content">
+                <div className="site-content">
+                    {content.asHomepage && <div className="homepage" />}
                     <ContentAncestors content={content} />
                     <Page>
                         <Grid layout="fixed">
