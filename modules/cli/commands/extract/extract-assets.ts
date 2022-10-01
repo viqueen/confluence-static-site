@@ -55,7 +55,8 @@ const extractEmojis = async (content: Content, output: Output) => {
             'https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net'
     });
 
-    // noinspection JSUnusedGlobalSymbols
+    if (content.emoji) await fetchEmoji(client, content.emoji, output);
+
     traverse(content.body, {
         emoji: (node: ADFEntity) => {
             if (!node.attrs) return;

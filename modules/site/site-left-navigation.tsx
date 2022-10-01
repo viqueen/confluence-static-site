@@ -18,6 +18,7 @@ import Spinner from '@atlaskit/spinner';
 type NavigationItem = {
     href: string;
     title: string;
+    emoji?: string;
 };
 
 type Navigation = {
@@ -30,6 +31,18 @@ const resolveStack = () => {
     if (pathName.startsWith('/notes')) return ['notes'];
     if (pathName.startsWith('/articles')) return ['articles'];
     return [];
+};
+
+const NavigationLinkItem = (props: { item: NavigationItem }) => {
+    const { item } = props;
+    const iconBefore = item.emoji ? (
+        <img src={`/assets/emojis/${item.emoji}.png`} height={18} width={18} />
+    ) : null;
+    return (
+        <LinkItem iconBefore={iconBefore} href={item.href}>
+            {item.title}
+        </LinkItem>
+    );
 };
 
 export const SiteLeftNavigation = () => {
@@ -72,8 +85,8 @@ export const SiteLeftNavigation = () => {
                             {loading && <Spinner size="medium" />}
                             {!loading &&
                                 navigation &&
-                                navigation.notes.map(({ title, href }) => (
-                                    <LinkItem href={href}>{title}</LinkItem>
+                                navigation.notes.map((item) => (
+                                    <NavigationLinkItem item={item} />
                                 ))}
                         </Section>
                     </NestingItem>
@@ -86,8 +99,8 @@ export const SiteLeftNavigation = () => {
                             {loading && <Spinner size="medium" />}
                             {!loading &&
                                 navigation &&
-                                navigation.articles.map(({ title, href }) => (
-                                    <LinkItem href={href}>{title}</LinkItem>
+                                navigation.articles.map((item) => (
+                                    <NavigationLinkItem item={item} />
                                 ))}
                         </Section>
                     </NestingItem>

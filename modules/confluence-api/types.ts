@@ -25,7 +25,7 @@ export type Content = {
     lastModifiedDate: number;
     createdDate: number;
 
-    children?: Identifier[];
+    childPages?: (Identifier & { emoji?: string })[];
     attachments?: Attachment[];
     cover?: Attachment;
     emoji?: string;

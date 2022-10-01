@@ -2,7 +2,6 @@ import { extractPageTree } from './extract-page-tree';
 import { extractBlogs } from './extract-blogs';
 import { Output } from '../../../configuration/types';
 import { api } from '../../../confluence-api';
-import { Identifier } from '../../../confluence-api/types';
 import { titleToPath } from '../../../confluence-api/helpers/title-to-path';
 import fs from 'fs';
 import path from 'path';
@@ -22,9 +21,10 @@ export const extractSpace = async (
     });
     const blogs = await extractBlogs(spaceKey, output, options);
 
-    const notes = homepage.children?.map(({ title }: Identifier) => ({
+    const notes = homepage.childPages?.map(({ title, emoji }) => ({
         href: `/notes/${titleToPath(title)}/`,
-        title
+        title,
+        emoji
     }));
     const articles = blogs.map(({ identifier }) => ({
         href: `/articles/${titleToPath(identifier.title)}/`,

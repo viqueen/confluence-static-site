@@ -22,7 +22,7 @@ export const ChildrenMacro = ({ parent, content }: ChildrenMacroProps) => {
                 );
                 return data;
             } else {
-                return { children: content.children || [] };
+                return { children: content.childPages || [] };
             }
         };
         fetchData().then((data) => {

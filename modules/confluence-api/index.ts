@@ -9,11 +9,6 @@ import {
     ResourceObject
 } from './types';
 
-const identifier = (item: any): Identifier => ({
-    id: item.id,
-    title: item.title
-});
-
 class ConfluenceApi {
     private readonly client: AxiosInstance;
     constructor() {
@@ -71,7 +66,7 @@ class ConfluenceApi {
     async getContentByCQL(cql: string, asHomepage = false): Promise<Content> {
         const contentExpansions = [
             'content.body.atlas_doc_format',
-            'content.children.page',
+            'content.children.page.metadata.properties.emoji_title_published',
             'content.children.attachment.metadata.labels',
             'content.ancestors',
             'content.history',
@@ -89,15 +84,21 @@ class ConfluenceApi {
         const { children, id, title, type, body, history, metadata } = content;
 
         const { createdBy, createdDate } = history;
-        const childPages = children.page?.results || [];
         const files = children.attachment?.results || [];
 
+        const childPages =
+            children.page?.results.map((child: any) => ({
+                id: child.id,
+                title: child.title,
+                emoji: child.metadata.properties['emoji-title-published']?.value
+            })) || [];
+
         const attachments = files.map(
-            ({ extensions, _links, metadata }: any) => ({
+            ({ extensions, _links, metadata: fileMetadata }: any) => ({
                 fileId: extensions.fileId,
                 downloadUrl: _links.download,
                 mediaType: extensions.mediaType,
-                isCover: metadata.labels.results.some(
+                isCover: fileMetadata.labels.results.some(
                     (i: any) => i.name === 'cover'
                 )
             })
@@ -110,7 +111,8 @@ class ConfluenceApi {
         };
 
         const cover = attachments.find((a: Attachment) => a.isCover);
-        const emoji = metadata.properties.emoji_title_published?.value;
+        const emoji = metadata.properties['emoji-title-published']?.value;
+
         return {
             author,
             identifier: { id, title },
@@ -120,7 +122,7 @@ class ConfluenceApi {
             body: JSON.parse(body.atlas_doc_format.value),
             lastModifiedDate: new Date(lastModified).getTime(),
             createdDate: new Date(createdDate).getTime(),
-            children: childPages.map(identifier),
+            childPages,
             attachments,
             cover,
             emoji
