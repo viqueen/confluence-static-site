@@ -22,8 +22,7 @@ export const ChildrenMacro = ({ parent, content }: ChildrenMacroProps) => {
                 );
                 return data;
             } else {
-                setChildPages(content.children || []);
-                setLoading(false);
+                return { children: content.children || [] };
             }
         };
         fetchData().then((data) => {

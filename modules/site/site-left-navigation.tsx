@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-    ButtonItem,
     Header,
     LinkItem,
     NavigationHeader,
@@ -13,10 +12,8 @@ import QueueIcon from '@atlaskit/icon/glyph/queues';
 import QuoteIcon from '@atlaskit/icon/glyph/quote';
 import { siteProperties } from './site-properties';
 import Story24Icon from '@atlaskit/icon-object/glyph/story/24';
-import { Content } from '../confluence-api/types';
 import axios from 'axios';
 import Spinner from '@atlaskit/spinner';
-import { titleToPath } from '../confluence-api/helpers/title-to-path';
 
 type NavigationItem = {
     href: string;
@@ -28,11 +25,20 @@ type Navigation = {
     articles: NavigationItem[];
 };
 
+const resolveStack = () => {
+    const pathName = window.location.pathname;
+    if (pathName.startsWith('/notes')) return ['notes'];
+    if (pathName.startsWith('/articles')) return ['articles'];
+    return [];
+};
+
 export const SiteLeftNavigation = () => {
-    const [loading, setLoading] = useState(true);
-    const [navigation, setNavigation] = useState<Navigation | undefined>(
-        undefined
-    );
+    const [loading, setLoading] = useState<boolean>(true);
+    const [navigation, setNavigation] = useState<Navigation>({
+        notes: [],
+        articles: []
+    });
+    const [stack] = useState<string[]>(resolveStack());
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,7 +61,7 @@ export const SiteLeftNavigation = () => {
                     {siteProperties.prefix}
                 </Header>
             </NavigationHeader>
-            <NestableNavigationContent>
+            <NestableNavigationContent initialStack={stack}>
                 <Section>
                     <NestingItem
                         id="notes"
