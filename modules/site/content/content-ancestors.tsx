@@ -1,5 +1,7 @@
-import { Content } from '../../confluence-api/types';
+import { Content, Identifier } from '../../confluence-api/types';
 import React from 'react';
+import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
+import { titleToPath } from '../../confluence-api/helpers/title-to-path';
 
 type ContentAncestors = {
     content: Content;
@@ -7,6 +9,20 @@ type ContentAncestors = {
 
 export const ContentAncestors = ({ content }: ContentAncestors) => {
     if (content.type === 'blogpost' || content.asHomepage) return <></>;
-    // TODO : display page ancestors
-    return <></>;
+    return (
+        <div style={{ margin: 40 }}>
+            <Breadcrumbs>
+                {content.parentPages?.map((item: Identifier, index: number) => {
+                    const href =
+                        index === 0
+                            ? '/'
+                            : `/notes/${titleToPath(item.title)}/`;
+                    const text = index === 0 ? 'Home' : item.title;
+                    return (
+                        <BreadcrumbsItem href={href} text={text} key={index} />
+                    );
+                })}
+            </Breadcrumbs>
+        </div>
+    );
 };

@@ -81,7 +81,16 @@ class ConfluenceApi {
         );
         const item = data.results[0]; // TODO: handle edge case
         const { content, excerpt, lastModified } = item;
-        const { children, id, title, type, body, history, metadata } = content;
+        const {
+            children,
+            ancestors,
+            id,
+            title,
+            type,
+            body,
+            history,
+            metadata
+        } = content;
 
         const { createdBy, createdDate } = history;
         const files = children.attachment?.results || [];
@@ -92,7 +101,11 @@ class ConfluenceApi {
                 title: child.title,
                 emoji: child.metadata.properties['emoji-title-published']?.value
             })) || [];
-
+        const parentPages =
+            ancestors?.map((parent: any) => ({
+                id: parent.id,
+                title: parent.title
+            })) || [];
         const attachments = files.map(
             ({ extensions, _links, metadata: fileMetadata }: any) => ({
                 fileId: extensions.fileId,
@@ -123,6 +136,7 @@ class ConfluenceApi {
             lastModifiedDate: new Date(lastModified).getTime(),
             createdDate: new Date(createdDate).getTime(),
             childPages,
+            parentPages,
             attachments,
             cover,
             emoji

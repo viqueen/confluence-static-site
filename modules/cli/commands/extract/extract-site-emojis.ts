@@ -4,7 +4,10 @@ import { Output } from '../../../configuration/types';
 import path from 'path';
 import * as fs from 'fs';
 
-export const extractSiteEmojis = async (output: Output) => {
+export const extractSiteEmojis = async (
+    output: Output,
+    options = { force: false }
+) => {
     const adminClient = axios.create({
         baseURL: 'https://admin.atlassian.com'
     });
@@ -27,7 +30,7 @@ export const extractSiteEmojis = async (output: Output) => {
     const { clientId, jwt } = data.meta.mediaApiToken;
     for (const emoji of data.emojis) {
         const filePath = path.resolve(output.assets.emojis, `${emoji.id}.png`);
-        if (fs.existsSync(filePath)) continue;
+        if (fs.existsSync(filePath) && !options.force) continue;
 
         const { mediaFileId } = emoji.representation;
         const { data: stream } = await mediaClient.get(

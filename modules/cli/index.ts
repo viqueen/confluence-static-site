@@ -19,6 +19,7 @@ program
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
         await extractSpace(spaceKey, output, { ...options });
+        await extractSiteEmojis(output, options);
     });
 
 program
@@ -44,10 +45,11 @@ program
 program
     .command('extract-emojis <spaceKey>')
     .description('extract site assets')
-    .action(async (spaceKey) => {
+    .option('--force', 'enforce extracting content assets', false)
+    .action(async (spaceKey, options) => {
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
-        await extractSiteEmojis(output);
+        await extractSiteEmojis(output, options);
     });
 
 program

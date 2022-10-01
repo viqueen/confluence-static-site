@@ -14,6 +14,7 @@ import { siteProperties } from './site-properties';
 import Story24Icon from '@atlaskit/icon-object/glyph/story/24';
 import axios from 'axios';
 import Spinner from '@atlaskit/spinner';
+import PageIcon from '@atlaskit/icon/glyph/page';
 
 type NavigationItem = {
     href: string;
@@ -37,7 +38,9 @@ const NavigationLinkItem = (props: { item: NavigationItem }) => {
     const { item } = props;
     const iconBefore = item.emoji ? (
         <img src={`/assets/emojis/${item.emoji}.png`} height={18} width={18} />
-    ) : null;
+    ) : (
+        <PageIcon label="content" />
+    );
     return (
         <LinkItem iconBefore={iconBefore} href={item.href}>
             {item.title}
