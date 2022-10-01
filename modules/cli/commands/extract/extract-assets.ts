@@ -24,6 +24,9 @@ const extractAvatars = async (content: Content, output: Output) => {
     fs.symlinkSync(avatarFile, symlink);
 };
 
+const UUID_REGEX =
+    /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/;
+
 const fetchEmoji = async (
     client: AxiosInstance,
     id: string,
@@ -31,6 +34,7 @@ const fetchEmoji = async (
 ) => {
     const targetFile = path.resolve(output.assets.emojis, `${id}.png`);
     if (fs.existsSync(targetFile)) return;
+    if (id.match(UUID_REGEX)) return;
 
     const targetUrl = id.startsWith('atlassian')
         ? `/atlassian/${id.split('-')[1]}_64.png`

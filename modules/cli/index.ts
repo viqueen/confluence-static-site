@@ -5,6 +5,9 @@ import * as path from 'path';
 import { initOutput } from '../configuration';
 import { extractBlogs, extractSpace } from './commands/extract';
 import { webpackBuild } from './commands/build/webpack.build';
+import { api } from '../confluence-api';
+import { extractContent } from './commands/extract/extract-content';
+import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
 
 const program = new Command();
 
@@ -25,6 +28,26 @@ program
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
         await extractBlogs(spaceKey, output);
+    });
+
+program
+    .command('extract-content <spaceKey> <contentId>')
+    .description('extract specific content from a confluence space')
+    .option('--force', 'enforce extracting content assets', false)
+    .action(async (spaceKey: string, id: string, options) => {
+        const destination = path.resolve(process.cwd(), 'output');
+        const output = initOutput({ spaceKey, destination });
+        const content = await api.getContentById({ id });
+        await extractContent(content, output, options);
+    });
+
+program
+    .command('extract-emojis <spaceKey>')
+    .description('extract site assets')
+    .action(async (spaceKey) => {
+        const destination = path.resolve(process.cwd(), 'output');
+        const output = initOutput({ spaceKey, destination });
+        await extractSiteEmojis(output);
     });
 
 program

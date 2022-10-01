@@ -74,7 +74,8 @@ class ConfluenceApi {
             'content.children.page',
             'content.children.attachment.metadata.labels',
             'content.ancestors',
-            'content.history'
+            'content.history',
+            'content.metadata.properties.emoji_title_published'
         ];
         const query = new URLSearchParams({
             cql: cql,
@@ -85,7 +86,7 @@ class ConfluenceApi {
         );
         const item = data.results[0]; // TODO: handle edge case
         const { content, excerpt, lastModified } = item;
-        const { children, id, title, type, body, history } = content;
+        const { children, id, title, type, body, history, metadata } = content;
 
         const { createdBy, createdDate } = history;
         const childPages = children.page?.results || [];
@@ -109,7 +110,7 @@ class ConfluenceApi {
         };
 
         const cover = attachments.find((a: Attachment) => a.isCover);
-
+        const emoji = metadata.properties.emoji_title_published?.value;
         return {
             author,
             identifier: { id, title },
@@ -121,7 +122,8 @@ class ConfluenceApi {
             createdDate: new Date(createdDate).getTime(),
             children: childPages.map(identifier),
             attachments,
-            cover
+            cover,
+            emoji
         };
     }
 

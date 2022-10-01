@@ -28,6 +28,7 @@ export type Content = {
     children?: Identifier[];
     attachments?: Attachment[];
     cover?: Attachment;
+    emoji?: string;
 };
 
 export type ResourceObject = {

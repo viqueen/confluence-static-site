@@ -1,5 +1,6 @@
 export type Configuration = {
     CONFLUENCE_SITE: string;
+    CONFLUENCE_SITE_ID: string;
     CONFLUENCE_USERNAME: string;
     CONFLUENCE_API_TOKEN: string;
     CONFLUENCE_CLOUD_TOKEN: string;
