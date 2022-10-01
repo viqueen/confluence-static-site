@@ -1,12 +1,12 @@
 .content-header {
-    margin-top: 20px;
-    width: 100%;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .content-header > span {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .content-header h1 {
-    display: inline-block;
+  display: inline-block;
 }

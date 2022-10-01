@@ -1,9 +1,9 @@
 .layout-center {
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
 }
 
 .media-file {
-    overflow: hidden;
+  overflow: hidden;
 }

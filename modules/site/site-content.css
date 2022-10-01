@@ -1,10 +1,10 @@
 .site-content {
-    overflow-y: auto;
-    height: 90vh;
-    padding-bottom: 60px;
-    width: 100%;
+  overflow-y: auto;
+  height: 90vh;
+  padding-bottom: 60px;
+  width: 100%;
 }
 
 .site-content .homepage {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
