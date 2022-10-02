@@ -1,7 +1,7 @@
 import { configuration } from '../../configuration';
 
 const isInternalUrl = (url: string): boolean => {
-    return url.startsWith(`https://${configuration.CONFLUENCE_SITE}`);
+    return url.startsWith(`https://${configuration.CONFLUENCE_SITE_NAME}`);
 };
 
 const blogUrl =

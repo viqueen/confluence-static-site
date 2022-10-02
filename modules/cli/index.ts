@@ -8,6 +8,9 @@ import { webpackBuild } from './commands/build/webpack.build';
 import { api } from '../confluence-api';
 import { extractContent } from './commands/extract/extract-content';
 import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
+import { cliOauthClient } from '../cli-oauth-client';
+import { atlassianApi } from '../atlassian-api';
+import * as fs from 'fs';
 
 const program = new Command();
 
@@ -58,6 +61,24 @@ program
     .option('--serve', 'with dev server running', false)
     .action(async (spaceKey: string, options) => {
         await webpackBuild({ ...options, spaceKey });
+    });
+
+program
+    .command('login')
+    .description('login to confluence static site with oauth')
+    .action(async () => {
+        await cliOauthClient.login();
+    });
+
+program
+    .command('init-site <name>')
+    .description('initialise site info')
+    .action(async (name: string) => {
+        const atlassian = await atlassianApi();
+        const { data } = await atlassian.accessibleResources();
+        const site = data.find((i: any) => i.name === name);
+        const envFile = path.resolve(process.cwd(), '.env');
+        fs.appendFileSync(envFile, `CONFLUENCE_SITE_ID=${site.id}`);
     });
 
 program.version(require('../../package.json').version);

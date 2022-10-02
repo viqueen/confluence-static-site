@@ -13,7 +13,7 @@ class ConfluenceApi {
     private readonly client: AxiosInstance;
     constructor() {
         this.client = axios.create({
-            baseURL: `https://${configuration.CONFLUENCE_SITE}`,
+            baseURL: `https://${configuration.CONFLUENCE_SITE_NAME}`,
             auth: {
                 username: configuration.CONFLUENCE_USERNAME,
                 password: configuration.CONFLUENCE_API_TOKEN
