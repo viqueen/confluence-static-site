@@ -1,7 +1,28 @@
-import { Configuration } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 import path from 'path';
 import { listFiles } from 'fs-directory';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { SiteProperties } from '../../../configuration/types';
+import * as fs from 'fs';
+
+const defaultSiteProperties: SiteProperties = {
+    title: 'confluence-static-site',
+    iconUrl: '',
+    name: '/conf',
+    theme: {
+        name: 'confluence-static-site',
+        backgroundColor: 'rgb(0, 102, 68)',
+        highlightColor: '#FFFFFF'
+    }
+};
+
+const siteProperties = (): SiteProperties => {
+    const file = path.resolve(process.cwd(), '.confluence-static-site.json');
+    if (!fs.existsSync(file)) return defaultSiteProperties;
+    const data = fs.readFileSync(file).toString('utf-8');
+    const parsed = JSON.parse(data); // TODO: handle validation
+    return parsed as SiteProperties;
+};
 
 export const webpackConfig = (
     spaceKey: string
@@ -26,6 +47,10 @@ export const webpackConfig = (
             template,
             filename
         });
+    });
+
+    const definePlugin = new DefinePlugin({
+        __SITE_PROPERTIES__: JSON.stringify(siteProperties())
     });
 
     const config: Configuration = {
@@ -72,7 +97,7 @@ export const webpackConfig = (
             path: siteOutput,
             publicPath: '/'
         },
-        plugins: [...htmlPlugins]
+        plugins: [definePlugin, ...htmlPlugins]
     };
     return { config, siteOutput };
 };

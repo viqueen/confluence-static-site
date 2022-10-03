@@ -1,3 +1,5 @@
+import { GenerateThemeArgs } from '@atlaskit/atlassian-navigation';
+
 export type Configuration = {
     CONFLUENCE_SITE_NAME: string;
     CONFLUENCE_SITE_ID: string;
@@ -21,4 +23,11 @@ export type Output = {
     home: string;
     objectResolver: string;
     templates: string;
+};
+
+export type SiteProperties = {
+    title: string;
+    iconUrl: string;
+    name: string;
+    theme: GenerateThemeArgs;
 };
