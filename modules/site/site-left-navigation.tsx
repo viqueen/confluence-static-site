@@ -74,7 +74,7 @@ export const SiteLeftNavigation = () => {
                 <Header
                     iconBefore={<Story24Icon label={siteProperties.title} />}
                 >
-                    {siteProperties.prefix}
+                    {siteProperties.name}
                 </Header>
             </NavigationHeader>
             <NestableNavigationContent initialStack={stack}>

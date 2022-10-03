@@ -24,7 +24,7 @@ export const SiteContent = () => {
             return data;
         };
         fetchData().then((data) => {
-            document.title = `${siteProperties.prefix} - ${data.identifier.title}`;
+            document.title = `${siteProperties.name} - ${data.identifier.title}`;
             setContent(data);
             setLoading(false);
         });
