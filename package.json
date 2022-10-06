@@ -6,8 +6,8 @@
     "confsite": "./dist/cli/index.js"
   },
   "scripts": {
-    "build": "tsc --watch",
-    "ci:build": "tsc",
+    "build": "tsc",
+    "postbuild": "./postbuild.js",
     "format:check": "prettier --check .",
     "format": "prettier --check --write ."
   },
@@ -19,6 +19,9 @@
     "confluence",
     "static",
     "site"
+  ],
+  "files": [
+    "dist"
   ],
   "author": "Hasnae R.",
   "license": "Apache-2.0",
@@ -32,6 +35,7 @@
     "@types/react-dom": "^18.0.6",
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.7.1",
+    "fs-directory": "^1.0.0",
     "html-webpack-plugin": "^5.5.0",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
@@ -72,7 +76,6 @@
     "axios": "^0.27.2",
     "commander": "^9.4.0",
     "dotenv": "^16.0.2",
-    "fs-directory": "^1.0.0",
     "json-ld-types": "^3.0.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"

@@ -1,6 +1,24 @@
 ## confluence-static-site
 
-- configure it by creating a .env file at root
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=viqueen_confluence-static-site&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=viqueen_confluence-static-site)
+
+### install it
+
+- with **npm**
+```bash
+npm install confluence-static-site -g
+```
+
+- [ ] with **homebrew**
+
+### configure your site
+- [ ] introduce init cli call
+
+```bash
+confsite init
+```
+
+it creates a .env file with the following properties
 
 * `CONFLUENCE_SITE` : the Confluence cloud instance you want to generate a site from
 * `CONFLUENCE_USERNAME` : the username to use to consume Confluence APIs
@@ -8,15 +26,16 @@
 * `CONFLUENCE_SPACE` : the Confluence space you want to generate a site from
 * `TARGET_SITE` : the domain name of where your generated site will be hosted
 
-- always extract your site content first
+### extract your site content
 
 ```bash
-./cli extract <spaceKey>
+confsite extract <spaceKey>
 ```
 
-- then build your site
+### build your site
 
 ```bash
-./cli build <spaceKey>
-./cli build <spaceKey> --serve # with webpack dev server
+confsite build <spaceKey>
+confsite build <spaceKey> --serve # with webpack dev server
 ```
+

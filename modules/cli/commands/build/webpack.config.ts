@@ -27,7 +27,7 @@ const siteProperties = (): SiteProperties => {
 export const webpackConfig = (
     spaceKey: string
 ): { config: Configuration; siteOutput: string } => {
-    const siteSources = path.join(process.cwd(), 'modules', 'site');
+    const siteSources = path.join(__dirname, '..', '..', '..', 'site');
     const siteOutput = path.join(process.cwd(), 'output', 'site', spaceKey);
     const templatesDirectory = path.join(
         process.cwd(),
@@ -56,10 +56,10 @@ export const webpackConfig = (
     const config: Configuration = {
         mode: 'development',
         entry: {
-            site: path.resolve(siteSources, 'index.tsx')
+            site: path.resolve(siteSources, 'index.js')
         },
         resolve: {
-            extensions: ['.tsx', '.ts', '.js'],
+            extensions: ['.tsx', '.ts', '.js', '.css'],
             fallback: {
                 crypto: require.resolve('crypto-browserify'),
                 os: require.resolve('os-browserify/browser'),
@@ -67,9 +67,7 @@ export const webpackConfig = (
                 stream: require.resolve('stream-browserify')
             }
         },
-        stats: {
-            warningsFilter: [/Should not import the named export/]
-        },
+        ignoreWarnings: [/Should not import the named export/],
         module: {
             rules: [
                 {
