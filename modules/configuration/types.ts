@@ -9,7 +9,7 @@ export type Configuration = {
 
     TARGET_SITE: string;
     TWITTER_SITE: string;
-    GA_TRACKING_ID: string;
+    GOOGLE_ANALYTICS_TRACKING_ID: string;
 
     OAUTH_CLIENT_ID: string;
     OAUTH_CLIENT_SECRET: string;

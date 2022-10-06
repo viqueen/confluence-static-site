@@ -12,6 +12,27 @@ export const StaticWrapper = (content: Content) => {
             />
         );
     };
+    const withGoogleAnalytics = () => {
+        if (!configuration.GOOGLE_ANALYTICS_TRACKING_ID) return <></>;
+        return (
+            <>
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=${configuration.GOOGLE_ANALYTICS_TRACKING_ID}`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${configuration.GOOGLE_ANALYTICS_TRACKING_ID}');
+          `
+                    }}
+                />
+            </>
+        );
+    };
     return (
         <html lang="en">
             <head>
@@ -30,20 +51,7 @@ export const StaticWrapper = (content: Content) => {
                 <meta name="twitter:description" content={content.excerpt} />
                 {withCover()}
                 <title>{content.identifier.title}</title>
-                <script
-                    async
-                    src={`https://www.googletagmanager.com/gtag/js?id=${configuration.GA_TRACKING_ID}`}
-                />
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${configuration.GA_TRACKING_ID}');
-          `
-                    }}
-                />
+                {withGoogleAnalytics()}
             </head>
             <body>
                 <div id="root" />

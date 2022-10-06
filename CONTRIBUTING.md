@@ -21,7 +21,7 @@ npm install
 npm run build -- --watch
 ```
 
-- you can now use the cli 
+- you can now use the cli
 
 ```bash
 ./cli extract <spaceKey>

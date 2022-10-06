@@ -11,6 +11,7 @@ import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
 import { cliOauthClient } from '../cli-oauth-client';
 import { atlassianApi } from '../atlassian-api';
 import * as fs from 'fs';
+import { init } from './commands/init';
 
 const program = new Command();
 
@@ -61,6 +62,13 @@ program
     .option('--serve', 'with dev server running', false)
     .action(async (spaceKey: string, options) => {
         await webpackBuild({ ...options, spaceKey });
+    });
+
+program
+    .command('init')
+    .description('initialise .env')
+    .action(async () => {
+        await init();
     });
 
 program
