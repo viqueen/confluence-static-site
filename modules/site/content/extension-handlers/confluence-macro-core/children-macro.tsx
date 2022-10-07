@@ -20,7 +20,7 @@ export const ChildrenMacro = ({ parent, content }: ChildrenMacroProps) => {
                 const { data } = await axios.get(
                     `/notes/${titleToPath(parent)}/data.json`
                 );
-                return data;
+                return { children: data.childPages || [] };
             } else {
                 return { children: content.childPages || [] };
             }

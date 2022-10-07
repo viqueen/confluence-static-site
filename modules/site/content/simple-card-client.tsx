@@ -6,7 +6,7 @@ import axios from 'axios';
 export class SimpleCardClient extends Client {
     async fetchData(url: string): Promise<JsonLd.Response> {
         const cardHash = crypto
-            .createHash('md5')
+            .createHash('sha512')
             .update(url)
             .digest('hex')
             .toString();

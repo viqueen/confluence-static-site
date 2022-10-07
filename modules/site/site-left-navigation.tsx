@@ -88,8 +88,11 @@ export const SiteLeftNavigation = () => {
                             {loading && <Spinner size="medium" />}
                             {!loading &&
                                 navigation &&
-                                navigation.notes.map((item) => (
-                                    <NavigationLinkItem item={item} />
+                                navigation.notes.map((item, index) => (
+                                    <NavigationLinkItem
+                                        item={item}
+                                        key={index}
+                                    />
                                 ))}
                         </Section>
                     </NestingItem>
@@ -102,8 +105,11 @@ export const SiteLeftNavigation = () => {
                             {loading && <Spinner size="medium" />}
                             {!loading &&
                                 navigation &&
-                                navigation.articles.map((item) => (
-                                    <NavigationLinkItem item={item} />
+                                navigation.articles.map((item, index) => (
+                                    <NavigationLinkItem
+                                        item={item}
+                                        key={index}
+                                    />
                                 ))}
                         </Section>
                     </NestingItem>

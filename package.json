@@ -1,6 +1,6 @@
 {
   "name": "confluence-static-site-builder",
-  "version": "1.0.0-m11",
+  "version": "1.0.0-m12",
   "description": "confluence static site builder",
   "bin": {
     "confsite": "./dist/cli/index.js"
