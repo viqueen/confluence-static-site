@@ -121,7 +121,7 @@ class ConfluenceApi {
             id: createdBy.publicName,
             title: createdBy.displayName,
             accountId: crypto
-                .createHash('md5')
+                .createHash('sha512')
                 .update(createdBy.accountId)
                 .digest('hex'),
             avatar: createdBy.profilePicture.path

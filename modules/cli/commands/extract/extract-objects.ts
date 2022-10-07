@@ -32,7 +32,7 @@ export const extractObjects = async (content: Content, output: Output) => {
             '@type': data['@type']
         };
         const urlHash = crypto
-            .createHash('md5')
+            .createHash('sha512')
             .update(definition.url)
             .digest('hex');
         fs.writeFileSync(
