@@ -29,6 +29,7 @@ export const webpackConfig = (
     spaceKey: string,
     assets: string | undefined
 ): { config: Configuration; siteOutput: string } => {
+    const rootDirectory = path.join(__dirname, '..', '..', '..', '..');
     const siteSources = path.join(__dirname, '..', '..', '..', 'site');
     const siteOutput = path.join(process.cwd(), 'output', 'site', spaceKey);
     const templatesDirectory = path.join(
@@ -83,7 +84,7 @@ export const webpackConfig = (
                 path: require.resolve('path-browserify'),
                 stream: require.resolve('stream-browserify')
             },
-            modules: ['node_modules']
+            modules: [path.resolve(rootDirectory, 'node_modules')]
         },
         ignoreWarnings: [/Should not import the named export/],
         module: {
