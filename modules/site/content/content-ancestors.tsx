@@ -3,11 +3,11 @@ import React from 'react';
 import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
 import { titleToPath } from '../../confluence-api/helpers/title-to-path';
 
-type ContentAncestors = {
+type ContentAncestorsProps = {
     content: Content;
 };
 
-export const ContentAncestors = ({ content }: ContentAncestors) => {
+export const ContentAncestors = ({ content }: ContentAncestorsProps) => {
     if (content.type === 'blogpost' || content.asHomepage) return <></>;
     return (
         <div style={{ margin: 40 }}>
