@@ -81,7 +81,10 @@ program
             process.cwd(),
             '.confluence-static-file.json'
         );
-        fs.writeFileSync(configFile, JSON.stringify(defaultSiteProperties));
+        fs.writeFileSync(
+            configFile,
+            JSON.stringify(defaultSiteProperties, null, 2)
+        );
     });
 
 program
