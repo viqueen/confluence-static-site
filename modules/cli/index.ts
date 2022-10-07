@@ -79,7 +79,7 @@ program
     .action(async () => {
         const configFile = path.resolve(
             process.cwd(),
-            '.confluence-static-file.json'
+            '.confluence-static-site.json'
         );
         fs.writeFileSync(
             configFile,
