@@ -1,4 +1,4 @@
-name: confluence-static-site Publish
+name: confluence-static-site-builder Publish
 
 on:
   release:
