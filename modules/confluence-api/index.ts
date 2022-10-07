@@ -8,6 +8,7 @@ import {
     ResourceDefinition,
     ResourceObject
 } from './types';
+import * as crypto from 'crypto';
 
 class ConfluenceApi {
     private readonly client: AxiosInstance;
@@ -119,7 +120,10 @@ class ConfluenceApi {
         const author = {
             id: createdBy.publicName,
             title: createdBy.displayName,
-            accountId: createdBy.accountId,
+            accountId: crypto
+                .createHash('md5')
+                .update(createdBy.accountId)
+                .digest('hex'),
             avatar: createdBy.profilePicture.path
         };
 
