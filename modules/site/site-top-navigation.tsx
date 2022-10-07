@@ -1,9 +1,9 @@
 import React from 'react';
 import {
     AtlassianNavigation,
-    PrimaryButton,
+    CustomProductHome,
     generateTheme,
-    CustomProductHome
+    PrimaryButton
 } from '@atlaskit/atlassian-navigation';
 import { siteProperties } from './site-properties';
 

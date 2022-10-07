@@ -12,6 +12,7 @@ import { cliOauthClient } from '../cli-oauth-client';
 import { atlassianApi } from '../atlassian-api';
 import * as fs from 'fs';
 import { init } from './commands/init';
+import { defaultSiteProperties } from './commands/build/webpack.config';
 
 const program = new Command();
 
@@ -59,16 +60,28 @@ program
 program
     .command('build <spaceKey>')
     .description('builds the site resources for a given confluence space')
+    .option('--assets <value>', 'with assets')
     .option('--serve', 'with dev server running', false)
     .action(async (spaceKey: string, options) => {
         await webpackBuild({ ...options, spaceKey });
     });
 
 program
-    .command('init')
+    .command('env')
     .description('initialise .env')
     .action(async () => {
         await init();
+    });
+
+program
+    .command('config')
+    .description('initialise .confluence-static-site.json')
+    .action(async () => {
+        const configFile = path.resolve(
+            process.cwd(),
+            '.confluence-static-file.json'
+        );
+        fs.writeFileSync(configFile, JSON.stringify(defaultSiteProperties));
     });
 
 program

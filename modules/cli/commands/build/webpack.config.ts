@@ -2,10 +2,11 @@ import { Configuration, DefinePlugin } from 'webpack';
 import path from 'path';
 import { listFiles } from 'fs-directory';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { SiteProperties } from '../../../configuration/types';
 import * as fs from 'fs';
 
-const defaultSiteProperties: SiteProperties = {
+export const defaultSiteProperties: SiteProperties = {
     title: 'confluence-static-site',
     iconUrl: '',
     name: '/conf',
@@ -25,7 +26,8 @@ const siteProperties = (): SiteProperties => {
 };
 
 export const webpackConfig = (
-    spaceKey: string
+    spaceKey: string,
+    assets: string | undefined
 ): { config: Configuration; siteOutput: string } => {
     const siteSources = path.join(__dirname, '..', '..', '..', 'site');
     const siteOutput = path.join(process.cwd(), 'output', 'site', spaceKey);
@@ -52,6 +54,21 @@ export const webpackConfig = (
     const definePlugin = new DefinePlugin({
         __SITE_PROPERTIES__: JSON.stringify(siteProperties())
     });
+
+    const copyPlugin = assets
+        ? new CopyWebpackPlugin({
+              patterns: [
+                  {
+                      from: path.resolve(process.cwd(), assets),
+                      to: path.resolve(siteOutput, 'assets')
+                  }
+              ]
+          })
+        : undefined;
+
+    const plugins = copyPlugin
+        ? [definePlugin, copyPlugin, ...htmlPlugins]
+        : [definePlugin, ...htmlPlugins];
 
     const config: Configuration = {
         mode: 'development',
@@ -95,7 +112,7 @@ export const webpackConfig = (
             path: siteOutput,
             publicPath: '/'
         },
-        plugins: [definePlugin, ...htmlPlugins]
+        plugins
     };
     return { config, siteOutput };
 };

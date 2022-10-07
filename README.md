@@ -16,17 +16,36 @@ npm install confluence-static-site -g
 ### configure your site
 
 ```bash
-confsite init
+confsite env
 ```
 
-it creates a .env file with the following properties
+it creates a `.env` file with the following properties
 
 - `CONFLUENCE_SITE_NAME` : the Confluence cloud instance you want to generate a site from
 - `CONFLUENCE_USERNAME` : the username to use to consume Confluence APIs
 - `CONFLUENCE_API_TOKEN` : the user personal access token to consume Confluence APIs
 - `TARGET_SITE` : the domain name of where your generated site will be hosted
 - `TWITTER_SITE` : the twitter handle for seo purposes
-- `GOOGLE_ANALYTICS_TRACKING_ID`: Google analytics tracking id
+- `GOOGLE_ANALYTICS_TRACKING_ID`: Google Analytics tracking id
+
+```bash
+confsite config
+```
+
+it creates a `.confluence-static-site.json` file with the following configuration
+
+```json
+{
+  "title": "confluence-static-site",
+  "iconUrl": "",
+  "name": "space name",
+  "theme": {
+    "name": "confluence-static-site",
+    "backgroundColor": "rgb(0, 102, 68)",
+    "highlightColor": "#FFFFFF"
+  }
+}
+```
 
 ### extract your site content
 
@@ -39,6 +58,7 @@ confsite extract <spaceKey>
 ```bash
 confsite build <spaceKey>
 confsite build <spaceKey> --serve # with webpack dev server
+confsite build <spaceKey> --assets my-assets-folder # copy your assets to the site output assets (i.e. site logo ...)
 ```
 
 ### everything in the output directory

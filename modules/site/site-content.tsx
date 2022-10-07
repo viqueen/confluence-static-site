@@ -14,7 +14,7 @@ import './site-content.css';
 import { siteProperties } from './site-properties';
 
 export const SiteContent = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
     const [content, setContent] = useState<Content | undefined>(undefined);
 
     useEffect(() => {

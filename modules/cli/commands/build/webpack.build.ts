@@ -35,10 +35,11 @@ const runCompiler = async (compiler: Compiler) => {
 
 export const webpackBuild = async (props: {
     serve: boolean;
+    assets: string | undefined;
     spaceKey: string;
 }) => {
-    const { serve, spaceKey } = props;
-    const { config, siteOutput } = webpackConfig(spaceKey);
+    const { serve, spaceKey, assets } = props;
+    const { config, siteOutput } = webpackConfig(spaceKey, assets);
     if (serve) {
         const compiler = webpack(config);
         await runDevServer(siteOutput, compiler);
