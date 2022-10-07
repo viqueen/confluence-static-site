@@ -82,7 +82,8 @@ export const webpackConfig = (
                 os: require.resolve('os-browserify/browser'),
                 path: require.resolve('path-browserify'),
                 stream: require.resolve('stream-browserify')
-            }
+            },
+            modules: ['node_modules']
         },
         ignoreWarnings: [/Should not import the named export/],
         module: {
