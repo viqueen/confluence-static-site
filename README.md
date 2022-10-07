@@ -2,6 +2,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=viqueen_confluence-static-site&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=viqueen_confluence-static-site)
 [![Known Vulnerabilities](https://snyk.io/test/github/viqueen/confluence-static-site/badge.svg?targetFile=package.json)](https://snyk.io/test/github/viqueen/confluence-static-site?targetFile=package.json)
+[![npm version](https://badge.fury.io/js/confluence-static-site-builder.svg)](https://badge.fury.io/js/confluence-static-site-builder)
 
 ### install it
 
