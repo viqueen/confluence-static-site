@@ -3,7 +3,7 @@ import { Configuration, Output } from './types';
 import * as path from 'path';
 import * as fs from 'fs';
 
-const parsedConfig: unknown = dotenv.config().parsed;
+const parsedConfig: unknown = dotenv.config().parsed || {};
 const configuration = parsedConfig as Configuration;
 
 const makeOutputDirectories = (data: any) => {
