@@ -14,8 +14,6 @@ npm install confluence-static-site -g
 
 ### configure your site
 
-- [ ] introduce init cli call
-
 ```bash
 confsite init
 ```
@@ -41,3 +39,35 @@ confsite extract <spaceKey>
 confsite build <spaceKey>
 confsite build <spaceKey> --serve # with webpack dev server
 ```
+
+### everything in the output directory
+
+Once your content is extracted and the site is built, you will have an `output` directory created in
+the root of your project folder with the following structure
+
+```text
+- output
+    - site
+        - <spaceKey>
+            - articles
+                - <blog-title-1>
+                - <blog-title-2>
+                - ...
+            - assets
+                - avatars
+                - emojis
+            - attachments
+            - notes
+                - <page-title-1>
+                - <page-title-2>
+                - ...
+            - object-resolver
+    - templates
+```
+
+What you need to deploy is the `output/site/<spaceKey>`
+
+### deploy your site
+
+- [ ] with GitHub pages
+- [ ] with Google Firebase
