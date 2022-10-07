@@ -9,7 +9,7 @@
 - with **npm**
 
 ```bash
-npm install confluence-static-site -g
+npm install confluence-static-site-builder -g
 ```
 
 - [ ] with **homebrew**
