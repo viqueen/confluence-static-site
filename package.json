@@ -5,6 +5,10 @@
   "bin": {
     "confsite": "./dist/cli/index.js"
   },
+  "resolutions": {
+    "glob-parent": "5.1.2",
+    "node-fetch": "2.6.7"
+  },
   "scripts": {
     "build": "tsc",
     "postbuild": "./postbuild.js",
