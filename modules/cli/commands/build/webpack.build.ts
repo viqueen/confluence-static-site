@@ -26,6 +26,7 @@ const runCompiler = async (compiler: Compiler) => {
         }
         console.info(
             stats?.toString({
+                errorDetails: true,
                 chunks: false, // Makes the build much quieter
                 colors: true // Shows colors in the console
             })
