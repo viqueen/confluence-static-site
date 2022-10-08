@@ -5,10 +5,10 @@ import { extractObjects } from './extract-objects';
 import { extractAttachments } from './extract-attachments';
 import { extractAssets } from './extract-assets';
 import { saveContentData } from './save-content-data';
-import { StaticWrapper } from './static-wrapper';
 import { Content } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
 import { titleToPath } from '../../../confluence-api/helpers/title-to-path';
+import { StaticWrapper } from './static-wrapper';
 
 const shouldExtractContentData = (
     content: Content,

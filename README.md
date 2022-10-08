@@ -1,23 +1,19 @@
 ## confluence-static-site
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=viqueen_confluence-static-site&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=viqueen_confluence-static-site)
-[![Known Vulnerabilities](https://snyk.io/test/github/viqueen/confluence-static-site/badge.svg?targetFile=package.json)](https://snyk.io/test/github/viqueen/confluence-static-site?targetFile=package.json)
-[![npm version](https://badge.fury.io/js/confluence-static-site-builder.svg)](https://badge.fury.io/js/confluence-static-site-builder)
 
 ### install it
 
 - with **npm**
 
 ```bash
-npm install confluence-static-site-builder -g
+npm install confluence-static-site-builder --save-dev
 ```
-
-- [ ] with **homebrew**
 
 ### configure your site
 
 ```bash
-confsite env
+./node_modules/.bin/confsite env
 ```
 
 it creates a `.env` file with the following properties
@@ -30,7 +26,7 @@ it creates a `.env` file with the following properties
 - `GOOGLE_ANALYTICS_TRACKING_ID`: Google Analytics tracking id
 
 ```bash
-confsite config
+./node_modules/.bin/confsite config
 ```
 
 it creates a `.confluence-static-site.json` file with the following configuration
@@ -51,15 +47,15 @@ it creates a `.confluence-static-site.json` file with the following configuratio
 ### extract your site content
 
 ```bash
-confsite extract <spaceKey>
+./node_modules/.bin/confsite extract <spaceKey>
 ```
 
 ### build your site
 
 ```bash
-confsite build <spaceKey>
-confsite build <spaceKey> --serve # with webpack dev server
-confsite build <spaceKey> --assets my-assets-folder # copy your assets to the site output assets (i.e. site logo ...)
+./node_modules/.bin/confsite build <spaceKey>
+./node_modules/.bin/confsite build <spaceKey> --serve # with webpack dev server
+./node_modules/.bin/confsite build <spaceKey> --assets my-assets-folder # copy your assets to the site output assets (i.e. site logo ...)
 ```
 
 ### everything in the output directory
