@@ -24,6 +24,7 @@ export type Content = {
     author: Identifier & { avatar: string; accountId: string };
     lastModifiedDate: number;
     createdDate: number;
+    createdYear: number;
 
     parentPages?: Identifier[];
     childPages?: (Identifier & { emoji?: string })[];

@@ -26,10 +26,18 @@ export const extractSpace = async (
         title,
         emoji
     }));
-    const articles = blogs.map(({ identifier }) => ({
-        href: `/articles/${titleToPath(identifier.title)}/`,
-        title: identifier.title
-    }));
+    const articles = blogs
+        .map(({ identifier, createdYear }) => ({
+            href: `/articles/${titleToPath(identifier.title)}/`,
+            title: identifier.title,
+            createdYear
+        }))
+        .reduce((prev, current) => {
+            const byYear = prev[current.createdYear] || [];
+            byYear.push(current);
+            prev[current.createdYear] = byYear;
+            return prev;
+        }, {} as Record<number, { href: string; title: string; createdYear: number }[]>);
 
     const navigation = {
         notes,

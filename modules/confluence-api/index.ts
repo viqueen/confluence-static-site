@@ -44,6 +44,7 @@ class ConfluenceApi {
             const { content, excerpt } = item;
             const { id, title, type, history } = content;
             const { createdBy, createdDate } = history;
+            const createdAt = new Date(createdDate);
             return {
                 identifier: { id, title },
                 type,
@@ -52,7 +53,8 @@ class ConfluenceApi {
                     id: createdBy.publicName,
                     title: createdBy.displayName
                 },
-                createdDate: new Date(createdDate).getTime()
+                createdDate: createdAt.getTime(),
+                createdYear: createdAt.getFullYear()
             };
         });
     }
@@ -130,6 +132,7 @@ class ConfluenceApi {
         const cover = attachments.find((a: Attachment) => a.isCover);
         const emoji = metadata.properties['emoji-title-published']?.value;
 
+        const createdAt = new Date(createdDate);
         return {
             author,
             identifier: { id, title },
@@ -138,7 +141,8 @@ class ConfluenceApi {
             type,
             body: JSON.parse(body.atlas_doc_format.value),
             lastModifiedDate: new Date(lastModified).getTime(),
-            createdDate: new Date(createdDate).getTime(),
+            createdDate: createdAt.getTime(),
+            createdYear: createdAt.getFullYear(),
             childPages,
             parentPages,
             attachments,

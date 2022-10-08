@@ -15,6 +15,7 @@ import Story24Icon from '@atlaskit/icon-object/glyph/story/24';
 import axios from 'axios';
 import Spinner from '@atlaskit/spinner';
 import PageIcon from '@atlaskit/icon/glyph/page';
+import BookIcon from '@atlaskit/icon/glyph/book';
 
 type NavigationItem = {
     href: string;
@@ -24,7 +25,7 @@ type NavigationItem = {
 
 type Navigation = {
     notes: NavigationItem[];
-    articles: NavigationItem[];
+    articles: Record<number, NavigationItem[]>;
 };
 
 const resolveStack = () => {
@@ -34,12 +35,17 @@ const resolveStack = () => {
     return [];
 };
 
-const NavigationLinkItem = (props: { item: NavigationItem }) => {
-    const { item } = props;
+const NavigationLinkItem = (props: {
+    item: NavigationItem;
+    type: 'blogpost' | 'page';
+}) => {
+    const { item, type } = props;
     const iconBefore = item.emoji ? (
         <img src={`/assets/emojis/${item.emoji}.png`} height={18} width={18} />
-    ) : (
+    ) : type === 'page' ? (
         <PageIcon label="content" />
+    ) : (
+        <BookIcon label="content" />
     );
     return (
         <LinkItem iconBefore={iconBefore} href={item.href}>
@@ -48,11 +54,24 @@ const NavigationLinkItem = (props: { item: NavigationItem }) => {
     );
 };
 
+const ArticlesByYear = (props: {
+    createdYear: string;
+    items: NavigationItem[];
+}) => {
+    return (
+        <Section title={props.createdYear}>
+            {props.items.map((item, index) => (
+                <NavigationLinkItem item={item} key={index} type="blogpost" />
+            ))}
+        </Section>
+    );
+};
+
 export const SiteLeftNavigation = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [navigation, setNavigation] = useState<Navigation>({
         notes: [],
-        articles: []
+        articles: {}
     });
     const [stack] = useState<string[]>(resolveStack());
 
@@ -92,6 +111,7 @@ export const SiteLeftNavigation = () => {
                                     <NavigationLinkItem
                                         item={item}
                                         key={index}
+                                        type="page"
                                     />
                                 ))}
                         </Section>
@@ -105,12 +125,15 @@ export const SiteLeftNavigation = () => {
                             {loading && <Spinner size="medium" />}
                             {!loading &&
                                 navigation &&
-                                navigation.articles.map((item, index) => (
-                                    <NavigationLinkItem
-                                        item={item}
-                                        key={index}
-                                    />
-                                ))}
+                                Object.entries(navigation.articles)
+                                    .sort(([a], [b]) => b.localeCompare(a))
+                                    .map(([createdYear, items], index) => (
+                                        <ArticlesByYear
+                                            createdYear={createdYear}
+                                            items={items}
+                                            key={index}
+                                        />
+                                    ))}
                         </Section>
                     </NestingItem>
                 </Section>
