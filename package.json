@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/viqueen/confluence-static-site#readme",
   "devDependencies": {
-    "@types/node": "^18.8.3",
+    "@types/node": "^18.8.4",
     "@types/prompt": "^1.1.4",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
@@ -58,7 +58,7 @@
     "@atlaskit/breadcrumbs": "^11.7.2",
     "@atlaskit/date": "^0.9.6",
     "@atlaskit/editor-common": "^69.4.2",
-    "@atlaskit/emoji": "^65.2.1",
+    "@atlaskit/emoji": "^66.0.1",
     "@atlaskit/heading": "^0.1.17",
     "@atlaskit/icon": "^21.11.0",
     "@atlaskit/icon-object": "^6.2.7",
