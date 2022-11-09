@@ -13,6 +13,7 @@ import { atlassianApi } from '../atlassian-api';
 import * as fs from 'fs';
 import { init } from './commands/init';
 import { defaultSiteProperties } from './commands/build/webpack.config';
+import { extractPageTree } from './commands/extract/extract-page-tree';
 
 const program = new Command();
 
@@ -45,6 +46,20 @@ program
         const output = initOutput({ spaceKey, destination });
         const content = await api.getContentById({ id });
         await extractContent(content, output, options);
+    });
+
+program
+    .command('extract-page-tree <spaceKey> <contentId>')
+    .description('extract specific page tree from a confluence space')
+    .option('--force', 'enforce extracting content assets', false)
+    .option('--dest', 'with output destination', 'output')
+    .action(async (spaceKey: string, id: string, options) => {
+        const destination = path.resolve(process.cwd(), options.dest);
+        const output = initOutput({ spaceKey, destination });
+        await extractPageTree({ id, title: '' }, output, {
+            ...options,
+            asHomepage: true
+        });
     });
 
 program

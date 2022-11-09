@@ -13,6 +13,8 @@ brew install nvm
 ```bash
 nvm install
 npm install
+
+npx npm-force-resolutions
 ```
 
 - build it in watch mode
