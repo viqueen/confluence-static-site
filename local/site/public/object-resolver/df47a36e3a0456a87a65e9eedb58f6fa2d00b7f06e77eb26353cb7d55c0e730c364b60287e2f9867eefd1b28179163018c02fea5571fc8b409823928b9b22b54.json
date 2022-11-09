@@ -6,8 +6,5 @@
     "name": "Confluence"
   },
   "url": "https://localhost:9000/articles/393253/",
-  "@type": [
-    "Document",
-    "schema:BlogPosting"
-  ]
+  "@type": ["Document", "schema:BlogPosting"]
 }
