@@ -23,10 +23,16 @@ npx npm-force-resolutions
 npm run build -- --watch
 ```
 
-- you can now use the cli
+- you can now use the cli after configuring your .env
 
 ```bash
 ./cli extract <spaceKey>
 ./cli build <spaceKey>
 ./cli build <spaceKey> --serve # with webpack dev server
+```
+
+- or you can also run with local data
+
+```bash
+./cli build public --dest local --serve
 ```

@@ -1,0 +1,894 @@
+{
+  "identifier": {
+    "id": "3145790",
+    "title": "Git"
+  },
+  "asHomepage": true,
+  "excerpt": "find it on  , also worth reading \nworking with remotes\nList\n configured remotes with git remote -v\nAdd\n a new remote with git remote add &lt;name&gt; &lt;git-url&gt;\nworking with tags\nlist\n  local tags with git tag\nlist\n  remote tags with git ls-remote --tags origin\nLIST\n  recent tags git tag --sort=-creatordate | head -n 10\ndelete",
+  "type": "page",
+  "body": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "panel",
+        "attrs": {
+          "panelType": "note"
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "find it on ",
+                "type": "text"
+              },
+              {
+                "type": "inlineCard",
+                "attrs": {
+                  "url": "https://git-scm.com/downloads"
+                }
+              },
+              {
+                "text": " , also worth reading ",
+                "type": "text"
+              },
+              {
+                "type": "inlineCard",
+                "attrs": {
+                  "url": "http://localhost:9000/articles/393253/"
+                }
+              },
+              {
+                "text": " ",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "text": "working with remotes",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "List",
+                      "localId": "ab15ffce-f212-4e8b-8b3e-d8d309cdd352"
+                    }
+                  },
+                  {
+                    "text": " configured remotes with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git remote -v",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "blue",
+                      "style": "bold",
+                      "text": "Add",
+                      "localId": "7787a9bb-698a-4872-80e6-fd57d84e0970"
+                    }
+                  },
+                  {
+                    "text": " a new remote with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git remote add <name> <git-url>",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "text": "working with tags",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "list",
+                      "localId": "5e56e837-1dc3-4372-b0c0-c129bcf2ac24"
+                    }
+                  },
+                  {
+                    "text": "  local tags with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git tag",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "list",
+                      "localId": "5a475806-2384-404f-bb55-f0b2800d3f95"
+                    }
+                  },
+                  {
+                    "text": "  remote tags with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git ls-remote --tags origin",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "LIST",
+                      "localId": "59b4687b-40fc-415f-b1dd-f28b02d6f69f"
+                    }
+                  },
+                  {
+                    "text": "  recent tags ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git tag --sort=-creatordate | head -n 10",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "red",
+                      "style": "bold",
+                      "text": "delete",
+                      "localId": "af02606c-1451-4680-9bf9-111319691fea"
+                    }
+                  },
+                  {
+                    "text": "  local with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git tag -d <name>",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "red",
+                      "style": "bold",
+                      "text": "delete",
+                      "localId": "066adc73-4784-4f5e-bc0b-e684ad95b940"
+                    }
+                  },
+                  {
+                    "text": "  remote with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git push --delete origin <name>",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "text": "working with branches",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "list",
+                      "localId": "b133e428-740f-4049-82e2-50b8543c7255"
+                    }
+                  },
+                  {
+                    "text": " local branches with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git branch",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "list",
+                      "localId": "c611aa90-b0fa-40e1-8391-0b27d1200052"
+                    }
+                  },
+                  {
+                    "text": " remote branches with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git branch -r",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "red",
+                      "style": "bold",
+                      "text": "delete",
+                      "localId": "4c8272a6-4d4b-435a-9425-c5829a79059e"
+                    }
+                  },
+                  {
+                    "text": " local branch with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git branch -d <name>",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "red",
+                      "style": "bold",
+                      "text": "delete",
+                      "localId": "04d32cd8-624e-4648-82c6-d461909b8642"
+                    }
+                  },
+                  {
+                    "text": " remote branch with ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "git push origin --delete <name>",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "red",
+                      "style": "bold",
+                      "text": "delete",
+                      "localId": "bd1c62f5-8d67-4244-b3da-8ef9c43e2669"
+                    }
+                  },
+                  {
+                    "text": "  local merged branches",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git branch --merged \\\n  | egrep -v \"(^\\*|master|main|develop|production|release)\" \\\n  | xargs git branch -d",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "blue",
+                      "style": "bold",
+                      "text": "RESET",
+                      "localId": "ec9b4bc9-a50d-4418-8acb-3acb52110b3d"
+                    }
+                  },
+                  {
+                    "text": " local branch to match what’s in remote",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git fetch origin\ngit reset --hard origin/<name>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "text": "working with commit hashes",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "list",
+                      "localId": "0454a101-c70f-4e99-b30a-6c91af23354d"
+                    }
+                  },
+                  {
+                    "text": " remote ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "branches",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      },
+                      {
+                        "type": "em"
+                      }
+                    ]
+                  },
+                  {
+                    "text": " with given hash",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git branch -r --contains <hash>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "list",
+                      "localId": "71eee9b6-ee54-4665-b797-3b390680066f"
+                    }
+                  },
+                  {
+                    "text": " and ",
+                    "type": "text"
+                  },
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "purple",
+                      "style": "bold",
+                      "text": "filter",
+                      "localId": "b149cae4-7a00-4b19-ab37-28c8ab095517"
+                    }
+                  },
+                  {
+                    "text": "  remote ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "branches",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      },
+                      {
+                        "type": "em"
+                      }
+                    ]
+                  },
+                  {
+                    "text": " with given hash",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "bulletList",
+                "content": [
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "text": "you can add as many ",
+                            "type": "text"
+                          },
+                          {
+                            "text": "--list <pattern>",
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "code"
+                              }
+                            ]
+                          },
+                          {
+                            "text": " as you need",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git branch -r --contains <hash> --list <pattern>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "List",
+                      "localId": "1ca1e033-ee38-4138-8f2e-8960b5bb4111"
+                    }
+                  },
+                  {
+                    "text": " merge commits between two ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "tags/hashes/branches",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git log --merges <version_1>...<version_2> --pretty=oneline",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "green",
+                      "style": "bold",
+                      "text": "List",
+                      "localId": "cfd0af41-7b9c-4277-a358-843079130fba"
+                    }
+                  },
+                  {
+                    "text": " recent merge commits on ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "production",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git log origin/production --merges --first-parent \\\n  --pretty=format:'%ai %C(yellow)%h %Cgreen%an %Creset- %s' \\\n  -n 15",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "blue",
+                      "style": "bold",
+                      "text": "search",
+                      "localId": "6e616836-0cb5-4b9e-aebf-d93cc9eda48e"
+                    }
+                  },
+                  {
+                    "text": " commits between two ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "tags/hashes/branches",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "text": " by ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "keyword",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git log <version_1>...<version_2> --grep=<keyword>",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "status",
+                    "attrs": {
+                      "color": "yellow",
+                      "style": "bold",
+                      "text": "REVERT",
+                      "localId": "f2c2e217-8292-45fd-b963-0e932a97453d"
+                    }
+                  },
+                  {
+                    "text": " file to a given commit ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "hash",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "content": [
+          {
+            "text": "git checkout <hash> -- path/to/file",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "version": 1
+  },
+  "lastModifiedDate": 1661931312000,
+  "createdDate": 1640642026320,
+  "createdYear": 2021,
+  "childPages": [],
+  "parentPages": [],
+  "attachments": [],
+  "emoji": "59d53788-3ac2-4268-80a1-8206175fde5c"
+}

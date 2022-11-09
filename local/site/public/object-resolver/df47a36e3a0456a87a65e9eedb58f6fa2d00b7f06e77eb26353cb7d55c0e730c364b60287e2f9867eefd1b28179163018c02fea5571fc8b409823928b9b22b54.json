@@ -1,0 +1,13 @@
+{
+  "name": "Git Hooks",
+  "generator": {
+    "@type": "Application",
+    "@id": "https://www.atlassian.com/#Confluence",
+    "name": "Confluence"
+  },
+  "url": "https://localhost:9000/articles/393253/",
+  "@type": [
+    "Document",
+    "schema:BlogPosting"
+  ]
+}

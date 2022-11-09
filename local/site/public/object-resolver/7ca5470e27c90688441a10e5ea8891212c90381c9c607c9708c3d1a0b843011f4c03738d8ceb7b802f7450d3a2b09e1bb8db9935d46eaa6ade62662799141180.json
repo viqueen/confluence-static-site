@@ -1,0 +1,13 @@
+{
+  "name": "Git - Downloads",
+  "generator": {
+    "@type": "Object",
+    "name": "Git-scm",
+    "icon": {
+      "@type": "Image",
+      "url": "https://git-scm.com/favicon.ico"
+    }
+  },
+  "url": "https://git-scm.com/downloads",
+  "@type": "Object"
+}

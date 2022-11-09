@@ -52,22 +52,23 @@ program
     .command('extract-page-tree <spaceKey> <contentId>')
     .description('extract specific page tree from a confluence space')
     .option('--force', 'enforce extracting content assets', false)
-    .option('--dest', 'with output destination', 'output')
+    .option('--dest <dest>', 'with output destination', 'output')
     .action(async (spaceKey: string, id: string, options) => {
         const destination = path.resolve(process.cwd(), options.dest);
         const output = initOutput({ spaceKey, destination });
         await extractPageTree({ id, title: '' }, output, {
             ...options,
             asHomepage: true
-        });
+        }).catch((error) => console.error(error.response.data));
     });
 
 program
     .command('extract-emojis <spaceKey>')
     .description('extract site assets')
+    .option('--dest <dest>', 'with output destination', 'output')
     .option('--force', 'enforce extracting content assets', false)
     .action(async (spaceKey, options) => {
-        const destination = path.resolve(process.cwd(), 'output');
+        const destination = path.resolve(process.cwd(), options.dest);
         const output = initOutput({ spaceKey, destination });
         await extractSiteEmojis(output, options);
     });
@@ -76,6 +77,7 @@ program
     .command('build <spaceKey>')
     .description('builds the site resources for a given confluence space')
     .option('--assets <value>', 'with assets')
+    .option('--dest <dest>', 'with output destination', 'output')
     .option('--serve', 'with dev server running', false)
     .action(async (spaceKey: string, options) => {
         await webpackBuild({ ...options, spaceKey });

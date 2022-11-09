@@ -25,15 +25,18 @@ const siteProperties = (): SiteProperties => {
     return parsed as SiteProperties;
 };
 
-export const webpackConfig = (
-    spaceKey: string,
-    assets: string | undefined
-): { config: Configuration; siteOutput: string } => {
+export const webpackConfig = (props: {
+    spaceKey: string;
+    assets: string | undefined;
+    dest: string;
+}): { config: Configuration; siteOutput: string } => {
+    const { spaceKey, assets, dest } = props;
+
     const siteSources = path.join(__dirname, '..', '..', '..', 'site');
-    const siteOutput = path.join(process.cwd(), 'output', 'site', spaceKey);
+    const siteOutput = path.join(process.cwd(), dest, 'site', spaceKey);
     const templatesDirectory = path.join(
         process.cwd(),
-        'output',
+        dest,
         'templates',
         spaceKey
     );
@@ -82,7 +85,10 @@ export const webpackConfig = (
                 os: require.resolve('os-browserify/browser'),
                 path: require.resolve('path-browserify'),
                 stream: require.resolve('stream-browserify'),
-                events: false
+                events: false,
+                https: false,
+                http: false,
+                zlib: false
             }
         },
         ignoreWarnings: [/Should not import the named export/],
