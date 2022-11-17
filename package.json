@@ -1,6 +1,6 @@
 {
   "name": "confluence-static-site",
-  "version": "1.0.0-m17",
+  "version": "1.0.0",
   "description": "confluence static site",
   "bin": {
     "confsite": "./dist/cli/index.js"
@@ -69,7 +69,7 @@
     "@atlaskit/logo": "^13.10.1",
     "@atlaskit/page": "^12.2.1",
     "@atlaskit/page-layout": "^1.3.2",
-    "@atlaskit/renderer": "^101.1.1",
+    "@atlaskit/renderer": "^103.0.0",
     "@atlaskit/side-navigation": "^1.3.0",
     "@atlaskit/smart-card": "^22.3.0",
     "@atlaskit/spinner": "^15.1.16",
