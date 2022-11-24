@@ -5,7 +5,8 @@
   dependencyDashboardApproval: true,
   ignoreDeps: [
     // until atlaskit is ready for it
-    'react'
+    'react',
+    'react-dom'
   ],
   labels: ['dependencies'],
   packageRules: [
