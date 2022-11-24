@@ -1,37 +1,37 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: ['config:base', 'group:jestPlusTSJest', 'group:jestPlusTypes'],
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:base", "group:jestPlusTSJest", "group:jestPlusTypes"],
   dependencyDashboard: true,
   dependencyDashboardApproval: true,
   ignoreDeps: [
     // until atlaskit is ready for it
-    'react',
-    'react-dom'
+    "react",
+    "react-dom",
   ],
-  labels: ['dependencies'],
+  labels: ["dependencies"],
   packageRules: [
     {
-      groupName: 'atlaskit',
-      matchPackagePatterns: ['^@atlaskit/'],
-      groupSlug: 'all-atlaskit',
-      addLabels: ['atlaskit'],
-      commitMessagePrefix: '[atlaskit-upgrade]'
+      groupName: "atlaskit",
+      matchPackagePatterns: ["^@atlaskit/"],
+      groupSlug: "all-atlaskit",
+      addLabels: ["atlaskit"],
+      commitMessagePrefix: "[atlaskit-upgrade]",
     },
     {
-      groupName: 'all patch dependencies',
-      matchUpdateTypes: ['patch'],
-      groupSlug: 'all-patch',
-      addLabels: ['patch'],
-      commitMessagePrefix: '[patch-upgrades]',
-    }
+      groupName: "all patch dependencies",
+      matchUpdateTypes: ["patch"],
+      groupSlug: "all-patch",
+      addLabels: ["patch"],
+      commitMessagePrefix: "[patch-upgrades]",
+    },
   ],
   major: {
-    bumpVersion: 'major'
+    bumpVersion: "major",
   },
-  'minor': {
-    'bumpVersion': 'minor'
+  minor: {
+    bumpVersion: "minor",
   },
-  'patch': {
-    'bumpVersion': 'patch'
-  }
+  patch: {
+    bumpVersion: "patch",
+  },
 }
