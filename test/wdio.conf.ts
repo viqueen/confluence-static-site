@@ -1,5 +1,5 @@
 import type { Options } from '@wdio/types';
-import { exec } from 'child_process';
+import { spawn } from 'child_process';
 import * as path from 'path';
 
 export const config: Options.Testrunner = {
@@ -68,7 +68,9 @@ export const config: Options.Testrunner = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-        exec(`./cli build public --dest local --serve`);
+        spawn(`./cli`, ['build', 'public', '--dest', 'local', '--serve'], {
+            shell: false
+        });
     }
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
