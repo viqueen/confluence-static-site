@@ -24,7 +24,10 @@ export const config: Options.Testrunner = {
         {
             maxInstances: 5,
             browserName: 'chrome',
-            acceptInsecureCerts: true
+            acceptInsecureCerts: true,
+            'wdio:devtoolsOptions': {
+                headless: true
+            }
         }
     ],
     logLevel: 'info',
