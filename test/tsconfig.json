@@ -1,13 +1,13 @@
 {
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "types": [
-            "node",
-            "webdriverio/async",
-            "@wdio/mocha-framework",
-            "expect-webdriverio",
-            "wdio-image-comparison-service"
-        ],
-        "target": "es2019"
-    }
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "webdriverio/async",
+      "@wdio/mocha-framework",
+      "expect-webdriverio",
+      "wdio-image-comparison-service"
+    ],
+    "target": "es2019"
+  }
 }
