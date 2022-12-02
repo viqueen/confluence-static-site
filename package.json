@@ -94,7 +94,7 @@
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.1",
     "stylis-rule-sheet": "^0.0.10",
-    "webpack": "^5.74.0",
+    "webpack": "^5.75.0",
     "webpack-dev-server": "^4.11.1"
   }
 }
