@@ -1,13 +1,13 @@
 {
   "name": "confluence-static-site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "confluence static site",
   "bin": {
     "confsite": "./dist/cli/index.js"
   },
   "resolutions": {
     "glob-parent": "5.1.2",
-    "node-fetch": "2.6.7"
+    "node-fetch": "3.3.0"
   },
   "scripts": {
     "build": "tsc",
@@ -87,7 +87,7 @@
     "commander": "^9.4.1",
     "copy-webpack-plugin": "^11.0.0",
     "crypto-browserify": "^3.12.0",
-    "css-loader": "^6.7.1",
+    "css-loader": "^6.7.2",
     "dotenv": "^16.0.3",
     "fs-directory": "^1.0.0",
     "html-webpack-plugin": "^5.5.0",
@@ -101,7 +101,7 @@
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.1",
     "stylis-rule-sheet": "^0.0.10",
-    "webpack": "^5.74.0",
+    "webpack": "^5.75.0",
     "webpack-dev-server": "^4.11.1"
   }
 }
