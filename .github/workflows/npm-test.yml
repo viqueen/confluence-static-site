@@ -23,4 +23,4 @@ jobs:
       - run: npm run format:check
       - run: npm run wdio
         env:
-          SELENIUM_HOSTNAME: selenium
+          SELENIUM_HOSTNAME: 127.0.0.1
