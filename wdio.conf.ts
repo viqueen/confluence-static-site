@@ -11,12 +11,12 @@ export const config: Options.Testrunner = {
     specs: ['./test/specs/**/*.e2e.ts'],
     exclude: [],
     maxInstances: 10,
-    hostname: process.env.SELENIUM_HOSTNAME || 'localhost',
     capabilities: [
         {
             maxInstances: 5,
             browserName: 'chrome',
-            acceptInsecureCerts: true
+            acceptInsecureCerts: true,
+            hostname: process.env.SELENIUM_HOSTNAME || 'localhost'
         }
     ],
     logLevel: 'info',
