@@ -18,3 +18,7 @@ jobs:
       - run: npm run build
       - run: npm run format:check
       - run: npm run wdio
+      - uses: actions/upload-artifact@v3
+        with:
+          name: wdio-artifacts
+          path: .tmp/
