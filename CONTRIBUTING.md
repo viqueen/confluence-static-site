@@ -34,5 +34,5 @@ npm run build -- --watch
 - or you can also run with local data
 
 ```bash
-./cli build public --dest local --serve
+./cli build public --dest local --serve --open
 ```

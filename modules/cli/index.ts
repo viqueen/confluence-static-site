@@ -79,6 +79,7 @@ program
     .option('--assets <value>', 'with assets')
     .option('--dest <dest>', 'with output destination', 'output')
     .option('--serve', 'with dev server running', false)
+    .option('--open', 'with open browser session in dev server', false)
     .action(async (spaceKey: string, options) => {
         await webpackBuild({ ...options, spaceKey });
     });
