@@ -1,6 +1,5 @@
 describe('Confluence Static Site', () => {
     beforeEach(async () => {
-        await browser.setWindowSize(1920, 1080);
         await browser.url('http://localhost:9000/');
         await browser.waitUntil(
             async () => (await browser.getTitle()) === '/conf - Git',
