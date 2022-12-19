@@ -10,43 +10,6 @@
     "type": "doc",
     "content": [
       {
-        "type": "panel",
-        "attrs": {
-          "panelType": "note"
-        },
-        "content": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "text": "find it on ",
-                "type": "text"
-              },
-              {
-                "type": "inlineCard",
-                "attrs": {
-                  "url": "https://git-scm.com/downloads"
-                }
-              },
-              {
-                "text": " , also worth reading ",
-                "type": "text"
-              },
-              {
-                "type": "inlineCard",
-                "attrs": {
-                  "url": "http://localhost:9000/articles/393253/"
-                }
-              },
-              {
-                "text": " ",
-                "type": "text"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "type": "heading",
         "attrs": {
           "level": 2
