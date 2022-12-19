@@ -1,4 +1,4 @@
-describe('My Login application', () => {
+describe('Confluence Static Site', () => {
     beforeEach(async () => {
         await browser.url('http://localhost:9000/');
     });

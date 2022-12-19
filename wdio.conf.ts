@@ -2,7 +2,7 @@ import type { Options } from '@wdio/types';
 import { spawn } from 'child_process';
 
 export const config: Options.Testrunner = {
-    runner: 'local',
+    runner: 'browser',
     autoCompileOpts: {
         tsNodeOpts: {
             project: './test/tsconfig.json'
