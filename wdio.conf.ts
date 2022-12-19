@@ -2,7 +2,7 @@ import type { Options } from '@wdio/types';
 import { spawn } from 'child_process';
 
 export const config: Options.Testrunner = {
-    runner: 'browser',
+    runner: 'local',
     autoCompileOpts: {
         tsNodeOpts: {
             project: './test/tsconfig.json'
@@ -16,7 +16,9 @@ export const config: Options.Testrunner = {
             maxInstances: 5,
             browserName: 'chrome',
             acceptInsecureCerts: true,
-            hostname: process.env.SELENIUM_HOSTNAME || 'localhost'
+            'goog:chromeOptions': {
+                args: ['--headless', '--disable-gpu', '--disable-dev-shm-usage']
+            }
         }
     ],
     logLevel: 'info',
