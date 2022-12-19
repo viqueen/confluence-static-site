@@ -2,13 +2,16 @@ import { Compiler, webpack } from 'webpack';
 import Server from 'webpack-dev-server';
 import { webpackConfig } from './webpack.config';
 
-const runDevServer = async (siteOutput: string, compiler: Compiler) => {
+const runDevServer = async (
+    props: { siteOutput: string; open: boolean },
+    compiler: Compiler
+) => {
     const devServer = {
-        static: { directory: siteOutput },
+        static: { directory: props.siteOutput },
         client: { progress: true },
         compress: true,
         port: 9000,
-        open: true
+        open: props.open
     };
     const server = new Server(devServer, compiler);
     const runServer = async () => {
@@ -39,12 +42,13 @@ export const webpackBuild = async (props: {
     assets: string | undefined;
     spaceKey: string;
     dest: string;
+    open: boolean;
 }) => {
-    const { serve, spaceKey, assets, dest } = props;
+    const { serve, spaceKey, assets, dest, open } = props;
     const { config, siteOutput } = webpackConfig({ spaceKey, assets, dest });
     if (serve) {
         const compiler = webpack(config);
-        await runDevServer(siteOutput, compiler);
+        await runDevServer({ siteOutput, open }, compiler);
     } else {
         const compiler = webpack({ ...config, mode: 'production' });
         await runCompiler(compiler);
