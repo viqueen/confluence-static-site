@@ -6,3 +6,4 @@ output/
 dist/
 
 .env
+.tmp/

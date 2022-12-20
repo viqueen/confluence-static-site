@@ -12,7 +12,16 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+          cache: "npm"
       - run: npm install
       - run: npm run build
       - run: npm run format:check
+      - run: npm run wdio
+        env:
+          TEST_ENVIRONMENT: ci
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: wdio-artifacts
+          path: .tmp/
