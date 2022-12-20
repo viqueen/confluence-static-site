@@ -18,6 +18,8 @@ jobs:
       - run: npm run build
       - run: npm run format:check
       - run: npm run wdio
+        env:
+          TEST_ENVIRONMENT: ci
       - uses: actions/upload-artifact@v3
         if: failure()
         with:

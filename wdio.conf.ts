@@ -2,6 +2,8 @@ import type { Options } from '@wdio/types';
 import { spawn } from 'child_process';
 import * as path from 'path';
 
+const testEnvironment = process.env.TEST_ENVIRONMENT ?? 'local';
+
 export const config: Options.Testrunner = {
     runner: 'local',
     autoCompileOpts: {
@@ -35,7 +37,7 @@ export const config: Options.Testrunner = {
             'image-comparison',
             {
                 baselineFolder: path.join(process.cwd(), 'test', 'baseline'),
-                formatImageName: '{tag}-{logName}-{width}x{height}',
+                formatImageName: `{tag}-${testEnvironment}-{width}x{height}`,
                 screenshotPath: path.join(process.cwd(), '.tmp'),
                 savePerInstance: true,
                 autoSaveBaseline: true,
