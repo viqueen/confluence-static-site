@@ -16,6 +16,13 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run wdio
+        env:
+          TEST_ENVIRONMENT: ci
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: wdio-artifacts
+          path: .tmp/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
