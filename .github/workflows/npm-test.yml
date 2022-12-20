@@ -19,6 +19,7 @@ jobs:
       - run: npm run format:check
       - run: npm run wdio
       - uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: wdio-artifacts
           path: .tmp/
