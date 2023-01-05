@@ -36,3 +36,9 @@ npm run build -- --watch
 ```bash
 ./cli build public --dest local --serve --open
 ```
+
+## run visual regression tests
+
+```bash
+npm run wdio
+```

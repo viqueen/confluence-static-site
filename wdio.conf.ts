@@ -1,8 +1,10 @@
 import type { Options } from '@wdio/types';
-import { spawn } from 'child_process';
+import { ChildProcess, spawn } from 'child_process';
 import * as path from 'path';
 
 const testEnvironment = process.env.TEST_ENVIRONMENT ?? 'local';
+
+let testServerProcess: ChildProcess;
 
 export const config: Options.Testrunner = {
     runner: 'local',
@@ -60,8 +62,12 @@ export const config: Options.Testrunner = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-        spawn(`./cli`, ['build', 'public', '--dest', 'local', '--serve'], {
-            shell: false
-        });
+        testServerProcess = spawn(
+            `./cli`,
+            ['build', 'public', '--dest', 'local', '--serve'],
+            {
+                shell: false
+            }
+        );
     }
 };
