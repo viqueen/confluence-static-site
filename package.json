@@ -64,7 +64,7 @@
   ],
   "dependencies": {
     "@atlaskit/adf-utils": "^17.1.4",
-    "@atlaskit/atlassian-navigation": "^2.3.0",
+    "@atlaskit/atlassian-navigation": "^2.3.1",
     "@atlaskit/avatar": "^21.1.2",
     "@atlaskit/avatar-group": "^9.1.0",
     "@atlaskit/breadcrumbs": "^11.7.2",
