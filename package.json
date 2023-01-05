@@ -82,7 +82,7 @@
     "@atlaskit/smart-card": "^22.3.0",
     "@atlaskit/spinner": "^15.1.16",
     "@atlaskit/theme": "^12.2.3",
-    "@atlaskit/tooltip": "^17.6.0",
+    "@atlaskit/tooltip": "^17.6.3",
     "@emotion/react": "^11.7.1",
     "axios": "^1.2.0",
     "commander": "^9.4.1",
