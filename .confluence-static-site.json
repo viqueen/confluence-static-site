@@ -1,6 +1,6 @@
 {
   "title": "confluence-static-site",
-  "iconUrl": "",
+  "iconUrl": "/assets/viqueen-logo.png",
   "name": "/conf",
   "theme": {
     "name": "confluence-static-site",
