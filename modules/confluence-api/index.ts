@@ -179,5 +179,5 @@ class ConfluenceApi {
     }
 }
 
-const api = new ConfluenceApi();
-export { api };
+const confluenceApi = new ConfluenceApi();
+export { confluenceApi };

@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { Content } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
-import { api } from '../../../confluence-api';
+import { confluenceApi } from '../../../confluence-api';
 
 const toExtension = (mediaType: string) => {
     const matcher = mediaType.match(/image\/(?<ext>jpeg|jpg|png)/);
@@ -17,7 +17,7 @@ export const extractAttachments = async (content: Content, output: Output) => {
 
     return Promise.all(
         attachments.map((attachment) => {
-            return api
+            return confluenceApi
                 .getAttachmentData(attachment.downloadUrl)
                 .then(({ stream }) => {
                     const fileExtension = toExtension(attachment.mediaType);

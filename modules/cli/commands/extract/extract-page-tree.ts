@@ -1,7 +1,7 @@
 import { extractContent } from './extract-content';
 import { Content, Identifier } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
-import { api } from '../../../confluence-api';
+import { confluenceApi } from '../../../confluence-api';
 
 export const extractPageTree = async (
     id: Identifier,
@@ -9,7 +9,7 @@ export const extractPageTree = async (
     options = { asHomepage: false, force: false }
 ): Promise<Content> => {
     const { asHomepage, force } = options;
-    const content = await api.getContentById(id, asHomepage);
+    const content = await confluenceApi.getContentById(id, asHomepage);
     await extractContent(content, output, { force });
 
     if (content.childPages) {

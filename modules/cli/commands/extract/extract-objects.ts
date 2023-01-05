@@ -5,7 +5,7 @@ import { Content } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
 import { filter } from '@atlaskit/adf-utils/traverse';
 import { rewriteUrl } from '../../../confluence-api/helpers/rewrite-url';
-import { api } from '../../../confluence-api';
+import { confluenceApi } from '../../../confluence-api';
 
 export const extractObjects = async (content: Content, output: Output) => {
     const inlineCards = filter(
@@ -18,7 +18,7 @@ export const extractObjects = async (content: Content, output: Output) => {
     });
     if (inlineCards.length < 1) return;
 
-    const resolvedObjects = await api.getObjects(inlineCards);
+    const resolvedObjects = await confluenceApi.getObjects(inlineCards);
     resolvedObjects.forEach((item) => {
         if (!item.body) {
             return;

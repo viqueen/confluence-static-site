@@ -5,7 +5,7 @@ import { traverse } from '@atlaskit/adf-utils/traverse';
 import { ADFEntity } from '@atlaskit/adf-utils/types';
 import { Content } from '../../../confluence-api/types';
 import { Output } from '../../../configuration/types';
-import { api } from '../../../confluence-api';
+import { confluenceApi } from '../../../confluence-api';
 
 const extractAvatars = async (content: Content, output: Output) => {
     const { author } = content;
@@ -15,7 +15,7 @@ const extractAvatars = async (content: Content, output: Output) => {
     );
     if (fs.existsSync(avatarFile)) return;
 
-    const { stream } = await api.getAttachmentData(author.avatar, '');
+    const { stream } = await confluenceApi.getAttachmentData(author.avatar, '');
     const file = fs.createWriteStream(avatarFile);
     stream.pipe(file);
 
