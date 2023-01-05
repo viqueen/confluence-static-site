@@ -1,8 +1,8 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { Content } from '../../../confluence-api/types';
+import { Content } from '../../../external/confluence-api/types';
 import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../confluence-api';
+import { confluenceApi } from '../../../external/confluence-api';
 
 const toExtension = (mediaType: string) => {
     const matcher = mediaType.match(/image\/(?<ext>jpeg|jpg|png)/);

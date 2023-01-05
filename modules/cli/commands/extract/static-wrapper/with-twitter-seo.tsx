@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content } from '../../../../confluence-api/types';
+import { Content } from '../../../../external/confluence-api/types';
 import { configuration } from '../../../../configuration';
 
 export const withTwitterSeo = (content: Content) => {

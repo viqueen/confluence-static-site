@@ -2,8 +2,8 @@ import { extractContent } from './extract-content';
 import * as fs from 'fs';
 import * as path from 'path';
 import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../confluence-api';
-import { Content } from '../../../confluence-api/types';
+import { confluenceApi } from '../../../external/confluence-api';
+import { Content } from '../../../external/confluence-api/types';
 
 export const extractBlogs = async (
     spaceKey: string,

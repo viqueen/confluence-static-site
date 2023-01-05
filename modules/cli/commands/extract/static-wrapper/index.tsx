@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content } from '../../../../confluence-api/types';
+import { Content } from '../../../../external/confluence-api/types';
 import { withGoogleAnalytics } from './with-google-analytics';
 import { withTwitterSeo } from './with-twitter-seo';
 import { withOpenGraphSeo } from './with-open-graph-seo';

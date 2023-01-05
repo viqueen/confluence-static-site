@@ -1,8 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
-import { cliOauthClient } from '../cli-oauth-client';
+import { cliOauthClient } from '../../cli-oauth-client';
+import { axiosErrorHandler } from '../helpers';
 
 class AtlassianApi {
     private readonly client: AxiosInstance;
+
     constructor(token: string) {
         this.client = axios.create({
             baseURL: `https://api.atlassian.com`,
@@ -13,7 +15,9 @@ class AtlassianApi {
     }
 
     async accessibleResources() {
-        return this.client.get(`/oauth/token/accessible-resources`);
+        return this.client
+            .get(`/oauth/token/accessible-resources`)
+            .catch(axiosErrorHandler);
     }
 }
 

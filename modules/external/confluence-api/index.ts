@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from 'axios';
-import { configuration } from '../configuration';
 import {
     Attachment,
     AttachmentData,
@@ -9,6 +8,8 @@ import {
     ResourceObject
 } from './types';
 import * as crypto from 'crypto';
+import { configuration } from '../../configuration';
+import { axiosErrorHandler } from '../helpers';
 
 class ConfluenceApi {
     private readonly client: AxiosInstance;
@@ -23,9 +24,9 @@ class ConfluenceApi {
     }
 
     async getSpaceHomepage(spaceKey: string): Promise<Identifier> {
-        const { data } = await this.client.get(
-            `/wiki/rest/api/space/${spaceKey}?expand=homepage`
-        );
+        const { data } = await this.client
+            .get(`/wiki/rest/api/space/${spaceKey}?expand=homepage`)
+            .catch(axiosErrorHandler);
         const { homepage } = data;
         const { id, title } = homepage;
         return { id, title };
@@ -36,9 +37,9 @@ class ConfluenceApi {
             cql: `space=${spaceKey} and type=blogpost order by created desc`,
             expand: 'content.history'
         });
-        const { data } = await this.client.get(
-            `/wiki/rest/api/search?${query.toString()}`
-        );
+        const { data } = await this.client
+            .get(`/wiki/rest/api/search?${query.toString()}`)
+            .catch(axiosErrorHandler);
         const { results } = data;
         return results.map((item: any) => {
             const { content, excerpt } = item;
@@ -79,9 +80,9 @@ class ConfluenceApi {
             cql: cql,
             expand: contentExpansions.join(',')
         });
-        const { data } = await this.client.get(
-            `/wiki/rest/api/search?${query.toString()}`
-        );
+        const { data } = await this.client
+            .get(`/wiki/rest/api/search?${query.toString()}`)
+            .catch(axiosErrorHandler);
         const item = data.results[0]; // TODO: handle edge case
         const { content, excerpt, lastModified } = item;
         const {
@@ -154,17 +155,15 @@ class ConfluenceApi {
     async getObjects(
         resourceUrls: Array<ResourceObject>
     ): Promise<Array<{ body: { data: ResourceDefinition } }>> {
-        const { data } = await this.client.post(
-            '/gateway/api/object-resolver/resolve/batch',
-            resourceUrls,
-            {
+        const { data } = await this.client
+            .post('/gateway/api/object-resolver/resolve/batch', resourceUrls, {
                 headers: {
                     'sec-fetch-mode': 'cors',
                     'sec-fetch-site': 'same-origin',
                     cookie: `cloud.session.token=${configuration.CONFLUENCE_CLOUD_TOKEN}`
                 }
-            }
-        );
+            })
+            .catch(axiosErrorHandler);
         return data;
     }
 
@@ -172,9 +171,11 @@ class ConfluenceApi {
         targetUrl: string,
         prefix: string = '/wiki'
     ): Promise<AttachmentData> {
-        const { data } = await this.client.get(`${prefix}${targetUrl}`, {
-            responseType: 'stream'
-        });
+        const { data } = await this.client
+            .get(`${prefix}${targetUrl}`, {
+                responseType: 'stream'
+            })
+            .catch(axiosErrorHandler);
         return { stream: data };
     }
 }

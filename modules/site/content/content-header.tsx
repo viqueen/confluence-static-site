@@ -2,7 +2,7 @@ import React from 'react';
 import Blog24Icon from '@atlaskit/icon-object/glyph/blog/24';
 import Page24Icon from '@atlaskit/icon-object/glyph/page/24';
 import Heading from '@atlaskit/heading';
-import { Content } from '../../confluence-api/types';
+import { Content } from '../../external/confluence-api/types';
 
 import './content-header.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExtensionParams } from '@atlaskit/editor-common/extensions';
-import { Content } from '../../../../confluence-api/types';
+import { Content } from '../../../../external/confluence-api/types';
 import { BlogPostsMacro } from './blog-posts-macro';
 import { WidgetConnectorMacro } from './widget-connector-macro';
 import { ChildrenMacro } from './children-macro';

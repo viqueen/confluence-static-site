@@ -1,8 +1,8 @@
 import { extractPageTree } from './extract-page-tree';
 import { extractBlogs } from './extract-blogs';
 import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../confluence-api';
-import { titleToPath } from '../../../confluence-api/helpers/title-to-path';
+import { confluenceApi } from '../../../external/confluence-api';
+import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
 import fs from 'fs';
 import path from 'path';
 

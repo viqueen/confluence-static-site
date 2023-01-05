@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Content, Identifier } from '../../../../confluence-api/types';
+import { Content, Identifier } from '../../../../external/confluence-api/types';
 import axios from 'axios';
-import { titleToPath } from '../../../../confluence-api/helpers/title-to-path';
+import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
 import Spinner from '@atlaskit/spinner';
 
 type ChildrenMacroProps = {

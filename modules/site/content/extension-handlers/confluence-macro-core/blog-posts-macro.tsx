@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Spinner from '@atlaskit/spinner';
-import { Content } from '../../../../confluence-api/types';
-import { titleToPath } from '../../../../confluence-api/helpers/title-to-path';
+import { Content } from '../../../../external/confluence-api/types';
+import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
 
 import './blog-posts-macro.css';
 import Avatar from '@atlaskit/avatar';

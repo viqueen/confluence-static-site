@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 import Spinner from '@atlaskit/spinner';
-import { Content } from '../confluence-api/types';
+import { Content } from '../external/confluence-api/types';
 import axios from 'axios';
 import { ContentRenderer } from './content/content-renderer';
 
