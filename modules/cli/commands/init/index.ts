@@ -13,7 +13,7 @@ export const init = async () => {
         { name: 'confluence cloud token', hidden: true },
         { name: 'target site' },
         { name: 'twitter site' },
-        { name: 'google ads tracking id' }
+        { name: 'google analytics tracking id' }
     ];
 
     start();
