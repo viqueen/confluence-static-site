@@ -1,6 +1,6 @@
 {
   "name": "confluence-static-site",
-  "version": "1.0.0-m19",
+  "version": "1.0.0",
   "description": "confluence static site",
   "bin": {
     "confsite": "./dist/cli/index.js"
@@ -63,23 +63,23 @@
     "modules/cli"
   ],
   "dependencies": {
-    "@atlaskit/adf-utils": "^17.1.4",
+    "@atlaskit/adf-utils": "^18.0.0",
     "@atlaskit/atlassian-navigation": "^2.3.4",
     "@atlaskit/avatar": "^21.1.5",
     "@atlaskit/avatar-group": "^9.2.1",
     "@atlaskit/breadcrumbs": "^11.7.8",
     "@atlaskit/date": "^0.9.11",
-    "@atlaskit/editor-common": "^69.4.2",
-    "@atlaskit/emoji": "^66.0.2",
-    "@atlaskit/heading": "^0.1.17",
+    "@atlaskit/editor-common": "^72.0.0",
+    "@atlaskit/emoji": "^67.0.0",
+    "@atlaskit/heading": "^1.0.0",
     "@atlaskit/icon": "^21.11.4",
     "@atlaskit/icon-object": "^6.2.7",
     "@atlaskit/logo": "^13.10.4",
     "@atlaskit/page": "^12.2.1",
     "@atlaskit/page-layout": "^1.3.7",
-    "@atlaskit/renderer": "^101.1.1",
+    "@atlaskit/renderer": "^107.0.0",
     "@atlaskit/side-navigation": "^1.4.0",
-    "@atlaskit/smart-card": "^22.3.0",
+    "@atlaskit/smart-card": "^25.0.0",
     "@atlaskit/spinner": "^15.1.16",
     "@atlaskit/theme": "^12.2.6",
     "@atlaskit/tooltip": "^17.6.5",
