@@ -12,6 +12,7 @@
   "scripts": {
     "build": "tsc",
     "postbuild": "./postbuild.js",
+    "postinstall": "./postinstall.js",
     "format:check": "prettier --check .",
     "format": "prettier --check --write .",
     "wdio": "wdio run wdio.conf.ts"
