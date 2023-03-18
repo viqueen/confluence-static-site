@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "@confluence-static-site/cli",
   "version": "1.0.0",
   "main": "index.ts"
 }

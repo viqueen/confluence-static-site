@@ -1,5 +1,5 @@
 {
-  "name": "atlassian-api",
+  "name": "@confluence-static-site/atlassian-api",
   "version": "1.0.0",
   "main": "index.ts"
 }
