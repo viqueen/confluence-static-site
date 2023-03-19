@@ -1,5 +1,5 @@
 {
-  "name": "configuration",
+  "name": "@confluence-static-site/configuration",
   "version": "1.0.0",
   "main": "index.ts"
 }

@@ -1,4 +1,4 @@
-import { hydrate, render } from 'react-dom';
+import { hydrateRoot, createRoot } from 'react-dom/client';
 import React from 'react';
 import { fontFamily } from '@atlaskit/theme';
 import { SiteContent } from './site-content';
@@ -32,9 +32,9 @@ const StaticSite = () => {
     );
 };
 
-const rootElm = document.querySelector('#root')!;
-if (rootElm.hasChildNodes()) {
-    hydrate(<StaticSite />, rootElm);
+const rootContainer = document.querySelector('#root')!;
+if (rootContainer.hasChildNodes()) {
+    hydrateRoot(rootContainer, <StaticSite />);
 } else {
-    render(<StaticSite />, rootElm);
+    createRoot(rootContainer).render(<StaticSite />);
 }

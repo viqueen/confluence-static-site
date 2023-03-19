@@ -3,11 +3,6 @@
   extends: ["config:base", "group:jestPlusTSJest", "group:jestPlusTypes"],
   dependencyDashboard: true,
   dependencyDashboardApproval: true,
-  ignoreDeps: [
-    // until atlaskit is ready for it
-    "react",
-    "react-dom",
-  ],
   labels: ["dependencies"],
   packageRules: [
     {
