@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-node dist/cli/index.js "$@"
+NODE_ENV=development ./node_modules/.bin/ts-node modules/cli/index.ts "$@"

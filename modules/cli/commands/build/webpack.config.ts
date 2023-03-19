@@ -6,6 +6,8 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { SiteProperties } from '../../../configuration/types';
 import * as fs from 'fs';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export const defaultSiteProperties: SiteProperties = {
     title: 'confluence-static-site',
     iconUrl: '',
@@ -73,10 +75,13 @@ export const webpackConfig = (props: {
         ? [definePlugin, copyPlugin, ...htmlPlugins]
         : [definePlugin, ...htmlPlugins];
 
+    const siteEntry = isDev
+        ? path.resolve(siteSources, 'index.tsx')
+        : path.resolve(siteSources, 'index.js');
     const config: Configuration = {
         mode: 'development',
         entry: {
-            site: path.resolve(siteSources, 'index.js')
+            site: siteEntry
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js', '.css'],
