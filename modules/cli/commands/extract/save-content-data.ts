@@ -26,8 +26,7 @@ export const saveContentData = async (content: Content, output: Output) => {
     const scrubbed = scrubContent(content.body);
     const data: Content = {
         ...content,
-        body: scrubbed,
-        attachments: []
+        body: scrubbed
     };
     const contentPath = resolveContentPath(content, output);
     fs.mkdirSync(contentPath, { recursive: true });
