@@ -20,6 +20,7 @@ export type Content = {
     body: any;
     excerpt: string;
     asHomepage: boolean;
+    hasPdf: boolean;
 
     author: Identifier & { avatar: string; accountId: string };
     lastModifiedDate: number;

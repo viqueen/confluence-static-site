@@ -74,7 +74,8 @@ class ConfluenceApi {
             'content.children.attachment.metadata.labels',
             'content.ancestors',
             'content.history',
-            'content.metadata.properties.emoji_title_published'
+            'content.metadata.properties.emoji_title_published',
+            'content.metadata.labels'
         ];
         const query = new URLSearchParams({
             cql: cql,
@@ -134,6 +135,11 @@ class ConfluenceApi {
         const emoji = metadata.properties['emoji-title-published']?.value;
 
         const createdAt = new Date(createdDate);
+
+        const hasPdf = metadata.labels.results.some(
+            (i: any) => i.name === 'export-to-pdf'
+        );
+
         return {
             author,
             identifier: { id, title },
@@ -148,7 +154,8 @@ class ConfluenceApi {
             parentPages,
             attachments,
             cover,
-            emoji
+            emoji,
+            hasPdf
         };
     }
 
