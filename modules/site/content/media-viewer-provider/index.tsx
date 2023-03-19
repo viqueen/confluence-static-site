@@ -1,6 +1,9 @@
 import { Attachment } from '../../../external/confluence-api/types';
 import React, { useCallback, useState } from 'react';
-import ImageViewer from 'react-simple-image-viewer';
+import Lightbox from 'yet-another-react-lightbox';
+import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import 'yet-another-react-lightbox/styles.css';
 
 type MediaViewerContextInfo = {
     openMediaViewer: (fileId: string) => void;
@@ -20,7 +23,9 @@ const MediaViewerProvider = ({
     const [isViewerOpen, setIsViewerOpen] = useState<boolean>(false);
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-    const images = attachments.map((a) => `/attachments/${a.fileId}`);
+    const slides = attachments.map((a) => ({
+        src: `/attachments/${a.fileId}`
+    }));
 
     const closeImageViewer = () => {
         setCurrentImageIndex(0);
@@ -28,7 +33,7 @@ const MediaViewerProvider = ({
     };
 
     const openMediaViewer = useCallback((fileId: string) => {
-        const index = images.findIndex((item) => item.endsWith(fileId));
+        const index = slides.findIndex((item) => item.src.endsWith(fileId));
         setCurrentImageIndex(index);
         setIsViewerOpen(true);
     }, []);
@@ -37,14 +42,13 @@ const MediaViewerProvider = ({
     return (
         <MediaViewerContext.Provider value={value}>
             {children}
-            {isViewerOpen && (
-                <ImageViewer
-                    src={images}
-                    currentIndex={currentImageIndex}
-                    closeOnClickOutside={true}
-                    onClose={closeImageViewer}
-                />
-            )}
+            <Lightbox
+                open={isViewerOpen}
+                close={closeImageViewer}
+                slides={slides}
+                index={currentImageIndex}
+                plugins={[Fullscreen, Zoom]}
+            />
         </MediaViewerContext.Provider>
     );
 };
