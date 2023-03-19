@@ -14,10 +14,10 @@ jobs:
         with:
           node-version: 18
           cache: "npm"
-      - run: npm install
-      - run: npm run build
-      - run: npm run format:check
-      - run: npm run wdio
+      - run: yarn
+      - run: yarn build
+      - run: yarn format:check
+      - run: yarn wdio
         env:
           TEST_ENVIRONMENT: ci
       - uses: actions/upload-artifact@v3

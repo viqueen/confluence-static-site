@@ -13,9 +13,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm run build
-      - run: npm run wdio
+      - run: yarn
+      - run: yarn build
+      - run: yarn wdio
         env:
           TEST_ENVIRONMENT: ci
       - uses: actions/upload-artifact@v3

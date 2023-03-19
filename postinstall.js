@@ -10,7 +10,10 @@ const deleteMe = [
     'prosemirror-view',
 ];
 for (const dir of deleteMe) {
-    fs.rmdirSync(path.resolve(__dirname, 'node_modules', '@types', dir), {
-        recursive: true,
-    });
+    const target = path.resolve(__dirname, 'node_modules', '@types', dir);
+    if (fs.existsSync(target)) {
+        fs.rmSync(target, {
+            recursive: true,
+        });
+    }
 }
