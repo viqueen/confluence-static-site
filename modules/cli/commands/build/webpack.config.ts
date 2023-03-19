@@ -82,12 +82,13 @@ export const webpackConfig = (props: {
             extensions: ['.tsx', '.ts', '.js', '.css'],
             fallback: {
                 crypto: require.resolve('crypto-browserify'),
+                events: false,
+                http: false,
+                https: false,
                 os: require.resolve('os-browserify/browser'),
                 path: require.resolve('path-browserify'),
                 stream: require.resolve('stream-browserify'),
-                events: false,
-                https: false,
-                http: false,
+                url: require.resolve('url/'),
                 zlib: false
             }
         },

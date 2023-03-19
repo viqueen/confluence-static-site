@@ -7,3 +7,7 @@ dist/
 
 .env
 .tmp/
+
+local/site/**/*.js
+local/site/**/*.txt
+local/site/**/*.html
