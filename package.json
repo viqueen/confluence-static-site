@@ -23,7 +23,8 @@
     "site"
   ],
   "files": [
-    "dist"
+    "dist",
+    "postinstall.js"
   ],
   "author": "Hasnae R.",
   "license": "Apache-2.0",
