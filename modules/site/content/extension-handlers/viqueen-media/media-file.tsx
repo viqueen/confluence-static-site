@@ -1,5 +1,6 @@
 import React from 'react';
 import './media-file.css';
+import { useMediaViewer } from '../../media-viewer-provider';
 
 type MediaFileProps = {
     fileId: string;
@@ -8,6 +9,7 @@ type MediaFileProps = {
 };
 
 export const MediaFile = ({ fileId, height, layout }: MediaFileProps) => {
+    const { openMediaViewer } = useMediaViewer();
     const layoutClass = layout ? `layout-${layout}` : `layout`;
     return (
         <div className="media-file">
@@ -15,6 +17,7 @@ export const MediaFile = ({ fileId, height, layout }: MediaFileProps) => {
                 src={`/attachments/${fileId}`}
                 style={{ height, maxHeight: 600 }}
                 className={layoutClass}
+                onClick={() => openMediaViewer(fileId)}
             />
         </div>
     );

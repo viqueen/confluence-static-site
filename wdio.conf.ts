@@ -63,8 +63,15 @@ export const config: Options.Testrunner = {
      */
     onPrepare: function (config, capabilities) {
         testServerProcess = spawn(
-            `./cli`,
-            ['build', 'public', '--dest', 'local', '--serve'],
+            `node`,
+            [
+                'dist/cli/index.js',
+                'build',
+                'public',
+                '--dest',
+                'local',
+                '--serve'
+            ],
             {
                 shell: false
             }
