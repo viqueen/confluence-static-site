@@ -1,9 +1,13 @@
 ## environment
 
-I use **[nvm](https://github.com/nvm-sh/nvm)** to manage my node versions.
+I use **[nvm](https://github.com/nvm-sh/nvm)** to manage my node versions, and **[yarn](https://yarnpkg.com/)** as my
+package manager and build tool.
+
+- on mac
 
 ```bash
 brew install nvm
+brew install yarn
 ```
 
 ## development setup
@@ -12,15 +16,13 @@ brew install nvm
 
 ```bash
 nvm install
-npm install
-
-npx npm-force-resolutions
+yarn
 ```
 
 - build it in watch mode
 
 ```bash
-npm run build -- --watch
+yarn build --watch
 ```
 
 - you can now use the cli after configuring your .env
@@ -40,5 +42,13 @@ npm run build -- --watch
 ## run visual regression tests
 
 ```bash
-npm run wdio
+yarnd wdio
+```
+
+## house-keeping
+
+- format the code
+
+```bash
+yarn format
 ```
