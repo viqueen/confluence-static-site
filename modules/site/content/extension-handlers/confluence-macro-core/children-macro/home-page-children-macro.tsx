@@ -11,7 +11,6 @@ import {
 } from '../../../../../external/confluence-api/types';
 
 import './home-page-children-macro.css';
-import { LinkItem } from '@atlaskit/side-navigation';
 
 type ChildrenMacroProps = {
     parent?: string;
