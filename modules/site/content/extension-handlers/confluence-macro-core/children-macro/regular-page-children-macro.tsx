@@ -3,17 +3,23 @@ import React, { useEffect, useState } from 'react';
 import Spinner from '@atlaskit/spinner';
 import axios from 'axios';
 
-import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
-import { Content, Identifier } from '../../../../external/confluence-api/types';
+import { titleToPath } from '../../../../../external/confluence-api/helpers/title-to-path';
+import {
+    Content,
+    Identifier
+} from '../../../../../external/confluence-api/types';
 
 type ChildrenMacroProps = {
     parent?: string;
     content: Content;
 };
 
-export const ChildrenMacro = ({ parent, content }: ChildrenMacroProps) => {
+export const RegularPageChildrenMacro = ({
+    parent,
+    content
+}: ChildrenMacroProps) => {
     const [loading, setLoading] = useState(true);
-    const [childPages, setChildPages]: any = useState<Identifier[]>([]);
+    const [childPages, setChildPages] = useState<Identifier[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
