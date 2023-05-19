@@ -7,7 +7,13 @@
 - with **npm**
 
 ```bash
-npm install confluence-static-site-builder --save-dev
+npm install confluence-static-site --save-dev
+```
+
+- with **yarn**
+
+```bash
+yarn add confluence-static-site -D
 ```
 
 ### configure your site
