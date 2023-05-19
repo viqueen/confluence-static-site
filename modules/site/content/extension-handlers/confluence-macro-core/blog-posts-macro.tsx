@@ -24,7 +24,9 @@ const unescapeExcerpt = (excerpt: string) => {
 };
 
 const BlogPostItemCover = ({ content }: { content: Content }) => {
-    if (!content.cover) return <></>;
+    if (!content.cover) {
+        return <div className="blog-post-item-default-cover"></div>;
+    }
     const { fileId } = content.cover;
     return (
         <img src={`/attachments/${fileId}`} className="blog-post-item-cover" />

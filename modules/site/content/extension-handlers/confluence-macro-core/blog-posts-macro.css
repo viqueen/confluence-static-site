@@ -25,6 +25,13 @@
   object-fit: cover;
 }
 
+.blog-post-item-default-cover {
+  background: linear-gradient(rgb(234, 230, 255), rgb(64, 50, 148));
+  height: 5rem;
+  width: 100%;
+  object-fit: cover;
+}
+
 .blog-pot-item .excerpt {
   margin-top: 1rem;
 }
