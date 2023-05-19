@@ -10,7 +10,6 @@ import { Content } from '../../../external/confluence-api/types';
 import { extractAssets } from './extract-assets';
 import { extractAttachments } from './extract-attachments';
 import { extractObjects } from './extract-objects';
-import { generateAttachmentsThumbnails } from './generate-attachments-thumbnails';
 import { saveContentData } from './save-content-data';
 import { StaticWrapper } from './static-wrapper';
 
