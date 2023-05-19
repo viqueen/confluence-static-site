@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import BookIcon from '@atlaskit/icon/glyph/book';
+import PageIcon from '@atlaskit/icon/glyph/page';
+import QueueIcon from '@atlaskit/icon/glyph/queues';
+import QuoteIcon from '@atlaskit/icon/glyph/quote';
+import Story24Icon from '@atlaskit/icon-object/glyph/story/24';
 import {
     Header,
     LinkItem,
@@ -8,14 +12,11 @@ import {
     Section,
     SideNavigation
 } from '@atlaskit/side-navigation';
-import QueueIcon from '@atlaskit/icon/glyph/queues';
-import QuoteIcon from '@atlaskit/icon/glyph/quote';
-import { siteProperties } from './site-properties';
-import Story24Icon from '@atlaskit/icon-object/glyph/story/24';
-import axios from 'axios';
 import Spinner from '@atlaskit/spinner';
-import PageIcon from '@atlaskit/icon/glyph/page';
-import BookIcon from '@atlaskit/icon/glyph/book';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+
+import { siteProperties } from './site-properties';
 
 type NavigationItem = {
     href: string;

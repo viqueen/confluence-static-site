@@ -1,7 +1,8 @@
-import { scrubAdf } from '@atlaskit/adf-utils/scrub';
-import { ADFEntity } from '@atlaskit/adf-utils/types';
-import { rewriteUrl } from './helpers/rewrite-url';
 import { extension } from '@atlaskit/adf-utils/builders';
+import { scrubAdf } from '@atlaskit/adf-utils/scrub';
+import type { ADFEntity } from '@atlaskit/adf-utils/types';
+
+import { rewriteUrl } from './helpers/rewrite-url';
 
 const identityProcessor = (node: ADFEntity) => {
     return node;

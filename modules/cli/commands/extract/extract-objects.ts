@@ -1,11 +1,13 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { Content } from '../../../external/confluence-api/types';
-import { Output } from '../../../configuration/types';
+
 import { filter } from '@atlaskit/adf-utils/traverse';
-import { rewriteUrl } from '../../../external/confluence-api/helpers/rewrite-url';
+
+import { Output } from '../../../configuration/types';
 import { confluenceApi } from '../../../external/confluence-api';
+import { rewriteUrl } from '../../../external/confluence-api/helpers/rewrite-url';
+import { Content } from '../../../external/confluence-api/types';
 
 export const extractObjects = async (content: Content, output: Output) => {
     const inlineCards = filter(

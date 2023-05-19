@@ -1,5 +1,6 @@
-import { configuration } from '../../../../configuration';
 import React from 'react';
+
+import { configuration } from '../../../../configuration';
 
 export const withGoogleAnalytics = () => {
     if (!configuration.GOOGLE_ANALYTICS_TRACKING_ID) return <></>;

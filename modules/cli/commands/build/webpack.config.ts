@@ -1,10 +1,13 @@
-import { Configuration, DefinePlugin } from 'webpack';
+import * as fs from 'fs';
 import path from 'path';
+
+// eslint-disable-next-line import/default
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { listFiles } from 'fs-directory';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { Configuration, DefinePlugin } from 'webpack';
+
 import { SiteProperties } from '../../../configuration/types';
-import * as fs from 'fs';
 
 const isDev = process.env.NODE_ENV === 'development';
 

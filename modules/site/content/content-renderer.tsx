@@ -1,12 +1,14 @@
+import { ReactRenderer } from '@atlaskit/renderer';
+import { Provider } from '@atlaskit/smart-card';
 import React from 'react';
 import { IntlProvider } from 'react-intl-next';
+
 import { Content } from '../../external/confluence-api/types';
-import { Provider } from '@atlaskit/smart-card';
-import { SimpleCardClient } from './simple-card-client';
-import { ReactRenderer } from '@atlaskit/renderer';
+
 import { dataProviders } from './data-providers';
 import { extensionHandlers } from './extension-handlers';
 import { MediaViewerProvider } from './media-viewer-provider';
+import { SimpleCardClient } from './simple-card-client';
 
 type ContentRendererProps = {
     content: Content;

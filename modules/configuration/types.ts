@@ -1,4 +1,4 @@
-import { GenerateThemeArgs } from '@atlaskit/atlassian-navigation';
+import type { GenerateThemeArgs } from '@atlaskit/atlassian-navigation';
 
 export type Configuration = {
     CONFLUENCE_SITE_NAME: string;

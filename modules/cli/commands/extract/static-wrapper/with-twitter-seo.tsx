@@ -1,6 +1,7 @@
 import React from 'react';
-import { Content } from '../../../../external/confluence-api/types';
+
 import { configuration } from '../../../../configuration';
+import { Content } from '../../../../external/confluence-api/types';
 
 export const withTwitterSeo = (content: Content) => {
     const withImage = () => {

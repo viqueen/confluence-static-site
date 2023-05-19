@@ -1,7 +1,3 @@
-import { hydrateRoot, createRoot } from 'react-dom/client';
-import React from 'react';
-import { fontFamily } from '@atlaskit/theme';
-import { SiteContent } from './site-content';
 import {
     PageLayout,
     TopNavigation,
@@ -9,8 +5,13 @@ import {
     Main,
     LeftSidebar
 } from '@atlaskit/page-layout';
-import { SiteTopNavigation } from './site-top-navigation';
+import { fontFamily } from '@atlaskit/theme';
+import React from 'react';
+import { hydrateRoot, createRoot } from 'react-dom/client';
+
+import { SiteContent } from './site-content';
 import { SiteLeftNavigation } from './site-left-navigation';
+import { SiteTopNavigation } from './site-top-navigation';
 
 const StaticSite = () => {
     return (
@@ -32,9 +33,11 @@ const StaticSite = () => {
     );
 };
 
-const rootContainer = document.querySelector('#root')!;
-if (rootContainer.hasChildNodes()) {
-    hydrateRoot(rootContainer, <StaticSite />);
-} else {
-    createRoot(rootContainer).render(<StaticSite />);
+const rootContainer = document.querySelector('#root');
+if (rootContainer) {
+    if (rootContainer.hasChildNodes()) {
+        hydrateRoot(rootContainer, <StaticSite />);
+    } else {
+        createRoot(rootContainer).render(<StaticSite />);
+    }
 }

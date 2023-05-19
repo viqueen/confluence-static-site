@@ -1,4 +1,4 @@
-name: confluence-static-site-builder Test
+name: confluence-static-site Test
 on:
   push:
     branches:
@@ -16,6 +16,7 @@ jobs:
           cache: "npm"
       - run: yarn
       - run: yarn build
+      - run: yarn lint
       - run: yarn format:check
       - run: yarn wdio
         env:

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 import Spinner from '@atlaskit/spinner';
-import { Content } from '../external/confluence-api/types';
 import axios from 'axios';
-import { ContentRenderer } from './content/content-renderer';
+import React, { useEffect, useState } from 'react';
+
+import { Content } from '../external/confluence-api/types';
 
 import { ContentAncestors } from './content/content-ancestors';
-import { ContentHeader } from './content/content-header';
 import { ContentByLine } from './content/content-byline';
 import { ContentCover } from './content/content-cover';
-
+import { ContentHeader } from './content/content-header';
+import { ContentRenderer } from './content/content-renderer';
 import './site-content.css';
 import { siteProperties } from './site-properties';
 

@@ -1,5 +1,6 @@
 import { Compiler, webpack } from 'webpack';
 import Server from 'webpack-dev-server';
+
 import { webpackConfig } from './webpack.config';
 
 const runDevServer = async (

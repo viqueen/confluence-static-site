@@ -1,8 +1,11 @@
-import { Attachment } from '../../../external/confluence-api/types';
+/* eslint-disable import/no-unresolved */
+import noop from 'lodash/noop';
 import React, { useCallback, useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+
+import { Attachment } from '../../../external/confluence-api/types';
 import 'yet-another-react-lightbox/styles.css';
 
 type MediaViewerContextInfo = {
@@ -10,7 +13,7 @@ type MediaViewerContextInfo = {
 };
 
 const MediaViewerContext = React.createContext<MediaViewerContextInfo>({
-    openMediaViewer: (_fileId: string) => {}
+    openMediaViewer: (_fileId: string) => noop()
 });
 
 const MediaViewerProvider = ({

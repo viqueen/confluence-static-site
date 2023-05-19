@@ -1,8 +1,10 @@
-import { configuration } from '../../../configuration';
-import axios from 'axios';
-import { Output } from '../../../configuration/types';
-import path from 'path';
 import * as fs from 'fs';
+import path from 'path';
+
+import axios from 'axios';
+
+import { configuration } from '../../../configuration';
+import { Output } from '../../../configuration/types';
 
 export const extractSiteEmojis = async (
     output: Output,

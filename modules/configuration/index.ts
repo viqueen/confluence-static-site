@@ -1,7 +1,9 @@
-import dotenv from 'dotenv';
-import { Configuration, Output } from './types';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
+
+import dotenv from 'dotenv';
+
+import { Configuration, Output } from './types';
 
 const parsedConfig: unknown = dotenv.config().parsed || {};
 const configuration = parsedConfig as Configuration;

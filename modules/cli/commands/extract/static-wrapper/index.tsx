@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { Content } from '../../../../external/confluence-api/types';
+
 import { withGoogleAnalytics } from './with-google-analytics';
-import { withTwitterSeo } from './with-twitter-seo';
 import { withOpenGraphSeo } from './with-open-graph-seo';
+import { withTwitterSeo } from './with-twitter-seo';
 
 export const StaticWrapper = (content: Content) => {
     return (

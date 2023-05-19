@@ -1,14 +1,17 @@
-import axios from 'axios';
-import qs from 'querystring';
-import express from 'express';
-import * as path from 'path';
-import * as os from 'os';
+import * as crypto from 'crypto';
 import * as fs from 'fs';
 import * as http from 'http';
-import * as crypto from 'crypto';
+import * as os from 'os';
+import * as path from 'path';
+import qs from 'querystring';
+
+import axios from 'axios';
+import express from 'express';
 import open from 'open';
-import { scopes } from './scopes';
+
 import { configuration } from '../configuration';
+
+import { scopes } from './scopes';
 
 type CliOauthClientProps = {
     name: string;

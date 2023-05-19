@@ -1,7 +1,9 @@
-import { Client, ResolveResponse } from '@atlaskit/smart-card';
-import { JsonLd } from 'json-ld-types';
 import crypto from 'crypto';
+
+import { Client } from '@atlaskit/smart-card';
+import type { ResolveResponse } from '@atlaskit/smart-card';
 import axios from 'axios';
+import { JsonLd } from 'json-ld-types';
 
 export class SimpleCardClient extends Client {
     async fetchData(url: string): Promise<JsonLd.Response> {

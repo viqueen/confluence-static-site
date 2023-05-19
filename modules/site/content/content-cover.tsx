@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Content } from '../../external/confluence-api/types';
 
 type ContentCoverProps = {

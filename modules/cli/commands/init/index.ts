@@ -1,6 +1,7 @@
-import { start, get } from 'prompt';
-import path from 'path';
 import * as fs from 'fs';
+import path from 'path';
+
+import { start, get } from 'prompt';
 
 export const init = async () => {
     const properties = [

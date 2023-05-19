@@ -1,5 +1,5 @@
 import { ProviderFactory } from '@atlaskit/editor-common/provider-factory';
-import {
+import type {
     EmojiId,
     EmojiProvider,
     OptionalEmojiDescriptionWithVariations

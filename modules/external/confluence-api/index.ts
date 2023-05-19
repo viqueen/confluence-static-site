@@ -1,4 +1,11 @@
-import axios, { AxiosInstance } from 'axios';
+import * as crypto from 'crypto';
+
+import axios from 'axios';
+import type { AxiosInstance } from 'axios';
+
+import { configuration } from '../../configuration';
+import { axiosErrorHandler } from '../helpers';
+
 import {
     Attachment,
     AttachmentData,
@@ -7,9 +14,6 @@ import {
     ResourceDefinition,
     ResourceObject
 } from './types';
-import * as crypto from 'crypto';
-import { configuration } from '../../configuration';
-import { axiosErrorHandler } from '../helpers';
 
 class ConfluenceApi {
     private readonly client: AxiosInstance;
@@ -176,7 +180,7 @@ class ConfluenceApi {
 
     async getAttachmentData(
         targetUrl: string,
-        prefix: string = '/wiki'
+        prefix = '/wiki'
     ): Promise<AttachmentData> {
         const { data } = await this.client
             .get(`${prefix}${targetUrl}`, {

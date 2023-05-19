@@ -1,9 +1,10 @@
-import React from 'react';
 import Avatar from '@atlaskit/avatar';
-import { colorPalette } from '@atlaskit/theme/color-palettes';
-import { Date } from '@atlaskit/date';
-import { Content } from '../../external/confluence-api/types';
 import Button from '@atlaskit/button';
+import { Date } from '@atlaskit/date';
+import { colorPalette } from '@atlaskit/theme/color-palettes';
+import React from 'react';
+
+import { Content } from '../../external/confluence-api/types';
 
 type ContentBylineProps = {
     content: Content;

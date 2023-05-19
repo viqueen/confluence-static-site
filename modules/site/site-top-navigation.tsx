@@ -1,10 +1,11 @@
-import React from 'react';
 import {
     AtlassianNavigation,
     CustomProductHome,
     generateTheme,
     PrimaryButton
 } from '@atlaskit/atlassian-navigation';
+import React from 'react';
+
 import { siteProperties } from './site-properties';
 
 const theme = generateTheme(siteProperties.theme);

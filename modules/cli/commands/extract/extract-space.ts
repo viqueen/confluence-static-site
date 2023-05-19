@@ -1,10 +1,12 @@
-import { extractPageTree } from './extract-page-tree';
-import { extractBlogs } from './extract-blogs';
+import fs from 'fs';
+import path from 'path';
+
 import { Output } from '../../../configuration/types';
 import { confluenceApi } from '../../../external/confluence-api';
 import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
-import fs from 'fs';
-import path from 'path';
+
+import { extractBlogs } from './extract-blogs';
+import { extractPageTree } from './extract-page-tree';
 
 export const extractSpace = async (
     spaceKey: string,

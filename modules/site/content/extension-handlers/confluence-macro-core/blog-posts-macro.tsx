@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Avatar from '@atlaskit/avatar';
+import { Date } from '@atlaskit/date';
 import Spinner from '@atlaskit/spinner';
-import { Content } from '../../../../external/confluence-api/types';
+import { colorPalette } from '@atlaskit/theme/color-palettes';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+
 import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
+import { Content } from '../../../../external/confluence-api/types';
 
 import './blog-posts-macro.css';
-import Avatar from '@atlaskit/avatar';
-import { colorPalette } from '@atlaskit/theme/color-palettes';
-import { Date } from '@atlaskit/date';
 
 const unescapeExcerpt = (excerpt: string) => {
     return excerpt.replace(

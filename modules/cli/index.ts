@@ -1,19 +1,22 @@
 #! /usr/bin/env node
 
-import { Command } from 'commander';
-import * as path from 'path';
-import { initOutput } from '../configuration';
-import { extractBlogs, extractSpace } from './commands/extract';
-import { webpackBuild } from './commands/build/webpack.build';
-import { confluenceApi } from '../external/confluence-api';
-import { extractContent } from './commands/extract/extract-content';
-import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
-import { cliOauthClient } from '../cli-oauth-client';
-import { atlassianApi } from '../external/atlassian-api';
 import * as fs from 'fs';
-import { init } from './commands/init';
+import * as path from 'path';
+
+import { Command } from 'commander';
+
+import { cliOauthClient } from '../cli-oauth-client';
+import { initOutput } from '../configuration';
+import { atlassianApi } from '../external/atlassian-api';
+import { confluenceApi } from '../external/confluence-api';
+
+import { webpackBuild } from './commands/build/webpack.build';
 import { defaultSiteProperties } from './commands/build/webpack.config';
+import { extractBlogs, extractSpace } from './commands/extract';
+import { extractContent } from './commands/extract/extract-content';
 import { extractPageTree } from './commands/extract/extract-page-tree';
+import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
+import { init } from './commands/init';
 
 const program = new Command();
 
@@ -123,5 +126,6 @@ program
         fs.appendFileSync(envFile, `CONFLUENCE_SITE_ID=${site.id}`);
     });
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 program.version(require('../../package.json').version);
 program.parse(process.argv);
