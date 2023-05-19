@@ -28,31 +28,30 @@ const BlogPostItem = ({ content }: { content: Content }) => {
             <a href={`/articles/${titleToPath(content.identifier.title)}/`}>
                 {content.identifier.title}
             </a>
-            <Avatar
-                appearance="circle"
-                src={`/assets/avatars/${content.author.id}-avatar`}
-            />
-            <div
-                style={{
-                    color: colorPalette('24')[16].background,
-                    display: 'inline-block',
-                    marginLeft: 5
-                }}
-            >
-                <div>by {content.author.title}</div>
-                <div style={{ display: 'inline-block' }}>
-                    on{' '}
-                    <Date
-                        value={content.createdDate}
-                        color="blue"
-                        format="MMMM do y"
-                    />
+            <div className="excerpt">{unescapeExcerpt(content.excerpt)}</div>
+            <div className="by-line">
+                <Avatar
+                    appearance="circle"
+                    src={`/assets/avatars/${content.author.id}-avatar`}
+                />
+                <div
+                    style={{
+                        color: colorPalette('24')[16].background,
+                        display: 'inline-block',
+                        marginLeft: 5
+                    }}
+                >
+                    <div>{content.author.title}</div>
+                    <div style={{ display: 'inline-block' }}>
+                        on{' '}
+                        <Date
+                            value={content.createdDate}
+                            color="blue"
+                            format="MMMM do y"
+                        />
+                    </div>
                 </div>
             </div>
-            <div style={{ marginTop: 20 }}>
-                {unescapeExcerpt(content.excerpt)}
-            </div>
-            <hr />
         </div>
     );
 };
@@ -77,7 +76,7 @@ export const BlogPostsMacro = () => {
         <div>
             {loading && <Spinner size="large" />}
             {!loading && articles.length > 0 && (
-                <div>
+                <div className="blog-posts">
                     {articles.map((item: Content, index: number) => {
                         return <BlogPostItem content={item} key={index} />;
                     })}
