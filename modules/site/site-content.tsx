@@ -42,8 +42,8 @@ export const SiteContent = () => {
                 <div className="site-content">
                     {content.asHomepage && <div className="homepage" />}
                     <ContentAncestors content={content} />
+                    <ContentCover content={content} />
                     <Grid layout="fluid">
-                        <ContentCover content={content} />
                         <GridColumn medium={12}>
                             <ContentHeader content={content} />
                         </GridColumn>

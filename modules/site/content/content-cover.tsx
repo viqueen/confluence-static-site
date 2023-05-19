@@ -13,7 +13,7 @@ export const ContentCover = ({ content }: ContentCoverProps) => {
         <img
             src={`/attachments/${fileId}`}
             style={{
-                height: 300,
+                height: '28rem',
                 objectFit: 'cover',
                 width: '100%',
                 display: 'flex'
