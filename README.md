@@ -14,6 +14,7 @@ npm install confluence-static-site-builder --save-dev
 
 ```bash
 ./node_modules/.bin/confsite env
+./node_modules/.bin/confsite init-site <name>
 ```
 
 it creates a `.env` file with the following properties
@@ -48,6 +49,7 @@ it creates a `.confluence-static-site.json` file with the following configuratio
 
 ```bash
 ./node_modules/.bin/confsite extract <spaceKey>
+./node_modules/.bin/confsite extract-emojis <spaceKey>
 ```
 
 ### build your site

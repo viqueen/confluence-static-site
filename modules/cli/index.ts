@@ -123,7 +123,7 @@ program
         const { data } = await atlassian.accessibleResources();
         const site = data.find((i: any) => i.name === name);
         const envFile = path.resolve(process.cwd(), '.env');
-        fs.appendFileSync(envFile, `CONFLUENCE_SITE_ID=${site.id}`);
+        fs.appendFileSync(envFile, `\nCONFLUENCE_SITE_ID=${site.id}`);
     });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
