@@ -1,5 +1,6 @@
+import type { ExtensionParams } from '@atlaskit/editor-common/extensions';
 import React from 'react';
-import { ExtensionParams } from '@atlaskit/editor-common/extensions';
+
 import { MediaFile } from './media-file';
 
 export const viqueenMedia = (ext: ExtensionParams<any>) => {
@@ -13,7 +14,14 @@ export const viqueenMedia = (ext: ExtensionParams<any>) => {
     }
     const layout = ext.parameters.layout;
     const attrs = ext.parameters.data[0].attrs;
+    const width = ext.parameters.width;
+    console.info('**', { layout, attrs, width });
     return (
-        <MediaFile fileId={attrs.id} height={attrs.height} layout={layout} />
+        <MediaFile
+            fileId={attrs.id}
+            width={width}
+            height={attrs.height}
+            layout={layout}
+        />
     );
 };

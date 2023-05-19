@@ -41,18 +41,16 @@ export const SiteContent = () => {
                 <div className="site-content">
                     {content.asHomepage && <div className="homepage" />}
                     <ContentAncestors content={content} />
-                    <Page>
-                        <Grid layout="fixed">
-                            <ContentCover content={content} />
-                            <GridColumn medium={12}>
-                                <ContentHeader content={content} />
-                            </GridColumn>
-                            <GridColumn medium={12}>
-                                <ContentByLine content={content} />
-                                <ContentRenderer content={content} />
-                            </GridColumn>
-                        </Grid>
-                    </Page>
+                    <Grid layout="fluid">
+                        <ContentCover content={content} />
+                        <GridColumn medium={12}>
+                            <ContentHeader content={content} />
+                        </GridColumn>
+                        <GridColumn medium={12}>
+                            <ContentByLine content={content} />
+                            <ContentRenderer content={content} />
+                        </GridColumn>
+                    </Grid>
                 </div>
             )}
         </>
