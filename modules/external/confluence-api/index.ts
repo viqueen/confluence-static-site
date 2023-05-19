@@ -39,7 +39,7 @@ class ConfluenceApi {
     async getSpaceBlogs(spaceKey: string): Promise<Content[]> {
         const query = new URLSearchParams({
             cql: `space=${spaceKey} and type=blogpost order by created desc`,
-            expand: 'content.history'
+            expand: 'content.history,content.metadata.labels,content.children.attachment.metadata.labels'
         });
         const { data } = await this.client
             .get(`/wiki/rest/api/search?${query.toString()}`)
@@ -47,13 +47,27 @@ class ConfluenceApi {
         const { results } = data;
         return results.map((item: any) => {
             const { content, excerpt } = item;
-            const { id, title, type, history } = content;
+            const { id, title, type, history, children } = content;
             const { createdBy, createdDate } = history;
             const createdAt = new Date(createdDate);
+
+            const files = children.attachment?.results || [];
+            const attachments = files.map(
+                ({ extensions, _links, metadata: fileMetadata }: any) => ({
+                    fileId: extensions.fileId,
+                    downloadUrl: _links.download,
+                    mediaType: extensions.mediaType,
+                    isCover: fileMetadata.labels.results.some(
+                        (i: any) => i.name === 'cover'
+                    )
+                })
+            );
+            const cover = attachments.find((a: Attachment) => a.isCover);
             return {
                 identifier: { id, title },
                 type,
                 excerpt,
+                cover,
                 author: {
                     id: createdBy.publicName,
                     title: createdBy.displayName

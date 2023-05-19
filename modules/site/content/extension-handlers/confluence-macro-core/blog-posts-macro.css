@@ -5,11 +5,24 @@
 
 .blog-post-item {
   margin: 1rem;
-  padding: 1rem;
-  box-shadow: var(--ds-shadow-overlay,0 4px 8px -2px rgba(9,30,66,0.25),0 0 1px rgba(9,30,66,0.31));
+  box-shadow: var(
+    --ds-shadow-overlay,
+    0 4px 8px -2px rgba(9, 30, 66, 0.25),
+    0 0 1px rgba(9, 30, 66, 0.31)
+  );
   border-radius: 5px;
   max-width: 25rem;
   width: 25rem;
+}
+
+.blog-post-item-content {
+  padding: 1rem;
+}
+
+.blog-post-item-cover {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
 }
 
 .blog-pot-item .excerpt {

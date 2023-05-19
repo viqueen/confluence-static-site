@@ -22,33 +22,46 @@ const unescapeExcerpt = (excerpt: string) => {
     );
 };
 
+const BlogPostItemCover = ({ content }: { content: Content }) => {
+    if (!content.cover) return <></>;
+    const { fileId } = content.cover;
+    return (
+        <img src={`/attachments/${fileId}`} className="blog-post-item-cover" />
+    );
+};
+
 const BlogPostItem = ({ content }: { content: Content }) => {
     return (
         <div className="blog-post-item">
-            <a href={`/articles/${titleToPath(content.identifier.title)}/`}>
-                {content.identifier.title}
-            </a>
-            <div className="excerpt">{unescapeExcerpt(content.excerpt)}</div>
-            <div className="by-line">
-                <Avatar
-                    appearance="circle"
-                    src={`/assets/avatars/${content.author.id}-avatar`}
-                />
-                <div
-                    style={{
-                        color: colorPalette('24')[16].background,
-                        display: 'inline-block',
-                        marginLeft: 5
-                    }}
-                >
-                    <div>{content.author.title}</div>
-                    <div style={{ display: 'inline-block' }}>
-                        on{' '}
-                        <Date
-                            value={content.createdDate}
-                            color="blue"
-                            format="MMMM do y"
-                        />
+            <BlogPostItemCover content={content} />
+            <div className="blog-post-item-content">
+                <a href={`/articles/${titleToPath(content.identifier.title)}/`}>
+                    {content.identifier.title}
+                </a>
+                <div className="excerpt">
+                    {unescapeExcerpt(content.excerpt)}
+                </div>
+                <div className="by-line">
+                    <Avatar
+                        appearance="circle"
+                        src={`/assets/avatars/${content.author.id}-avatar`}
+                    />
+                    <div
+                        style={{
+                            color: colorPalette('24')[16].background,
+                            display: 'inline-block',
+                            marginLeft: 5
+                        }}
+                    >
+                        <div>{content.author.title}</div>
+                        <div style={{ display: 'inline-block' }}>
+                            on{' '}
+                            <Date
+                                value={content.createdDate}
+                                color="blue"
+                                format="MMMM do y"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
