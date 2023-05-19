@@ -1,6 +1,7 @@
-import type { Options } from '@wdio/types';
 import { ChildProcess, spawn } from 'child_process';
 import * as path from 'path';
+
+import type { Options } from '@wdio/types';
 
 const testEnvironment = process.env.TEST_ENVIRONMENT ?? 'local';
 
@@ -61,7 +62,7 @@ export const config: Options.Testrunner = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onPrepare: function (config, capabilities) {
+    onPrepare: function (_config, _capabilities) {
         testServerProcess = spawn(
             `node`,
             [
@@ -76,5 +77,14 @@ export const config: Options.Testrunner = {
                 shell: false
             }
         );
+    },
+
+    onComplete(
+        _exitCode: number,
+        _config: Omit<Options.Testrunner, 'capabilities'>,
+        _capabilities,
+        _results: any
+    ): unknown | Promise<unknown> {
+        return testServerProcess.kill();
     }
 };
