@@ -7,6 +7,7 @@ import { titleToPath } from '../../../external/confluence-api/helpers/title-to-p
 
 import { extractBlogs } from './extract-blogs';
 import { extractPageTree } from './extract-page-tree';
+import { generateAttachmentsThumbnails } from './generate-attachments-thumbnails';
 
 export const extractSpace = async (
     spaceKey: string,
@@ -22,6 +23,8 @@ export const extractSpace = async (
         asHomepage: true
     });
     const blogs = await extractBlogs(spaceKey, output, options);
+
+    await generateAttachmentsThumbnails(output, options);
 
     const notes = homepage.childPages?.map(({ title, emoji }) => ({
         href: `/notes/${titleToPath(title)}/`,

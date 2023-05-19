@@ -12,7 +12,11 @@ import { confluenceApi } from '../external/confluence-api';
 
 import { webpackBuild } from './commands/build/webpack.build';
 import { defaultSiteProperties } from './commands/build/webpack.config';
-import { extractBlogs, extractSpace } from './commands/extract';
+import {
+    extractBlogs,
+    extractSpace,
+    generateAttachmentsThumbnails
+} from './commands/extract';
 import { extractContent } from './commands/extract/extract-content';
 import { extractPageTree } from './commands/extract/extract-page-tree';
 import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
@@ -38,6 +42,16 @@ program
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
         await extractBlogs(spaceKey, output);
+    });
+
+program
+    .command('generate-thumbnails <spaceKey>')
+    .description('generate attachment thumbnails for a confluence space')
+    .option('--force', 'enforce generating thumbnails', false)
+    .action(async (spaceKey: string, options) => {
+        const destination = path.resolve(process.cwd(), 'output');
+        const output = initOutput({ spaceKey, destination });
+        await generateAttachmentsThumbnails(output, options);
     });
 
 program
