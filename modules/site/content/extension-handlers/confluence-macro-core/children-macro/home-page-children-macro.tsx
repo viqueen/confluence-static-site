@@ -31,7 +31,7 @@ const HomePageChildItem = ({
     ) : (
         <LabelIcon label="topic" />
     );
-    const href = `/notes/${titleToPath(title)}`;
+    const href = `/notes/${titleToPath(title)}/`;
     return (
         <div className="home-page-child-item">
             {iconBefore}
