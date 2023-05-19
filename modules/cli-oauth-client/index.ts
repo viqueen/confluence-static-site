@@ -63,7 +63,7 @@ class CliOauthClient {
         });
     }
 
-    private _storeToken(payload: any) {
+    private _storeToken(payload: object) {
         const target = path.join(os.homedir(), '.oauth', this.props.name);
         fs.mkdirSync(target, { recursive: true });
         fs.writeFileSync(

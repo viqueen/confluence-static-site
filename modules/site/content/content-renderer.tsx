@@ -1,7 +1,8 @@
-import { ReactRenderer } from '@atlaskit/renderer';
-import { Provider } from '@atlaskit/smart-card';
 import React from 'react';
 import { IntlProvider } from 'react-intl-next';
+
+import { ReactRenderer } from '@atlaskit/renderer';
+import { Provider } from '@atlaskit/smart-card';
 
 import { Content } from '../../external/confluence-api/types';
 

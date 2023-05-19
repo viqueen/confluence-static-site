@@ -7,7 +7,7 @@ import { Command } from 'commander';
 
 import { cliOauthClient } from '../cli-oauth-client';
 import { initOutput } from '../configuration';
-import { atlassianApi } from '../external/atlassian-api';
+import { AccessibleResource, atlassianApi } from '../external/atlassian-api';
 import { confluenceApi } from '../external/confluence-api';
 
 import { webpackBuild } from './commands/build/webpack.build';
@@ -121,9 +121,11 @@ program
     .action(async (name: string) => {
         const atlassian = await atlassianApi();
         const { data } = await atlassian.accessibleResources();
-        const site = data.find((i: any) => i.name === name);
-        const envFile = path.resolve(process.cwd(), '.env');
-        fs.appendFileSync(envFile, `\nCONFLUENCE_SITE_ID=${site.id}`);
+        const site = data.find((i: AccessibleResource) => i.name === name);
+        if (site) {
+            const envFile = path.resolve(process.cwd(), '.env');
+            fs.appendFileSync(envFile, `\nCONFLUENCE_SITE_ID=${site.id}`);
+        }
     });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

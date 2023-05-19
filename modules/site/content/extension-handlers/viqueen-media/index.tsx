@@ -1,9 +1,13 @@
-import type { ExtensionParams } from '@atlaskit/editor-common/extensions';
 import React from 'react';
+
+import type {
+    ExtensionParams,
+    Parameters
+} from '@atlaskit/editor-common/extensions';
 
 import { MediaFile } from './media-file';
 
-export const viqueenMedia = (ext: ExtensionParams<any>) => {
+export const viqueenMedia = (ext: ExtensionParams<Parameters>) => {
     if (ext.extensionKey !== 'file') {
         console.warn(
             '** missing media extension handler',
@@ -12,10 +16,9 @@ export const viqueenMedia = (ext: ExtensionParams<any>) => {
         );
         return null;
     }
-    const layout = ext.parameters.layout;
-    const attrs = ext.parameters.data[0].attrs;
-    const width = ext.parameters.width;
-    console.info('**', { layout, attrs, width });
+    const layout = ext.parameters?.layout;
+    const attrs = ext.parameters?.data[0].attrs;
+    const width = ext.parameters?.width;
     return (
         <MediaFile
             fileId={attrs.id}

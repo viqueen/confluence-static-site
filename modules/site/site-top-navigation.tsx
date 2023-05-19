@@ -1,10 +1,11 @@
+import React from 'react';
+
 import {
     AtlassianNavigation,
     CustomProductHome,
     generateTheme,
     PrimaryButton
 } from '@atlaskit/atlassian-navigation';
-import React from 'react';
 
 import { siteProperties } from './site-properties';
 
@@ -35,7 +36,7 @@ export const SiteTopNavigation = () => {
     return (
         <AtlassianNavigation
             label="viqueen.org"
-            primaryItems={[<HomeLink />]}
+            primaryItems={[<HomeLink key={0} />]}
             renderProductHome={Home}
             theme={theme}
         />

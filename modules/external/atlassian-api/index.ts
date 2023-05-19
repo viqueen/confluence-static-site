@@ -4,6 +4,11 @@ import type { AxiosInstance } from 'axios';
 import { cliOauthClient } from '../../cli-oauth-client';
 import { axiosErrorHandler } from '../helpers';
 
+export interface AccessibleResource {
+    id: string;
+    name: string;
+}
+
 class AtlassianApi {
     private readonly client: AxiosInstance;
 
@@ -18,7 +23,7 @@ class AtlassianApi {
 
     async accessibleResources() {
         return this.client
-            .get(`/oauth/token/accessible-resources`)
+            .get<AccessibleResource[]>(`/oauth/token/accessible-resources`)
             .catch(axiosErrorHandler);
     }
 }

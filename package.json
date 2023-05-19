@@ -9,7 +9,7 @@
     "build": "tsc",
     "postbuild": "./postbuild.js",
     "postinstall": "./postinstall.js",
-    "lint": "eslint modules/ --ext .ts,.js",
+    "lint": "eslint modules/ --ext .ts,.tsx,.js",
     "format:check": "prettier --check .",
     "format": "prettier --check --write .",
     "wdio": "wdio run wdio.conf.ts"
@@ -47,6 +47,7 @@
     "@wdio/spec-reporter": "^8.4.0",
     "eslint": "^8.40.0",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.4",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",

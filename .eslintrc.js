@@ -9,12 +9,13 @@ module.exports = {
             modules: true,
         },
     },
-    plugins: ['@typescript-eslint', 'import'],
+    plugins: ['@typescript-eslint', 'import', 'react'],
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:import/recommended',
+        'plugin:react/recommended',
     ],
     env: {
         browser: true,
@@ -36,6 +37,13 @@ module.exports = {
                     caseInsensitive: true,
                 },
                 pathGroupsExcludedImportTypes: ['builtin'],
+                pathGroups: [
+                    {
+                        pattern: '{react,react-*}',
+                        group: 'external',
+                        position: 'before',
+                    },
+                ],
             },
         ],
     },

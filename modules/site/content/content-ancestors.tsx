@@ -1,5 +1,6 @@
-import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
 import React from 'react';
+
+import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
 
 import { titleToPath } from '../../external/confluence-api/helpers/title-to-path';
 import { Content, Identifier } from '../../external/confluence-api/types';

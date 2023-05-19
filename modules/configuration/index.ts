@@ -8,7 +8,7 @@ import { Configuration, Output } from './types';
 const parsedConfig: unknown = dotenv.config().parsed || {};
 const configuration = parsedConfig as Configuration;
 
-const makeOutputDirectories = (data: any) => {
+const makeOutputDirectories = (data: object) => {
     for (const dir of Object.values(data)) {
         if (typeof dir === 'string') fs.mkdirSync(dir, { recursive: true });
         else makeOutputDirectories(dir);

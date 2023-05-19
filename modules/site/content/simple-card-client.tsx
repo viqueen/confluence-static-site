@@ -22,7 +22,7 @@ export class SimpleCardClient extends Client {
         } as ResolveResponse;
     }
 
-    async prefetchData(url: string): Promise<JsonLd.Response | undefined> {
+    async prefetchData(_url: string): Promise<JsonLd.Response | undefined> {
         return undefined;
     }
 }

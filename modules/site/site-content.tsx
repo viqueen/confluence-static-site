@@ -1,7 +1,8 @@
-import Page, { Grid, GridColumn } from '@atlaskit/page';
+import React, { useEffect, useState } from 'react';
+
+import { Grid, GridColumn } from '@atlaskit/page';
 import Spinner from '@atlaskit/spinner';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
 
 import { Content } from '../external/confluence-api/types';
 

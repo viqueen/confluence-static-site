@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+
 import BookIcon from '@atlaskit/icon/glyph/book';
 import PageIcon from '@atlaskit/icon/glyph/page';
 import QueueIcon from '@atlaskit/icon/glyph/queues';
@@ -14,7 +16,6 @@ import {
 } from '@atlaskit/side-navigation';
 import Spinner from '@atlaskit/spinner';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
 
 import { siteProperties } from './site-properties';
 

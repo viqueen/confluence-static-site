@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
     PageLayout,
     TopNavigation,
@@ -6,7 +8,6 @@ import {
     LeftSidebar
 } from '@atlaskit/page-layout';
 import { fontFamily } from '@atlaskit/theme';
-import React from 'react';
 import { hydrateRoot, createRoot } from 'react-dom/client';
 
 import { SiteContent } from './site-content';
