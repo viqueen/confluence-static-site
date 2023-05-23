@@ -11,8 +11,9 @@ import { ContentByLine } from './content/content-byline';
 import { ContentCover } from './content/content-cover';
 import { ContentHeader } from './content/content-header';
 import { ContentRenderer } from './content/content-renderer';
-import './site-content.css';
 import { siteProperties } from './site-properties';
+
+import './site-content.css';
 
 export const SiteContent = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -24,11 +25,13 @@ export const SiteContent = () => {
             const { data } = await axios.get('data.json');
             return data;
         };
-        fetchData().then((data) => {
-            document.title = `${siteProperties.name} - ${data.identifier.title}`;
-            setContent(data);
-            setLoading(false);
-        });
+        fetchData()
+            .then((data) => {
+                document.title = `${siteProperties.name} - ${data.identifier.title}`;
+                setContent(data);
+                setLoading(false);
+            })
+            .catch(console.error);
     }, []);
 
     return (

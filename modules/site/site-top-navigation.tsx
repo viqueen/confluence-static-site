@@ -35,7 +35,7 @@ const Home = () => {
 export const SiteTopNavigation = () => {
     return (
         <AtlassianNavigation
-            label="viqueen.org"
+            label="confluence-static-site"
             primaryItems={[<HomeLink key={0} />]}
             renderProductHome={Home}
             theme={theme}

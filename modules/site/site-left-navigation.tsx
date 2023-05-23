@@ -43,7 +43,12 @@ const NavigationLinkItem = (props: {
 }) => {
     const { item, type } = props;
     const iconBefore = item.emoji ? (
-        <img src={`/assets/emojis/${item.emoji}.png`} height={18} width={18} />
+        <img
+            src={`/assets/emojis/${item.emoji}.png`}
+            height={18}
+            width={18}
+            alt="content"
+        />
     ) : type === 'page' ? (
         <PageIcon label="content" />
     ) : (
