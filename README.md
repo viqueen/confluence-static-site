@@ -1,6 +1,7 @@
 ## confluence-static-site
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=viqueen_confluence-static-site&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=viqueen_confluence-static-site)
+[![npm version](https://badge.fury.io/js/confluence-static-site.svg)](https://badge.fury.io/js/confluence-static-site)
 
 ### install it
 
