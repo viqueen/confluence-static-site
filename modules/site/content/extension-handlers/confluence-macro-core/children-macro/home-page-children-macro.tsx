@@ -59,10 +59,12 @@ export const HomePageChildrenMacro = ({
                 return { children: content.childPages || [] };
             }
         };
-        fetchData().then((data) => {
-            setChildPages(data.children);
-            setLoading(false);
-        });
+        fetchData()
+            .then((data) => {
+                setChildPages(data.children);
+                setLoading(false);
+            })
+            .catch(console.error);
     }, []);
 
     return (
