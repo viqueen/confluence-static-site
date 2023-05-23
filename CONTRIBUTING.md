@@ -19,10 +19,10 @@ nvm install
 yarn
 ```
 
-- build it in watch mode
+- build it
 
 ```bash
-yarn build --watch
+yarn build
 ```
 
 - you can now use the cli after configuring your .env
