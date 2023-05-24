@@ -103,10 +103,12 @@ export const SiteLeftNavigation = () => {
             const { data } = await axios.get('/navigation.json');
             return data;
         };
-        fetchData().then((data) => {
-            setNavigation(data);
-            setLoading(false);
-        });
+        fetchData()
+            .then((data) => {
+                setNavigation(data);
+                setLoading(false);
+            })
+            .catch(console.error);
     }, []);
 
     return (

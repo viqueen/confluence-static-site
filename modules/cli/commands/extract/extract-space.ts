@@ -22,6 +22,7 @@ import { titleToPath } from '../../../external/confluence-api/helpers/title-to-p
 
 import { extractBlogs } from './extract-blogs';
 import { extractPageTree } from './extract-page-tree';
+import { extractRecentlyUpdatedPages } from './extract-recently-updated-pages';
 import { generateAttachmentsThumbnails } from './generate-attachments-thumbnails';
 
 export const extractSpace = async (
@@ -37,6 +38,8 @@ export const extractSpace = async (
         ...options,
         asHomepage: true
     });
+    await extractRecentlyUpdatedPages(spaceKey, output);
+
     const blogs = await extractBlogs(spaceKey, output, options);
 
     await generateAttachmentsThumbnails(output, options);

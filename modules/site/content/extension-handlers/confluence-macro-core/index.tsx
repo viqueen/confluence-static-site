@@ -24,6 +24,7 @@ import { Content } from '../../../../external/confluence-api/types';
 
 import { BlogPostsMacro } from './blog-posts-macro';
 import { ChildrenMacro } from './children-macro';
+import { RecentlyUpdatedMacro } from './recently-updated-macro';
 import { WidgetConnectorMacro } from './widget-connector-macro';
 
 export const confluenceMacroCore = (content: Content) => {
@@ -37,6 +38,12 @@ export const confluenceMacroCore = (content: Content) => {
                     <ChildrenMacro
                         parent={ext.parameters?.macroParams.page?.value}
                         content={content}
+                    />
+                );
+            case 'recently-updated':
+                return (
+                    <RecentlyUpdatedMacro
+                        max={ext.parameters?.macroParams.max.value}
                     />
                 );
             case 'widget':
