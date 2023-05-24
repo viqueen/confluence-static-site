@@ -41,7 +41,11 @@ export const confluenceMacroCore = (content: Content) => {
                     />
                 );
             case 'recently-updated':
-                return <RecentlyUpdatedMacro />;
+                return (
+                    <RecentlyUpdatedMacro
+                        max={ext.parameters?.macroParams.max.value}
+                    />
+                );
             case 'widget':
                 return (
                     <WidgetConnectorMacro
