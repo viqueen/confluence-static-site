@@ -4406,6 +4406,11 @@ eslint-plugin-import@^2.27.5:
     semver "^6.3.0"
     tsconfig-paths "^3.14.1"
 
+eslint-plugin-license-notice@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-license-notice/-/eslint-plugin-license-notice-1.0.0.tgz#c588e3c50d1c8796f0af7b2116e8ca621232697c"
+  integrity sha512-135rakB6J/EC4khX3G/A5ZS/x+wS+QmCeRSvbcqfwunD1NnqIT6AkfQEfEeyhreQrTWEJ1XZ3FdJ0o/nevrmyg==
+
 eslint-plugin-react@^7.32.2:
   version "7.32.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.32.2.tgz#e71f21c7c265ebce01bcbc9d0955170c55571f10"
