@@ -20,9 +20,10 @@ const isInternalUrl = (url: string): boolean => {
 };
 
 const blogUrl =
-    /https:\/\/[a-z.]+\/wiki\/spaces\/[a-z]+\/blog\/\d+\/\d+\/\d+\/(?<id>\d+)/;
+    /https:\/\/[a-z.]+\/wiki\/spaces\/[a-zA-Z0-9]+\/blog\/\d+\/\d+\/\d+\/(?<id>\d+)/;
 
-const pageUrl = /https:\/\/[a-z.]+\/wiki\/spaces\/[a-z]+\/pages\/(?<id>\d+)/;
+const pageUrl =
+    /https:\/\/[a-z.]+\/wiki\/spaces\/[a-zA-Z0-9]+\/pages\/(?<id>\d+)/;
 
 export const rewriteUrl = (url: string): string => {
     if (!isInternalUrl(url)) {
