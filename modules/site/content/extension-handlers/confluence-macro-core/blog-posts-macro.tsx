@@ -100,10 +100,12 @@ export const BlogPostsMacro = () => {
             const { data } = await axios.get(`/blogs.json`);
             return data;
         };
-        fetchData().then((data) => {
-            setArticles(data);
-            setLoading(false);
-        });
+        fetchData()
+            .then((data) => {
+                setArticles(data);
+                setLoading(false);
+            })
+            .catch(console.error);
     }, []);
 
     return (

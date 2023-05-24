@@ -38,10 +38,12 @@ const RecentlyUpdatedMacro = ({ max }: RecentlyUpdatedMacroProps) => {
             const { data } = await axios.get(`/recently-updated.json`);
             return data;
         };
-        fetchData().then((data) => {
-            setRecentlyUpdated(data.slice(0, max));
-            setLoading(false);
-        });
+        fetchData()
+            .then((data) => {
+                setRecentlyUpdated(data.slice(0, max));
+                setLoading(false);
+            })
+            .catch(console.error);
     }, []);
 
     return (
