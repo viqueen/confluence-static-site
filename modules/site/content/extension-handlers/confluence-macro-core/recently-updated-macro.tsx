@@ -28,9 +28,33 @@ interface RecentlyUpdatedMacroProps {
     max: number;
 }
 
+interface RecentlyUpdated {
+    homepage: Identifier;
+    notes: Identifier[];
+}
+
+const RecentlyUpdatedItem = ({
+    item,
+    homepage
+}: {
+    item: Identifier;
+    homepage: Identifier;
+}) => {
+    const href =
+        item.id === homepage.id ? `/` : `/notes/${titleToPath(item.title)}/`;
+    return (
+        <div className="recently-updated-item" key={item.id}>
+            <PageIcon label="page" size="small" />
+            <a href={href}>{item.title}</a>
+        </div>
+    );
+};
+
 const RecentlyUpdatedMacro = ({ max }: RecentlyUpdatedMacroProps) => {
     const [loading, setLoading] = useState(true);
-    const [recentlyUpdated, setRecentlyUpdated] = useState<Identifier[]>([]);
+    const [recentlyUpdated, setRecentlyUpdated] = useState<
+        RecentlyUpdated | undefined
+    >();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +64,8 @@ const RecentlyUpdatedMacro = ({ max }: RecentlyUpdatedMacroProps) => {
         };
         fetchData()
             .then((data) => {
-                setRecentlyUpdated(data.slice(0, max));
+                const { homepage, notes } = data;
+                setRecentlyUpdated({ homepage, notes: notes.slice(0, max) });
                 setLoading(false);
             })
             .catch(console.error);
@@ -49,20 +74,16 @@ const RecentlyUpdatedMacro = ({ max }: RecentlyUpdatedMacroProps) => {
     return (
         <div>
             {loading && <Spinner size="medium" />}
-            {!loading && recentlyUpdated.length > 0 && (
+            {!loading && recentlyUpdated && (
                 <div>
                     <h2>recently updated</h2>
                     <div className="recently-updated">
-                        {recentlyUpdated.map((item) => (
-                            <div
-                                className="recently-updated-item"
-                                key={item.id}
-                            >
-                                <PageIcon label="page" size="small" />
-                                <a href={`/notes/${titleToPath(item.title)}/`}>
-                                    {item.title}
-                                </a>
-                            </div>
+                        {recentlyUpdated.notes.map((item, index) => (
+                            <RecentlyUpdatedItem
+                                item={item}
+                                homepage={recentlyUpdated?.homepage}
+                                key={index}
+                            />
                         ))}
                     </div>
                 </div>
