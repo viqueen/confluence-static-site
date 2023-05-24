@@ -24,12 +24,11 @@ const extractRecentlyUpdatedPages = async (
     output: Output
 ) => {
     console.info('✏️ extract recently updated pages');
-    const recentlyUpdated = await confluenceApi.getSpaceRecentlyUpdatedPages(
-        spaceKey
-    );
+    const notes = await confluenceApi.getSpaceRecentlyUpdatedPages(spaceKey);
+    const homepage = await confluenceApi.getSpaceHomepage(spaceKey);
     fs.writeFileSync(
         path.resolve(output.home, 'recently-updated.json'),
-        JSON.stringify(recentlyUpdated)
+        JSON.stringify({ homepage, notes })
     );
 };
 
