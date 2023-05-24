@@ -52,3 +52,9 @@ yarnd wdio
 ```bash
 yarn format
 ```
+
+- ensure license header is included in any new files contributed
+
+```bash
+yarn lint --fix
+```
