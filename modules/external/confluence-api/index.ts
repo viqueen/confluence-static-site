@@ -93,6 +93,22 @@ class ConfluenceApi {
         });
     }
 
+    async getSpaceRecentlyUpdatedPages(
+        spaceKey: string
+    ): Promise<Identifier[]> {
+        const query = new URLSearchParams({
+            cql: `space=${spaceKey} and type=page order by lastModified desc`
+        });
+        const { data } = await this.client
+            .get(`/wiki/rest/api/search?${query.toString()}`)
+            .catch(axiosErrorHandler);
+        const { results } = data;
+        return results.map((item: any) => {
+            const { id, title } = item.content;
+            return { id, title };
+        });
+    }
+
     async getContentById(
         contentId: Pick<Identifier, 'id'>,
         asHomepage = false
