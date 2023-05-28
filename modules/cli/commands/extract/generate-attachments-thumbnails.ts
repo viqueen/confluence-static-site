@@ -15,7 +15,7 @@
  */
 import fs from 'fs';
 
-import { listFiles } from 'fs-directory';
+import { listFiles } from '@labset/fs-directory';
 import sharp from 'sharp';
 
 import { Output } from '../../../configuration/types';
