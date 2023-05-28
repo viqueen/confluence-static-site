@@ -1,0 +1,25 @@
+#! /usr/bin/env bash
+
+function jiraIssueNumber() {
+    branch_name=$(git rev-parse --abbrev-ref HEAD);
+    prefix="noissue";
+    if [[ ${branch_name} =~ ^(.+/)?([A-Za-z]+-[0-9]+)(-(.*))?$ ]]; then
+        prefix=${BASH_REMATCH[2]};
+    fi;
+    echo "${prefix}";
+}
+
+branch_name=$(git branch | grep '*' | sed 's/* //')
+
+# skip hook when rebasing
+if [ "${branch_name}" != '(no branch)' ]
+then
+  commit_file="$1"
+  message=$(cat "$commit_file")
+  issue_ticket_number=$(jiraIssueNumber);
+
+  # skip hook if issue number already in commit message
+  if [[ ! "${message}" =~ ${issue_ticket_number} ]]; then
+    echo "${issue_ticket_number}: ${message}" > "${commit_file}"
+  fi
+fi

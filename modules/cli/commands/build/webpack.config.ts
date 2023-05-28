@@ -16,9 +16,9 @@
 import * as fs from 'fs';
 import path from 'path';
 
+import { listFiles } from '@labset/fs-directory';
 // eslint-disable-next-line import/default
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { listFiles } from 'fs-directory';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration, DefinePlugin } from 'webpack';
 

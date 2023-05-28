@@ -1,4 +1,4 @@
-name: confluence-static-site Publish
+name: "@labset/confluence-static-site Publish"
 
 on:
   release:
@@ -25,6 +25,6 @@ jobs:
         with:
           name: wdio-artifacts
           path: .tmp/
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

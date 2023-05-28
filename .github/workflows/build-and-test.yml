@@ -1,4 +1,4 @@
-name: confluence-static-site Test
+name: "@labset/confluence-static-site Build and Test"
 on:
   push:
     branches:
