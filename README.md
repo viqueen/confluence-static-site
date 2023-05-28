@@ -8,13 +8,13 @@
 - with **npm**
 
 ```bash
-npm install confluence-static-site --save-dev
+npm install @labset/confluence-static-site --save-dev
 ```
 
 - with **yarn**
 
 ```bash
-yarn add confluence-static-site -D
+yarn add @labset/confluence-static-site -D
 ```
 
 ### configure your site
