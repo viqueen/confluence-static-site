@@ -69,7 +69,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.7.3",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "html-webpack-plugin": "^5.5.0",
     "lodash": "^4.17.21",
     "os-browserify": "^0.3.0",
