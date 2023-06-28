@@ -62,7 +62,7 @@
     "@atlaskit/link-provider": "^1.5.1",
     "@atlaskit/media-core": "^34.0.2",
     "@atlaskit/page": "^12.2.3",
-    "@atlaskit/page-layout": "^1.3.10",
+    "@atlaskit/page-layout": "^1.6.5",
     "@atlaskit/renderer": "^107.0.0",
     "@labset/fs-directory": "^1.1.0",
     "axios": "^1.3.4",
