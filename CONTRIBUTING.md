@@ -42,7 +42,7 @@ yarn build
 ## run visual regression tests
 
 ```bash
-yarnd wdio
+yarn wdio
 ```
 
 ## house-keeping
