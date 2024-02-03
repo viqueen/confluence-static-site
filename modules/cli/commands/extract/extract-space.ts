@@ -55,12 +55,18 @@ export const extractSpace = async (
             title: identifier.title,
             createdYear
         }))
-        .reduce((prev, current) => {
-            const byYear = prev[current.createdYear] || [];
-            byYear.push(current);
-            prev[current.createdYear] = byYear;
-            return prev;
-        }, {} as Record<number, { href: string; title: string; createdYear: number }[]>);
+        .reduce(
+            (prev, current) => {
+                const byYear = prev[current.createdYear] || [];
+                byYear.push(current);
+                prev[current.createdYear] = byYear;
+                return prev;
+            },
+            {} as Record<
+                number,
+                { href: string; title: string; createdYear: number }[]
+            >
+        );
 
     const navigation = {
         notes,

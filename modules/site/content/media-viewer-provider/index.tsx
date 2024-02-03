@@ -2,6 +2,7 @@
 import React, { useCallback, useState } from 'react';
 
 import noop from 'lodash/noop';
+// eslint-disable-next-line import/no-named-as-default
 import Lightbox from 'yet-another-react-lightbox';
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';

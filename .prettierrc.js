@@ -23,5 +23,11 @@ module.exports = {
                 trailingComma: 'none',
             },
         },
+        {
+            files: '*.json',
+            options: {
+                trailingComma: 'none',
+            },
+        },
     ],
 };

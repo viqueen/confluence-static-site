@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Copyright 2023 Hasnae Rehioui
  *
