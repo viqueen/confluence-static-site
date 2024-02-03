@@ -34,7 +34,7 @@ const unescapeExcerpt = (excerpt: string) => {
                 '&amp;': '&',
                 '&#39;': "'",
                 '&quot;': '"'
-            }[element] || element)
+            })[element] || element
     );
 };
 
@@ -92,6 +92,7 @@ const BlogPostItem = ({ content }: { content: Content }) => {
 
 export const BlogPostsMacro = () => {
     const [loading, setLoading] = useState(true);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [articles, setArticles]: any = useState({});
 
     useEffect(() => {
