@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 describe('Confluence Static Site', () => {
-    beforeEach(async () => {
+    const setup = async () => {
         await browser.setWindowSize(1600, 1200);
         await browser.url('http://localhost:9000/');
         await browser.waitUntil(
@@ -24,13 +24,15 @@ describe('Confluence Static Site', () => {
                 timeoutMsg: 'expected title to be different after 5s'
             }
         );
-    });
+    };
 
     it('should save some screenshots', async () => {
+        await setup();
         await browser.saveScreen('home-page');
     });
 
     it('should compare successfully with a baseline', async () => {
+        await setup();
         const result = await browser.checkScreen('home-page');
         expect(result).toEqual(0);
     });
