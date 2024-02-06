@@ -16,6 +16,8 @@
 import React from 'react';
 
 import './media-file.css';
+import noop from 'lodash/noop';
+
 import { useMediaViewer } from '../../media-viewer-provider';
 
 type MediaFileProps = {
@@ -38,9 +40,11 @@ export const MediaFile = ({
         <div className="media-file">
             <img
                 src={`/attachments/${fileId}`}
+                alt={fileId}
                 style={{ height: min, maxHeight: 600, width }}
                 className={layoutClass}
                 onClick={() => openMediaViewer(fileId)}
+                onKeyDown={() => noop()}
             />
         </div>
     );
