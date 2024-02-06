@@ -166,18 +166,18 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/breadcrumbs@^11.7.12":
-  version "11.10.3"
-  resolved "https://registry.yarnpkg.com/@atlaskit/breadcrumbs/-/breadcrumbs-11.10.3.tgz#3aaf1f5b3d3a43179a2d14aa219733f66339dfa4"
-  integrity sha512-r7tQy/kk1sFH2EigqrnKA22kgKV5dC2Une5W37O9C1az8p80Rn4Q0AXAzfvxm/jqfYe2Q/50zdHVByusMkVjcA==
+"@atlaskit/breadcrumbs@^12.0.5":
+  version "12.0.5"
+  resolved "https://registry.yarnpkg.com/@atlaskit/breadcrumbs/-/breadcrumbs-12.0.5.tgz#829b804ecf8c2cd232f01e6cfabc2df1b1f45548"
+  integrity sha512-g89jGy+bL3BbQ2IPwaLgmgokZtvWCtNOIOHC+gUGJS0E0B00zbi8fQPwdSZw0yIQQK9vYmuQqi+3QhdRBnhmBw==
   dependencies:
     "@atlaskit/analytics-next" "^9.1.0"
-    "@atlaskit/button" "^16.7.0"
+    "@atlaskit/button" "^17.0.0"
     "@atlaskit/ds-lib" "^2.2.0"
     "@atlaskit/platform-feature-flags" "^0.2.0"
-    "@atlaskit/theme" "^12.5.0"
-    "@atlaskit/tokens" "^1.4.0"
-    "@atlaskit/tooltip" "^17.8.0"
+    "@atlaskit/theme" "^12.6.0"
+    "@atlaskit/tokens" "^1.30.0"
+    "@atlaskit/tooltip" "^18.0.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     "@react-loosely-lazy/manifest" "^1.0.0"
@@ -198,7 +198,7 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^17.3.0":
+"@atlaskit/button@^17.0.0", "@atlaskit/button@^17.3.0":
   version "17.3.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-17.3.0.tgz#7a2981122e803254eddf174131845e0d959c9b9f"
   integrity sha512-Dp2x9gfANe5Aq5TdPn6bkauFrI3N3DYa73TCyg6nvVI3UT3nZAI30cuChzX2660UpdywEeOn2CeHjkryfyABJA==
@@ -1302,7 +1302,7 @@
     "@babel/types" "^7.20.0"
     bind-event-listener "^2.1.1"
 
-"@atlaskit/tokens@^1.25.0", "@atlaskit/tokens@^1.28.0", "@atlaskit/tokens@^1.33.0", "@atlaskit/tokens@^1.35.0":
+"@atlaskit/tokens@^1.25.0", "@atlaskit/tokens@^1.28.0", "@atlaskit/tokens@^1.30.0", "@atlaskit/tokens@^1.33.0", "@atlaskit/tokens@^1.35.0":
   version "1.35.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/tokens/-/tokens-1.35.0.tgz#b66a75b05623d7030127900d0da8cef6e23bf9ee"
   integrity sha512-+3rA9yiOWn+5jv+Nmw8hIigw0CEAR81wFkGd5Q02zuaoQOpABhNF6JTj+GR54tHHwld3//LxINau6N3aVwPWWQ==
@@ -1331,7 +1331,7 @@
     bind-event-listener "^2.1.1"
     react-uid "^2.2.0"
 
-"@atlaskit/tooltip@^18.1.0":
+"@atlaskit/tooltip@^18.0.0", "@atlaskit/tooltip@^18.1.0":
   version "18.1.1"
   resolved "https://registry.yarnpkg.com/@atlaskit/tooltip/-/tooltip-18.1.1.tgz#fe2948eee20edaa2520350a9297ed50637a592af"
   integrity sha512-ehCGwwO0g+Xfb0ckDwlwZ8XClYmVhEvUuBD9Y7HEGUqKkP2hLRsSFf2TaRnj0VYYEhRkJVbT9G3oxeebJTPS6w==
