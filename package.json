@@ -59,7 +59,7 @@
     "@atlaskit/breadcrumbs": "^12.0.5",
     "@atlaskit/date": "^0.10.6",
     "@atlaskit/link-provider": "^1.5.1",
-    "@atlaskit/media-core": "^34.0.2",
+    "@atlaskit/media-core": "^34.1.4",
     "@atlaskit/page": "^12.3.4",
     "@atlaskit/page-layout": "^1.3.10",
     "@atlaskit/renderer": "^107.0.0",

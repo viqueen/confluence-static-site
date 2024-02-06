@@ -730,10 +730,10 @@
     "@atlaskit/section-message" "^6.4.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/media-core@^34.0.2":
-  version "34.1.2"
-  resolved "https://registry.yarnpkg.com/@atlaskit/media-core/-/media-core-34.1.2.tgz#756739aa92aaa693522269facdaccd1aa856a139"
-  integrity sha512-PwLjpEr0qExkIacI0e41fdYGwe4w8PBGnoFXEUjM+u1grLZoJEnWArBHmWLbJout3M4TDOIdl1CsWxpghSx0Ew==
+"@atlaskit/media-core@^34.1.4":
+  version "34.1.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/media-core/-/media-core-34.1.4.tgz#5e1035e0bfeff420b25e54fe06cced85f6b5813b"
+  integrity sha512-0HY9vA8Lu7ERg2eko1yWxXVSP4xq+ihCtTS+APMyAGQ73/SX3bdCT9H4lS2m6co4npIrEY+yV611GhNARLQCeA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     eventemitter2 "^4.1.0"
