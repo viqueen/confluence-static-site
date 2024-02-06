@@ -914,16 +914,18 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/page-layout@^1.3.10":
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/@atlaskit/page-layout/-/page-layout-1.6.2.tgz#08286e2436e6898c394adff80bb8bf1337c15cad"
-  integrity sha512-UBUkeO4tvDdZetACSX5/tnYtFgucmAnUt1d1WcXNjBipR8Sqx+mMbQuM/l5JryZXsTKlYir/i5t0alxWMbm87g==
+"@atlaskit/page-layout@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/page-layout/-/page-layout-2.1.2.tgz#4fdefe8c76a353c02d744e86845702e03c059fc1"
+  integrity sha512-MhRoTKK+h5Yl8FqXbTv7jadOl5wR1R1/43tYGifega6Mfxl3ow5JdOF7N6m/4hYZSvJeUj0pAs3bMW+yZegfAA==
   dependencies:
     "@atlaskit/ds-lib" "^2.2.0"
-    "@atlaskit/icon" "^21.12.0"
-    "@atlaskit/motion" "^1.4.0"
-    "@atlaskit/theme" "^12.5.0"
-    "@atlaskit/tokens" "^1.4.0"
+    "@atlaskit/icon" "^22.0.0"
+    "@atlaskit/motion" "^1.5.0"
+    "@atlaskit/platform-feature-flags" "^0.2.0"
+    "@atlaskit/primitives" "^2.0.0"
+    "@atlaskit/theme" "^12.6.0"
+    "@atlaskit/tokens" "^1.35.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     bind-event-listener "^2.1.1"
