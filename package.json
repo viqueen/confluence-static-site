@@ -25,7 +25,8 @@
   ],
   "files": [
     "dist",
-    "postinstall.js"
+    "postinstall.js",
+    "yarn.lock"
   ],
   "author": "Hasnae R.",
   "license": "Apache-2.0",
