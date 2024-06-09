@@ -75,7 +75,8 @@ export const webpackConfig = (props: {
     });
 
     const definePlugin = new DefinePlugin({
-        __SITE_PROPERTIES__: JSON.stringify(siteProperties())
+        __SITE_PROPERTIES__: JSON.stringify(siteProperties()),
+        process: { env: { CI: false }, version: '"v0.0.0"' }
     });
 
     const copyPlugin = assets
@@ -112,6 +113,7 @@ export const webpackConfig = (props: {
                 path: require.resolve('path-browserify'),
                 stream: require.resolve('stream-browserify'),
                 url: require.resolve('url/'),
+                vm: false,
                 zlib: false
             }
         },

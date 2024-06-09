@@ -25,6 +25,10 @@ export const extractSiteEmojis = async (
     output: Output,
     options = { force: false }
 ) => {
+    const siteId = configuration.CONFLUENCE_SITE_ID;
+    if (!siteId) {
+        return;
+    }
     const adminClient = axios.create({
         baseURL: 'https://admin.atlassian.com'
     });
