@@ -20,8 +20,30 @@ import dotenv from 'dotenv';
 
 import { Configuration, Output } from './types';
 
-const parsedConfig: unknown = dotenv.config().parsed || {};
-const configuration = parsedConfig as Configuration;
+const parsedConfig: Configuration = (dotenv.config().parsed ||
+    {}) as Configuration;
+const configuration: Configuration = {
+    CONFLUENCE_SITE_NAME:
+        parsedConfig.CONFLUENCE_SITE_NAME ?? process.env.CONFLUENCE_SITE_NAME,
+    CONFLUENCE_USERNAME:
+        parsedConfig.CONFLUENCE_USERNAME ?? process.env.CONFLUENCE_USERNAME,
+    CONFLUENCE_API_TOKEN:
+        parsedConfig.CONFLUENCE_API_TOKEN ?? process.env.CONFLUENCE_API_TOKEN,
+    CONFLUENCE_CLOUD_TOKEN:
+        parsedConfig.CONFLUENCE_CLOUD_TOKEN ??
+        process.env.CONFLUENCE_CLOUD_TOKEN,
+    TARGET_SITE: parsedConfig.TARGET_SITE ?? process.env.TARGET_SITE,
+    TWITTER_SITE: parsedConfig.TWITTER_SITE ?? process.env.TWITTER_SITE,
+    GOOGLE_ANALYTICS_TRACKING_ID:
+        parsedConfig.GOOGLE_ANALYTICS_TRACKING_ID ??
+        process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+    OAUTH_CLIENT_ID:
+        parsedConfig.OAUTH_CLIENT_ID ?? process.env.OAUTH_CLIENT_ID,
+    OAUTH_CLIENT_SECRET:
+        parsedConfig.OAUTH_CLIENT_SECRET ?? process.env.OAUTH_CLIENT_SECRET,
+    CONFLUENCE_SITE_ID:
+        parsedConfig.CONFLUENCE_SITE_ID ?? process.env.CONFLUENCE_SITE_ID
+};
 
 const makeOutputDirectories = (data: object) => {
     for (const dir of Object.values(data)) {

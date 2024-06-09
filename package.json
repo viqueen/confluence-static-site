@@ -1,6 +1,6 @@
 {
   "name": "@labset/confluence-static-site",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "confluence static site",
   "bin": {
     "confsite": "./dist/cli/index.js"
