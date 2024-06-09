@@ -25,6 +25,11 @@ export const extractSiteEmojis = async (
     output: Output,
     options = { force: false }
 ) => {
+    const siteId = configuration.CONFLUENCE_SITE_ID;
+    if (!siteId) {
+        return;
+    }
+
     const adminClient = axios.create({
         baseURL: 'https://admin.atlassian.com'
     });
@@ -33,7 +38,7 @@ export const extractSiteEmojis = async (
     });
 
     const { data } = await adminClient.get(
-        `/gateway/api/emoji/${configuration.CONFLUENCE_SITE_ID}/site`,
+        `/gateway/api/emoji/${siteId}/site`,
         {
             headers: {
                 'sec-fetch-mode': 'cors',
@@ -43,7 +48,7 @@ export const extractSiteEmojis = async (
         }
     );
 
-    const collection = `emoji-site-${configuration.CONFLUENCE_SITE_ID}`;
+    const collection = `emoji-site-${siteId}`;
     const { clientId, jwt } = data.meta.mediaApiToken;
     for (const emoji of data.emojis) {
         const filePath = path.resolve(output.assets.emojis, `${emoji.id}.png`);
