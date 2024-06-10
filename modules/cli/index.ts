@@ -20,9 +20,7 @@ import * as path from 'path';
 
 import { Command } from 'commander';
 
-import { cliOauthClient } from '../cli-oauth-client';
 import { initOutput } from '../configuration';
-import { AccessibleResource, atlassianApi } from '../external/atlassian-api';
 import { confluenceApi } from '../external/confluence-api';
 
 import { webpackBuild } from './commands/build/webpack.build';
@@ -135,26 +133,6 @@ program
             configFile,
             JSON.stringify(defaultSiteProperties, null, 2)
         );
-    });
-
-program
-    .command('login')
-    .description('login to confluence static site with oauth')
-    .action(async () => {
-        await cliOauthClient.login();
-    });
-
-program
-    .command('init-site <name>')
-    .description('initialise site info')
-    .action(async (name: string) => {
-        const atlassian = await atlassianApi();
-        const { data } = await atlassian.accessibleResources();
-        const site = data.find((i: AccessibleResource) => i.name === name);
-        if (site) {
-            const envFile = path.resolve(process.cwd(), '.env');
-            fs.appendFileSync(envFile, `\nCONFLUENCE_SITE_ID=${site.id}`);
-        }
     });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
