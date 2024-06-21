@@ -19,11 +19,8 @@ import LabelIcon from '@atlaskit/icon/glyph/label';
 import Spinner from '@atlaskit/spinner';
 import axios from 'axios';
 
+import { Content, Identifier } from '../../../../../apis';
 import { titleToPath } from '../../../../../external/confluence-api/helpers/title-to-path';
-import {
-    Content,
-    Identifier
-} from '../../../../../external/confluence-api/types';
 
 import './home-page-children-macro.css';
 

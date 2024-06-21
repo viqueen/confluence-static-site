@@ -19,8 +19,8 @@ import PageIcon from '@atlaskit/icon/glyph/page';
 import Spinner from '@atlaskit/spinner';
 import axios from 'axios';
 
+import { Identifier } from '../../../../apis';
 import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
-import { Identifier } from '../../../../external/confluence-api/types';
 
 import './recently-updated-macro.css';
 

@@ -15,7 +15,7 @@
  */
 import React from 'react';
 
-import { Content } from '../../../../../external/confluence-api/types';
+import { Content } from '../../../../../apis';
 
 import { HomePageChildrenMacro } from './home-page-children-macro';
 import { RegularPageChildrenMacro } from './regular-page-children-macro';

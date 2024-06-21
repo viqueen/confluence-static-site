@@ -19,7 +19,7 @@ import { IntlProvider } from 'react-intl-next';
 import { ReactRenderer } from '@atlaskit/renderer';
 import { Provider } from '@atlaskit/smart-card';
 
-import { Content } from '../../external/confluence-api/types';
+import { Content } from '../../apis';
 
 import { dataProviders } from './data-providers';
 import { extensionHandlers } from './extension-handlers';

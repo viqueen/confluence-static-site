@@ -17,8 +17,8 @@ import React from 'react';
 
 import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
 
+import { Content, Identifier } from '../../apis';
 import { titleToPath } from '../../external/confluence-api/helpers/title-to-path';
-import { Content, Identifier } from '../../external/confluence-api/types';
 
 type ContentAncestorsProps = {
     content: Content;

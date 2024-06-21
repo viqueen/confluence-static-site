@@ -20,7 +20,7 @@ import type {
     Parameters
 } from '@atlaskit/editor-common/extensions';
 
-import { Content } from '../../../../external/confluence-api/types';
+import { Content } from '../../../../apis';
 
 import { BlogPostsMacro } from './blog-posts-macro';
 import { ChildrenMacro } from './children-macro';
