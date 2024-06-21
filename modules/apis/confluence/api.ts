@@ -17,12 +17,15 @@
 import type { AxiosInstance } from 'axios';
 
 import { environment } from '../../cli/conf';
-import { configuration } from '../../configuration';
 import { axiosErrorHandler } from '../axios-error-handler';
 
-import { searchResultItemMapper } from './mappers';
+import {
+    mapSearchResultItemToBlogSummary,
+    mapSearchResultItemToContent
+} from './mappers';
 import {
     AttachmentData,
+    BlogSummary,
     Content,
     Identifier,
     ResourceDefinition,
@@ -32,7 +35,7 @@ import {
 
 interface ConfluenceApi {
     getSpaceHomepage(spaceKey: string): Promise<Identifier>;
-    getSpaceBlogs(spaceKey: string): Promise<Content[]>;
+    getSpaceBlogs(spaceKey: string): Promise<BlogSummary[]>;
     getSpaceRecentlyUpdatedPages(spaceKey: string): Promise<Identifier[]>;
     getContentById(
         contentId: Pick<Identifier, 'id'>,
@@ -58,14 +61,31 @@ const confluenceApi = (client: AxiosInstance): ConfluenceApi => {
         return { id, title };
     };
 
-    const getSpaceBlogs = async (_spaceKey: string): Promise<Content[]> => {
-        throw new Error('Not implemented');
+    const getSpaceBlogs = async (spaceKey: string): Promise<BlogSummary[]> => {
+        const query = new URLSearchParams({
+            cql: `space=${spaceKey} and type=blogpost order by created desc`,
+            expand: 'content.history,content.metadata.labels,content.children.attachment.metadata.labels'
+        });
+        const { data } = await client
+            .get<SearchResult>(`/wiki/rest/api/search?${query.toString()}`)
+            .catch(axiosErrorHandler);
+        return data.results.map(mapSearchResultItemToBlogSummary);
     };
 
     const getSpaceRecentlyUpdatedPages = async (
-        _spaceKey: string
+        spaceKey: string
     ): Promise<Identifier[]> => {
-        throw new Error('Not implemented');
+        const query = new URLSearchParams({
+            cql: `space=${spaceKey} and type=page order by lastModified desc`
+        });
+        const { data } = await client
+            .get<SearchResult>(`/wiki/rest/api/search?${query.toString()}`)
+            .catch(axiosErrorHandler);
+        const { results } = data;
+        return results.map((item) => {
+            const { id, title } = item.content;
+            return { id, title };
+        });
     };
 
     const getContentById = async (
@@ -96,7 +116,7 @@ const confluenceApi = (client: AxiosInstance): ConfluenceApi => {
             .get<SearchResult>(`/wiki/rest/api/search?${query.toString()}`)
             .catch(axiosErrorHandler);
         const item = data.results[0];
-        return searchResultItemMapper(item, asHomepage);
+        return mapSearchResultItemToContent(item, asHomepage);
     };
 
     const getObjects = async (

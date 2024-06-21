@@ -16,16 +16,16 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
 
 const extractRecentlyUpdatedPages = async (
     spaceKey: string,
     output: Output
 ) => {
     console.info('✏️ extract recently updated pages');
-    const notes = await confluenceApi.getSpaceRecentlyUpdatedPages(spaceKey);
-    const homepage = await confluenceApi.getSpaceHomepage(spaceKey);
+    const notes = await confluence.getSpaceRecentlyUpdatedPages(spaceKey);
+    const homepage = await confluence.getSpaceHomepage(spaceKey);
     fs.writeFileSync(
         path.resolve(output.home, 'recently-updated.json'),
         JSON.stringify({ homepage, notes })

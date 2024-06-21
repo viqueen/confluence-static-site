@@ -16,9 +16,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
-import { Content } from '../../../external/confluence-api/types';
+import { BlogSummary } from '../../../apis';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
 
 import { extractContent } from './extract-content';
 
@@ -26,12 +26,12 @@ export const extractBlogs = async (
     spaceKey: string,
     output: Output,
     options = { force: false }
-): Promise<Content[]> => {
+): Promise<BlogSummary[]> => {
     console.info('📙 extract blogs');
-    const blogs = await confluenceApi.getSpaceBlogs(spaceKey);
+    const blogs = await confluence.getSpaceBlogs(spaceKey);
 
     for (const blog of blogs) {
-        const content = await confluenceApi.getContentById(blog.identifier);
+        const content = await confluence.getContentById(blog.identifier, false);
         await extractContent(content, output, options);
     }
 

@@ -20,8 +20,7 @@ import * as path from 'path';
 
 import { Command } from 'commander';
 
-import { confluenceApi } from '../external/confluence-api';
-
+import { confluence } from './clients';
 import { webpackBuild } from './commands/build/webpack.build';
 import { defaultSiteProperties } from './commands/build/webpack.config';
 import {
@@ -74,7 +73,7 @@ program
     .action(async (spaceKey: string, id: string, options) => {
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
-        const content = await confluenceApi.getContentById({ id });
+        const content = await confluence.getContentById({ id }, false);
         await extractContent(content, output, options);
     });
 

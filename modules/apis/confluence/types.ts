@@ -51,6 +51,13 @@ interface Content {
     emoji?: string;
 }
 
+type BlogSummary = Pick<
+    Content,
+    'identifier' | 'type' | 'excerpt' | 'cover' | 'createdDate' | 'createdYear'
+> & {
+    author: Identifier;
+};
+
 interface ResourceObject {
     resourceUrl: string;
 }
@@ -126,5 +133,6 @@ export type {
     ResourceObject,
     ResourceDefinition,
     SearchResult,
-    SearchResultItem
+    SearchResultItem,
+    BlogSummary
 };

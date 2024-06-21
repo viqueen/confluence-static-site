@@ -15,9 +15,9 @@
  */
 import crypto from 'crypto';
 
-import { Content, SearchResultItem, Attachment } from './types';
+import { Content, SearchResultItem, Attachment, BlogSummary } from './types';
 
-const searchResultItemMapper = (
+const mapSearchResultItemToContent = (
     item: SearchResultItem,
     asHomepage = false
 ): Content => {
@@ -87,4 +87,36 @@ const searchResultItemMapper = (
     };
 };
 
-export { searchResultItemMapper };
+const mapSearchResultItemToBlogSummary = (
+    item: SearchResultItem
+): BlogSummary => {
+    const { content, excerpt } = item;
+    const { id, title, type, history, children } = content;
+    const { createdBy, createdDate } = history;
+    const createdAt = new Date(createdDate);
+
+    const files = children.attachment?.results || [];
+    const attachments = files.map(
+        ({ extensions, _links, metadata: fileMetadata }) => ({
+            fileId: extensions.fileId,
+            downloadUrl: _links.download,
+            mediaType: extensions.mediaType,
+            isCover: fileMetadata.labels.results.some((i) => i.name === 'cover')
+        })
+    );
+    const cover = attachments.find((a: Attachment) => a.isCover);
+    return {
+        identifier: { id, title },
+        type,
+        excerpt,
+        cover,
+        author: {
+            id: createdBy.publicName,
+            title: createdBy.displayName
+        },
+        createdDate: createdAt.getTime(),
+        createdYear: createdAt.getFullYear()
+    };
+};
+
+export { mapSearchResultItemToContent, mapSearchResultItemToBlogSummary };
