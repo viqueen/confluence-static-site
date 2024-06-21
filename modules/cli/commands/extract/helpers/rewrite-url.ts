@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { configuration } from '../../../configuration';
+import { environment } from '../../../conf';
 
 const isInternalUrl = (url: string): boolean => {
-    return url.startsWith(`https://${configuration.CONFLUENCE_SITE_NAME}`);
+    return url.startsWith(`https://${environment.CONFLUENCE_SITE_NAME}`);
 };
 
 const blogUrl =
@@ -31,11 +31,11 @@ export const rewriteUrl = (url: string): string => {
     }
     const isBlog = url.match(blogUrl);
     if (isBlog) {
-        return `${configuration.TARGET_SITE}/articles/${isBlog.groups?.id}/`;
+        return `${environment.TARGET_SITE}/articles/${isBlog.groups?.id}/`;
     }
     const isPage = url.match(pageUrl);
     if (isPage) {
-        return `${configuration.TARGET_SITE}/notes/${isPage.groups?.id}/`;
+        return `${environment.TARGET_SITE}/notes/${isPage.groups?.id}/`;
     }
     return url;
 };

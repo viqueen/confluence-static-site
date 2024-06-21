@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SiteProperties } from '../configuration/types';
+import { SiteProperties } from '../site-properties';
 
 declare const __SITE_PROPERTIES__: SiteProperties;
 

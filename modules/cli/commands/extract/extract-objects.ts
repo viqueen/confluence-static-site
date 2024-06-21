@@ -20,9 +20,10 @@ import path from 'path';
 import { filter } from '@atlaskit/adf-utils/traverse';
 
 import { Content } from '../../../apis';
-import { rewriteUrl } from '../../../external/confluence-api/helpers/rewrite-url';
 import { confluence } from '../../clients';
 import { Output } from '../../conf';
+
+import { rewriteUrl } from './helpers/rewrite-url';
 
 export const extractObjects = async (content: Content, output: Output) => {
     const inlineCards = filter(

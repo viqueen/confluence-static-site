@@ -18,7 +18,7 @@ import { extension } from '@atlaskit/adf-utils/builders';
 import { scrubAdf } from '@atlaskit/adf-utils/scrub';
 import type { ADFEntity } from '@atlaskit/adf-utils/types';
 
-import { rewriteUrl } from './helpers/rewrite-url';
+import { rewriteUrl } from './rewrite-url';
 
 const identityProcessor = (node: ADFEntity) => {
     return node;
@@ -45,7 +45,7 @@ const mediaSingleProcessor = (node: ADFEntity) => {
     });
 };
 
-export const scrubContent = (doc: any) => {
+const scrubContent = (doc: any) => {
     return scrubAdf(doc, {
         nodeReplacements: {
             bulletList: identityProcessor,
@@ -70,3 +70,5 @@ export const scrubContent = (doc: any) => {
         }
     });
 };
+
+export { scrubContent };

@@ -18,14 +18,13 @@ import path from 'path';
 
 import axios from 'axios';
 
-import { configuration } from '../../../configuration';
-import { Output } from '../../../configuration/types';
+import { environment, Output } from '../../conf';
 
 export const extractSiteEmojis = async (
     output: Output,
     options = { force: false }
 ) => {
-    const siteId = configuration.CONFLUENCE_SITE_ID;
+    const siteId = environment.CONFLUENCE_SITE_ID;
     if (!siteId) {
         return;
     }
@@ -37,17 +36,17 @@ export const extractSiteEmojis = async (
     });
 
     const { data } = await adminClient.get(
-        `/gateway/api/emoji/${configuration.CONFLUENCE_SITE_ID}/site`,
+        `/gateway/api/emoji/${environment.CONFLUENCE_SITE_ID}/site`,
         {
             headers: {
                 'sec-fetch-mode': 'cors',
                 'sec-fetch-site': 'same-origin',
-                cookie: `cloud.session.token=${configuration.CONFLUENCE_CLOUD_TOKEN}`
+                cookie: `cloud.session.token=${environment.CONFLUENCE_CLOUD_TOKEN}`
             }
         }
     );
 
-    const collection = `emoji-site-${configuration.CONFLUENCE_SITE_ID}`;
+    const collection = `emoji-site-${environment.CONFLUENCE_SITE_ID}`;
     const { clientId, jwt } = data.meta.mediaApiToken;
     for (const emoji of data.emojis) {
         const filePath = path.resolve(output.assets.emojis, `${emoji.id}.png`);
