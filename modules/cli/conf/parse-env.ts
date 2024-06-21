@@ -54,5 +54,7 @@ const parseEnv = (): Environment => {
     };
 };
 
+const environment = parseEnv();
+
 export type { Environment };
-export { parseEnv };
+export { environment };

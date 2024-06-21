@@ -92,3 +92,4 @@ const confluenceApi = (_client: AxiosInstance): ConfluenceApi => {
 };
 
 export type { ConfluenceApi };
+export { confluenceApi };
