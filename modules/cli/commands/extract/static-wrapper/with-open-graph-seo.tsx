@@ -15,8 +15,8 @@
  */
 import React from 'react';
 
-import { configuration } from '../../../../configuration';
-import { Content } from '../../../../external/confluence-api/types';
+import { Content } from '../../../../apis';
+import { environment } from '../../../conf';
 
 export const withOpenGraphSeo = (content: Content) => {
     const withImage = () => {
@@ -25,11 +25,11 @@ export const withOpenGraphSeo = (content: Content) => {
             <>
                 <meta
                     name="og:image"
-                    content={`${configuration.TARGET_SITE}/attachments/${content.cover.fileId}`}
+                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
                 />
                 <meta
                     property="og:image"
-                    content={`${configuration.TARGET_SITE}/attachments/${content.cover.fileId}`}
+                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
                 />
             </>
         );
@@ -40,10 +40,10 @@ export const withOpenGraphSeo = (content: Content) => {
             <meta property="og:title" content={content.identifier.title} />
             <meta name="og:description" content={content.excerpt} />
             <meta property="og:description" content={content.excerpt} />
-            <meta name="og:site" content={configuration.TWITTER_SITE} />
-            <meta property="og:site" content={configuration.TWITTER_SITE} />
-            <meta name="og:url" content={configuration.TARGET_SITE} />
-            <meta property="og:url" content={configuration.TARGET_SITE} />
+            <meta name="og:site" content={environment.TWITTER_SITE} />
+            <meta property="og:site" content={environment.TWITTER_SITE} />
+            <meta name="og:url" content={environment.TARGET_SITE} />
+            <meta property="og:url" content={environment.TARGET_SITE} />
             {withImage()}
         </>
     );

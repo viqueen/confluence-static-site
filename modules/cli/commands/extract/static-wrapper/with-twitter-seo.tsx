@@ -15,8 +15,8 @@
  */
 import React from 'react';
 
-import { configuration } from '../../../../configuration';
-import { Content } from '../../../../external/confluence-api/types';
+import { Content } from '../../../../apis';
+import { environment } from '../../../conf';
 
 export const withTwitterSeo = (content: Content) => {
     const withImage = () => {
@@ -25,11 +25,11 @@ export const withTwitterSeo = (content: Content) => {
             <>
                 <meta
                     name="twitter:image:src"
-                    content={`${configuration.TARGET_SITE}/attachments/${content.cover.fileId}`}
+                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
                 />
                 <meta
                     property="twitter:image:src"
-                    content={`${configuration.TARGET_SITE}/attachments/${content.cover.fileId}`}
+                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
                 />
             </>
         );
@@ -42,18 +42,15 @@ export const withTwitterSeo = (content: Content) => {
             <meta property="twitter:title" content={content.identifier.title} />
             <meta name="twitter:description" content={content.excerpt} />
             <meta property="twitter:description" content={content.excerpt} />
-            <meta name="twitter:site" content={configuration.TWITTER_SITE} />
-            <meta
-                property="twitter:site"
-                content={configuration.TWITTER_SITE}
-            />
-            <meta name="twitter:creator" content={configuration.TWITTER_SITE} />
+            <meta name="twitter:site" content={environment.TWITTER_SITE} />
+            <meta property="twitter:site" content={environment.TWITTER_SITE} />
+            <meta name="twitter:creator" content={environment.TWITTER_SITE} />
             <meta
                 property="twitter:creator"
-                content={configuration.TWITTER_SITE}
+                content={environment.TWITTER_SITE}
             />
-            <meta name="twitter:url" content={configuration.TARGET_SITE} />
-            <meta property="twitter:url" content={configuration.TARGET_SITE} />
+            <meta name="twitter:url" content={environment.TARGET_SITE} />
+            <meta property="twitter:url" content={environment.TARGET_SITE} />
             {withImage()}
         </>
     );
