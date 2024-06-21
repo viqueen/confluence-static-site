@@ -4,7 +4,7 @@
     "module": "commonjs",
     "rootDir": "modules",
     "outDir": "dist",
-    "target": "es5",
+    "target": "es2018",
     "sourceMap": true,
     "declaration": false,
     "allowSyntheticDefaultImports": true,
