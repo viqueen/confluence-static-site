@@ -16,12 +16,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
-import { Content } from '../../../external/confluence-api/types';
+import { Content } from '../../../apis';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
 
 const toExtension = (mediaType: string) => {
-    const matcher = mediaType.match(/image\/(?<ext>jpeg|jpg|png)/);
+    const matcher = RegExp(/image\/(?<ext>jpeg|jpg|png)/).exec(mediaType);
     const ext = matcher?.groups?.ext;
     if (ext) return `.${ext}`;
     return '';
@@ -32,9 +32,9 @@ export const extractAttachments = async (content: Content, output: Output) => {
     if (!attachments) return;
 
     return Promise.all(
-        attachments.map((attachment) => {
-            return confluenceApi
-                .getAttachmentData(attachment.downloadUrl)
+        attachments.map(async (attachment) => {
+            return confluence
+                .getAttachmentData(attachment.downloadUrl, '/wiki')
                 .then(({ stream }) => {
                     const fileExtension = toExtension(attachment.mediaType);
                     const filePath = path.resolve(

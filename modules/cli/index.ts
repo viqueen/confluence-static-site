@@ -20,7 +20,6 @@ import * as path from 'path';
 
 import { Command } from 'commander';
 
-import { initOutput } from '../configuration';
 import { confluenceApi } from '../external/confluence-api';
 
 import { webpackBuild } from './commands/build/webpack.build';
@@ -34,6 +33,7 @@ import { extractContent } from './commands/extract/extract-content';
 import { extractPageTree } from './commands/extract/extract-page-tree';
 import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
 import { init } from './commands/init';
+import { initOutput } from './conf';
 
 const program = new Command();
 

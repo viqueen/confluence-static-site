@@ -62,11 +62,69 @@ interface ResourceDefinition {
     '@type': string;
 }
 
+interface SearchResultItemMetadata {
+    labels: SearchResult;
+    properties: {
+        'emoji-title-published': {
+            value: string;
+        };
+    };
+}
+
+interface SearchResultItem {
+    id: string;
+    title: string;
+    excerpt: string;
+    lastModified: number;
+    name: string;
+    metadata: SearchResultItemMetadata;
+    extensions: {
+        mediaType: string;
+        fileId: string;
+    };
+    _links: {
+        download: string;
+    };
+    content: {
+        id: string;
+        title: string;
+        type: 'page' | 'blogpost';
+        body: {
+            atlas_doc_format: {
+                value: string;
+            };
+        };
+        history: {
+            createdBy: {
+                accountId: string;
+                publicName: string;
+                displayName: string;
+                profilePicture: {
+                    path: string;
+                };
+            };
+            createdDate: number;
+        };
+        children: {
+            page?: SearchResult;
+            attachment?: SearchResult;
+        };
+        ancestors: Identifier[];
+        metadata: SearchResultItemMetadata;
+    };
+}
+
+interface SearchResult {
+    results: SearchResultItem[];
+}
+
 export type {
     Identifier,
     Attachment,
     AttachmentData,
     Content,
     ResourceObject,
-    ResourceDefinition
+    ResourceDefinition,
+    SearchResult,
+    SearchResultItem
 };

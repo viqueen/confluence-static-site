@@ -16,9 +16,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
 import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
 
 import { extractBlogs } from './extract-blogs';
 import { extractPageTree } from './extract-page-tree';
@@ -31,7 +31,7 @@ export const extractSpace = async (
     options = { force: false }
 ) => {
     console.info(`🪐 extract-space: ${spaceKey}`);
-    const homepageId = await confluenceApi.getSpaceHomepage(spaceKey);
+    const homepageId = await confluence.getSpaceHomepage(spaceKey);
 
     console.info(`🏠 process space home`, homepageId);
     const homepage = await extractPageTree(homepageId, output, {

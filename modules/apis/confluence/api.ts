@@ -13,21 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import type { AxiosInstance } from 'axios';
 
+import { environment } from '../../cli/conf';
+import { configuration } from '../../configuration';
+import { axiosErrorHandler } from '../axios-error-handler';
+
+import { searchResultItemMapper } from './mappers';
 import {
     AttachmentData,
     Content,
     Identifier,
     ResourceDefinition,
-    ResourceObject
+    ResourceObject,
+    SearchResult
 } from './types';
 
 interface ConfluenceApi {
     getSpaceHomepage(spaceKey: string): Promise<Identifier>;
     getSpaceBlogs(spaceKey: string): Promise<Content[]>;
     getSpaceRecentlyUpdatedPages(spaceKey: string): Promise<Identifier[]>;
-    getContentById(contentId: string, asHomepage: boolean): Promise<Content>;
+    getContentById(
+        contentId: Pick<Identifier, 'id'>,
+        asHomepage: boolean
+    ): Promise<Content>;
     getContentByCQL(cql: string, asHomepage: boolean): Promise<Content>;
     getObjects(
         resourceUrls: ResourceObject[]
@@ -38,9 +48,14 @@ interface ConfluenceApi {
     ): Promise<AttachmentData>;
 }
 
-const confluenceApi = (_client: AxiosInstance): ConfluenceApi => {
-    const getSpaceHomepage = async (_spaceKey: string): Promise<Identifier> => {
-        throw new Error('Not implemented');
+const confluenceApi = (client: AxiosInstance): ConfluenceApi => {
+    const getSpaceHomepage = async (spaceKey: string): Promise<Identifier> => {
+        const { data } = await client
+            .get(`/wiki/rest/api/space/${spaceKey}?expand=homepage`)
+            .catch(axiosErrorHandler);
+        const { homepage } = data;
+        const { id, title } = homepage;
+        return { id, title };
     };
 
     const getSpaceBlogs = async (_spaceKey: string): Promise<Content[]> => {
@@ -54,30 +69,61 @@ const confluenceApi = (_client: AxiosInstance): ConfluenceApi => {
     };
 
     const getContentById = async (
-        _contentId: string,
-        _asHomepage: boolean
+        contentId: Pick<Identifier, 'id'>,
+        asHomepage: boolean
     ): Promise<Content> => {
-        throw new Error('Not implemented');
+        return getContentByCQL(`id=${contentId.id}`, asHomepage);
     };
 
     const getContentByCQL = async (
-        _cql: string,
-        _asHomepage: boolean
+        cql: string,
+        asHomepage: boolean = false
     ): Promise<Content> => {
-        throw new Error('Not implemented');
+        const contentExpansions = [
+            'content.body.atlas_doc_format',
+            'content.children.page.metadata.properties.emoji_title_published',
+            'content.children.attachment.metadata.labels',
+            'content.ancestors',
+            'content.history',
+            'content.metadata.properties.emoji_title_published',
+            'content.metadata.labels'
+        ];
+        const query = new URLSearchParams({
+            cql: cql,
+            expand: contentExpansions.join(',')
+        });
+        const { data } = await client
+            .get<SearchResult>(`/wiki/rest/api/search?${query.toString()}`)
+            .catch(axiosErrorHandler);
+        const item = data.results[0];
+        return searchResultItemMapper(item, asHomepage);
     };
 
     const getObjects = async (
-        _resourceUrls: ResourceObject[]
+        resourceUrls: ResourceObject[]
     ): Promise<{ body: { data: ResourceDefinition } }[]> => {
-        throw new Error('Not implemented');
+        const { data } = await client
+            .post('/gateway/api/object-resolver/resolve/batch', resourceUrls, {
+                headers: {
+                    'sec-fetch-mode': 'cors',
+                    'sec-fetch-site': 'same-origin',
+                    cookie: `cloud.session.token=${environment.CONFLUENCE_CLOUD_TOKEN}`
+                }
+            })
+            .catch(axiosErrorHandler);
+        return data;
     };
 
     const getAttachmentData = async (
-        _targetUrl: string,
-        _prefix: string
+        targetUrl: string,
+        prefix: string
     ): Promise<AttachmentData> => {
-        throw new Error('Not implemented');
+        const { data } = await client
+            .get(`${prefix}${targetUrl}`, {
+                responseType: 'stream'
+            })
+            .catch(axiosErrorHandler);
+        return { stream: data };
     };
 
     return {

@@ -16,10 +16,10 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Output } from '../../../configuration/types';
+import { Content } from '../../../apis';
 import { scrubContent } from '../../../external/confluence-api/adf-processor';
 import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
-import { Content } from '../../../external/confluence-api/types';
+import { Output } from '../../conf';
 
 const resolveContentPath = (content: Content, output: Output) => {
     if (content.asHomepage) return output.home;
