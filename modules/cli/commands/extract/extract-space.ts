@@ -16,7 +16,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
+import { titleToPath } from '../../../shared';
 import { confluence } from '../../clients';
 import { Output } from '../../conf';
 

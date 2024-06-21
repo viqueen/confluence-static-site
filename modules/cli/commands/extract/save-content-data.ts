@@ -17,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { Content } from '../../../apis';
-import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
+import { titleToPath } from '../../../shared';
 import { Output } from '../../conf';
 
 import { scrubContent } from './helpers/adf-processor';

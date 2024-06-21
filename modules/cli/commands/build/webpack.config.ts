@@ -22,7 +22,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration, DefinePlugin } from 'webpack';
 
-import { SiteProperties } from '../../../site-properties';
+import { SiteProperties } from '../../../shared';
 
 const isDev = process.env.NODE_ENV === 'development';
 

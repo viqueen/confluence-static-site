@@ -20,7 +20,7 @@ import Spinner from '@atlaskit/spinner';
 import axios from 'axios';
 
 import { Content, Identifier } from '../../../../../apis';
-import { titleToPath } from '../../../../../external/confluence-api/helpers/title-to-path';
+import { titleToPath } from '../../../../../shared';
 
 import './home-page-children-macro.css';
 

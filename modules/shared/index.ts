@@ -13,10 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AxiosError } from 'axios';
-
-export const axiosErrorHandler = (error: AxiosError) => {
-    const { data, status, statusText } = error.response || {};
-    console.error('failed request', { data, status, statusText });
-    throw Error('failed request');
-};
+export * from './title-to-path';
+export * from './site-properties';

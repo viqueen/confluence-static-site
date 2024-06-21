@@ -22,7 +22,7 @@ import { colorPalette } from '@atlaskit/theme/color-palettes';
 import axios from 'axios';
 
 import { Content } from '../../../../apis';
-import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
+import { titleToPath } from '../../../../shared';
 
 import './blog-posts-macro.css';
 

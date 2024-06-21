@@ -19,7 +19,7 @@ import * as path from 'path';
 import ReactDOMServer from 'react-dom/server';
 
 import { Content } from '../../../apis';
-import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
+import { titleToPath } from '../../../shared';
 import { Output } from '../../conf';
 
 import { extractAssets } from './extract-assets';
