@@ -38,10 +38,10 @@ const RecentlyUpdatedItem = ({
     homepage
 }: {
     item: Identifier;
-    homepage: Identifier;
+    homepage?: Identifier;
 }) => {
     const href =
-        item.id === homepage.id ? `/` : `/notes/${titleToPath(item.title)}/`;
+        item.id === homepage?.id ? `/` : `/notes/${titleToPath(item.title)}/`;
     return (
         <div className="recently-updated-item" key={item.id}>
             <PageIcon label="page" size="small" />

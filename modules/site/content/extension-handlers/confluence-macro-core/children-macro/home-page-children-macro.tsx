@@ -39,7 +39,12 @@ const HomePageChildItem = ({
     emoji?: string;
 }) => {
     const iconBefore = emoji ? (
-        <img src={`/assets/emojis/${emoji}.png`} height={18} width={18} />
+        <img
+            alt={emoji}
+            src={`/assets/emojis/${emoji}.png`}
+            height={18}
+            width={18}
+        />
     ) : (
         <LabelIcon label="topic" />
     );

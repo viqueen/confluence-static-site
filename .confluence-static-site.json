@@ -4,7 +4,7 @@
   "name": "/conf",
   "theme": {
     "name": "confluence-static-site",
-    "mode": "dark",
+    "mode": "light",
     "backgroundColor": "rgb(0, 102, 68)",
     "highlightColor": "#FFFFFF"
   }

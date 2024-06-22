@@ -27,7 +27,25 @@ type ContentHeaderProps = {
 };
 
 type ContentType = 'page' | 'blogpost';
-const ContentTypeLogo = (props: { type: ContentType }) => {
+
+type ContentTypeLogoProps = {
+    type: ContentType;
+    emoji?: string;
+};
+
+const ContentTypeLogo = (props: ContentTypeLogoProps) => {
+    if (props.emoji) {
+        return (
+            <span>
+                <img
+                    alt={props.emoji}
+                    src={`/assets/emojis/${props.emoji}.png`}
+                    height={24}
+                    width={24}
+                />
+            </span>
+        );
+    }
     switch (props.type) {
         case 'blogpost':
             return <Blog24Icon label="blog" />;
@@ -41,8 +59,8 @@ export const ContentHeader = ({ content }: ContentHeaderProps) => {
     if (content.asHomepage) return <></>;
     return (
         <div className="content-header">
-            <ContentTypeLogo type={content.type} />
-            <Heading level="h800">{content.identifier.title}</Heading>
+            <ContentTypeLogo type={content.type} emoji={content.emoji} />
+            <Heading size="xlarge">{content.identifier.title}</Heading>
         </div>
     );
 };
