@@ -18,9 +18,9 @@ import * as path from 'path';
 
 import ReactDOMServer from 'react-dom/server';
 
-import { Output } from '../../../configuration/types';
-import { titleToPath } from '../../../external/confluence-api/helpers/title-to-path';
-import { Content } from '../../../external/confluence-api/types';
+import { Content } from '../../../apis';
+import { titleToPath } from '../../../shared';
+import { Output } from '../../conf';
 
 import { extractAssets } from './extract-assets';
 import { extractAttachments } from './extract-attachments';

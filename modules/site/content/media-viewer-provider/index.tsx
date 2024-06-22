@@ -7,8 +7,8 @@ import Lightbox from 'yet-another-react-lightbox';
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
-import { Attachment } from '../../../external/confluence-api/types';
 import 'yet-another-react-lightbox/styles.css';
+import { Attachment } from '../../../apis';
 
 type MediaViewerContextInfo = {
     openMediaViewer: (fileId: string) => void;

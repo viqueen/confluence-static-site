@@ -15,15 +15,15 @@
  */
 import React from 'react';
 
-import { configuration } from '../../../../configuration';
+import { environment } from '../../../conf';
 
 export const withGoogleAnalytics = () => {
-    if (!configuration.GOOGLE_ANALYTICS_TRACKING_ID) return <></>;
+    if (!environment.GOOGLE_ANALYTICS_TRACKING_ID) return <></>;
     return (
         <>
             <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${configuration.GOOGLE_ANALYTICS_TRACKING_ID}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${environment.GOOGLE_ANALYTICS_TRACKING_ID}`}
             />
             <script
                 dangerouslySetInnerHTML={{
@@ -31,7 +31,7 @@ export const withGoogleAnalytics = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${configuration.GOOGLE_ANALYTICS_TRACKING_ID}');
+            gtag('config', '${environment.GOOGLE_ANALYTICS_TRACKING_ID}');
           `
                 }}
             />

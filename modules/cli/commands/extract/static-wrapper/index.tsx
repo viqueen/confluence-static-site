@@ -15,7 +15,7 @@
  */
 import React from 'react';
 
-import { Content } from '../../../../external/confluence-api/types';
+import { Content } from '../../../../apis';
 
 import { withGoogleAnalytics } from './with-google-analytics';
 import { withOpenGraphSeo } from './with-open-graph-seo';

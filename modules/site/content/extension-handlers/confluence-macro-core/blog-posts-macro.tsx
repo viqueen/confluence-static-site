@@ -21,8 +21,8 @@ import Spinner from '@atlaskit/spinner';
 import { colorPalette } from '@atlaskit/theme/color-palettes';
 import axios from 'axios';
 
-import { titleToPath } from '../../../../external/confluence-api/helpers/title-to-path';
-import { Content } from '../../../../external/confluence-api/types';
+import { Content } from '../../../../apis';
+import { titleToPath } from '../../../../shared';
 
 import './blog-posts-macro.css';
 
@@ -34,7 +34,7 @@ const unescapeExcerpt = (excerpt: string) => {
                 '&amp;': '&',
                 '&#39;': "'",
                 '&quot;': '"'
-            })[element] || element
+            })[element] ?? element
     );
 };
 

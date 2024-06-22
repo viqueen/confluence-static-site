@@ -20,7 +20,7 @@ import Button from '@atlaskit/button';
 import { Date } from '@atlaskit/date';
 import { colorPalette } from '@atlaskit/theme/color-palettes';
 
-import { Content } from '../../external/confluence-api/types';
+import { Content } from '../../apis';
 
 type ContentBylineProps = {
     content: Content;

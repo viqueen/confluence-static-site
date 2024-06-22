@@ -21,9 +21,9 @@ import type { ADFEntity } from '@atlaskit/adf-utils/types';
 import axios from 'axios';
 import type { AxiosInstance } from 'axios';
 
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
-import { Content } from '../../../external/confluence-api/types';
+import { Content } from '../../../apis';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
 
 const extractAvatars = async (content: Content, output: Output) => {
     const { author } = content;
@@ -33,7 +33,7 @@ const extractAvatars = async (content: Content, output: Output) => {
     );
     if (fs.existsSync(avatarFile)) return;
 
-    const { stream } = await confluenceApi.getAttachmentData(author.avatar, '');
+    const { stream } = await confluence.getAttachmentData(author.avatar, '');
     const file = fs.createWriteStream(avatarFile);
     stream.pipe(file);
 
@@ -52,7 +52,7 @@ const fetchEmoji = async (
 ) => {
     const targetFile = path.resolve(output.assets.emojis, `${id}.png`);
     if (fs.existsSync(targetFile)) return;
-    if (id.match(UUID_REGEX)) return;
+    if (RegExp(UUID_REGEX).exec(id)) return;
 
     const targetUrl = id.startsWith('atlassian')
         ? `/atlassian/${id.split('-')[1]}_64.png`

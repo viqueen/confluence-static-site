@@ -19,10 +19,11 @@ import path from 'path';
 
 import { filter } from '@atlaskit/adf-utils/traverse';
 
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
-import { rewriteUrl } from '../../../external/confluence-api/helpers/rewrite-url';
-import { Content } from '../../../external/confluence-api/types';
+import { Content } from '../../../apis';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
+
+import { rewriteUrl } from './helpers/rewrite-url';
 
 export const extractObjects = async (content: Content, output: Output) => {
     const inlineCards = filter(
@@ -35,7 +36,7 @@ export const extractObjects = async (content: Content, output: Output) => {
     });
     if (inlineCards.length < 1) return;
 
-    const resolvedObjects = await confluenceApi.getObjects(inlineCards);
+    const resolvedObjects = await confluence.getObjects(inlineCards);
     resolvedObjects.forEach((item) => {
         if (!item.body) {
             return;

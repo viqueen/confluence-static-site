@@ -20,11 +20,7 @@ import * as path from 'path';
 
 import { Command } from 'commander';
 
-import { cliOauthClient } from '../cli-oauth-client';
-import { initOutput } from '../configuration';
-import { AccessibleResource, atlassianApi } from '../external/atlassian-api';
-import { confluenceApi } from '../external/confluence-api';
-
+import { confluence } from './clients';
 import { webpackBuild } from './commands/build/webpack.build';
 import { defaultSiteProperties } from './commands/build/webpack.config';
 import {
@@ -36,6 +32,7 @@ import { extractContent } from './commands/extract/extract-content';
 import { extractPageTree } from './commands/extract/extract-page-tree';
 import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
 import { init } from './commands/init';
+import { initOutput } from './conf';
 
 const program = new Command();
 
@@ -76,7 +73,7 @@ program
     .action(async (spaceKey: string, id: string, options) => {
         const destination = path.resolve(process.cwd(), 'output');
         const output = initOutput({ spaceKey, destination });
-        const content = await confluenceApi.getContentById({ id });
+        const content = await confluence.getContentById({ id }, false);
         await extractContent(content, output, options);
     });
 
@@ -135,26 +132,6 @@ program
             configFile,
             JSON.stringify(defaultSiteProperties, null, 2)
         );
-    });
-
-program
-    .command('login')
-    .description('login to confluence static site with oauth')
-    .action(async () => {
-        await cliOauthClient.login();
-    });
-
-program
-    .command('init-site <name>')
-    .description('initialise site info')
-    .action(async (name: string) => {
-        const atlassian = await atlassianApi();
-        const { data } = await atlassian.accessibleResources();
-        const site = data.find((i: AccessibleResource) => i.name === name);
-        if (site) {
-            const envFile = path.resolve(process.cwd(), '.env');
-            fs.appendFileSync(envFile, `\nCONFLUENCE_SITE_ID=${site.id}`);
-        }
     });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

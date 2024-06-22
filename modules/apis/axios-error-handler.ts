@@ -13,23 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import fs from 'fs';
-import path from 'path';
+import { AxiosError } from 'axios';
 
-import { confluence } from '../../clients';
-import { Output } from '../../conf';
-
-const extractRecentlyUpdatedPages = async (
-    spaceKey: string,
-    output: Output
-) => {
-    console.info('✏️ extract recently updated pages');
-    const notes = await confluence.getSpaceRecentlyUpdatedPages(spaceKey);
-    const homepage = await confluence.getSpaceHomepage(spaceKey);
-    fs.writeFileSync(
-        path.resolve(output.home, 'recently-updated.json'),
-        JSON.stringify({ homepage, notes })
-    );
+const axiosErrorHandler = (error: AxiosError) => {
+    const { data, status, statusText } = error.response || {};
+    console.error('failed request', { data, status, statusText });
+    throw Error('failed request');
 };
 
-export { extractRecentlyUpdatedPages };
+export { axiosErrorHandler };

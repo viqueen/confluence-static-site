@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Output } from '../../../configuration/types';
-import { confluenceApi } from '../../../external/confluence-api';
-import { Content, Identifier } from '../../../external/confluence-api/types';
+import { Content, Identifier } from '../../../apis';
+import { confluence } from '../../clients';
+import { Output } from '../../conf';
 
 import { extractContent } from './extract-content';
 
@@ -25,7 +25,7 @@ export const extractPageTree = async (
     options = { asHomepage: false, force: false }
 ): Promise<Content> => {
     const { asHomepage, force } = options;
-    const content = await confluenceApi.getContentById(id, asHomepage);
+    const content = await confluence.getContentById(id, asHomepage);
     await extractContent(content, output, { force });
 
     if (content.childPages) {

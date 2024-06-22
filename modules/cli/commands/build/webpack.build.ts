@@ -43,13 +43,15 @@ const runCompiler = async (compiler: Compiler) => {
             console.error(error.stack || error);
             return;
         }
-        console.info(
-            stats?.toString({
-                errorDetails: true,
-                chunks: false, // Makes the build much quieter
-                colors: true // Shows colors in the console
-            })
-        );
+        if (stats) {
+            console.info(
+                stats.toString({
+                    errorDetails: true,
+                    chunks: false, // Makes the build much quieter
+                    colors: true // Shows colors in the console
+                })
+            );
+        }
     });
 };
 

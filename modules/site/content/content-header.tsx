@@ -19,8 +19,7 @@ import Heading from '@atlaskit/heading';
 import Blog24Icon from '@atlaskit/icon-object/glyph/blog/24';
 import Page24Icon from '@atlaskit/icon-object/glyph/page/24';
 
-import { Content } from '../../external/confluence-api/types';
-
+import { Content } from '../../apis';
 import './content-header.css';
 
 type ContentHeaderProps = {
