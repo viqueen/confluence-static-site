@@ -13,7 +13,8 @@
     "lint": "eslint modules/ --ext .ts,.tsx,.js",
     "format:check": "prettier --check .",
     "format": "prettier --check --write .",
-    "wdio": "TS_NODE_PROJECT=test/tsconfig.json wdio run wdio.conf.ts"
+    "wdio": "TS_NODE_PROJECT=test/tsconfig.json wdio run wdio.conf.ts",
+    "cli": "NODE_ENV=development ts-node modules/cli/index.ts"
   },
   "repository": {
     "type": "git",

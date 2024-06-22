@@ -28,15 +28,15 @@ yarn build
 - you can now use the cli after configuring your .env
 
 ```bash
-./cli extract <spaceKey>
-./cli build <spaceKey>
-./cli build <spaceKey> --serve # with webpack dev server
+yarn cli extract <spaceKey>
+yarn cli build <spaceKey>
+yarn cli build <spaceKey> --serve # with webpack dev server
 ```
 
 - or you can also run with local data
 
 ```bash
-./cli build public --dest local --serve --open
+yarn cli build public --dest local --serve --open
 ```
 
 ## run visual regression tests
