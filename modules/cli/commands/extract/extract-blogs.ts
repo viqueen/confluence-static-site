@@ -18,13 +18,14 @@ import * as path from 'path';
 
 import { BlogSummary } from '../../../apis';
 import { confluence } from '../../clients';
-import { Output } from '../../conf';
+import { Changelog, Output } from '../../conf';
 
 import { extractContent } from './extract-content';
 
 export const extractBlogs = async (
     spaceKey: string,
     output: Output,
+    changelog: Changelog,
     options = { force: false }
 ): Promise<BlogSummary[]> => {
     console.info('📙 extract blogs');
@@ -32,7 +33,7 @@ export const extractBlogs = async (
 
     for (const blog of blogs) {
         const content = await confluence.getContentById(blog.identifier, false);
-        await extractContent(content, output, options);
+        await extractContent(content, output, changelog, options);
     }
 
     fs.writeFileSync(

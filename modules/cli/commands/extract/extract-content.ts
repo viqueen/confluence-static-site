@@ -20,7 +20,7 @@ import ReactDOMServer from 'react-dom/server';
 
 import { Content } from '../../../apis';
 import { titleToPath } from '../../../shared';
-import { Output } from '../../conf';
+import { Changelog, Output } from '../../conf';
 
 import { extractAssets } from './extract-assets';
 import { extractAttachments } from './extract-attachments';
@@ -66,9 +66,26 @@ const saveContentHtml = async (content: Content, output: Output) => {
     );
 };
 
+const saveContentChangelog = async (content: Content, changelog: Changelog) => {
+    const changelogPath =
+        content.type === 'page' ? changelog.pages : changelog.blogs;
+    const info = {
+        title: content.identifier.title,
+        id: content.identifier.id,
+        type: content.type,
+        lastModifiedDate: content.lastModifiedDate
+    };
+    fs.mkdirSync(changelogPath, { recursive: true });
+    fs.writeFileSync(
+        path.resolve(changelogPath, `${content.identifier.id}.json`),
+        JSON.stringify(info, null, 2)
+    );
+};
+
 export const extractContent = async (
     content: Content,
     output: Output,
+    changelog: Changelog,
     options = { force: false }
 ) => {
     if (shouldExtractContentData(content, output, options)) {
@@ -83,4 +100,6 @@ export const extractContent = async (
 
     // static templates might change, this is not an expensive call anyway
     await saveContentHtml(content, output);
+    // capture changelog
+    await saveContentChangelog(content, changelog);
 };

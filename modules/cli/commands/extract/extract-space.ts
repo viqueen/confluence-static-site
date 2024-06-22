@@ -18,7 +18,7 @@ import path from 'path';
 
 import { titleToPath } from '../../../shared';
 import { confluence } from '../../clients';
-import { Output } from '../../conf';
+import { Changelog, Output } from '../../conf';
 
 import { extractBlogs } from './extract-blogs';
 import { extractPageTree } from './extract-page-tree';
@@ -28,19 +28,20 @@ import { generateAttachmentsThumbnails } from './generate-attachments-thumbnails
 export const extractSpace = async (
     spaceKey: string,
     output: Output,
+    changelog: Changelog,
     options = { force: false }
 ) => {
     console.info(`🪐 extract-space: ${spaceKey}`);
     const homepageId = await confluence.getSpaceHomepage(spaceKey);
 
     console.info(`🏠 process space home`, homepageId);
-    const homepage = await extractPageTree(homepageId, output, {
+    const homepage = await extractPageTree(homepageId, output, changelog, {
         ...options,
         asHomepage: true
     });
     await extractRecentlyUpdatedPages(spaceKey, output);
 
-    const blogs = await extractBlogs(spaceKey, output, options);
+    const blogs = await extractBlogs(spaceKey, output, changelog, options);
 
     await generateAttachmentsThumbnails(output, options);
 

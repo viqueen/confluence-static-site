@@ -13,6 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './init-changelog';
-export * from './init-output';
-export * from './parse-env';
+import fs from 'fs';
+import path from 'path';
+
+interface Changelog {
+    pages: string;
+    blogs: string;
+}
+
+const initChangelog = (props: {
+    spaceKey: string;
+    destination: string;
+}): Changelog => {
+    const { spaceKey, destination } = props;
+    const changelogOutput = path.resolve(destination, 'site', spaceKey);
+    fs.mkdirSync(changelogOutput, { recursive: true });
+    return {
+        pages: path.resolve(changelogOutput, 'notes'),
+        blogs: path.resolve(changelogOutput, 'articles')
+    };
+};
+
+export { initChangelog };
+export type { Changelog };

@@ -32,7 +32,7 @@ import { extractContent } from './commands/extract/extract-content';
 import { extractPageTree } from './commands/extract/extract-page-tree';
 import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
 import { init } from './commands/init';
-import { initOutput } from './conf';
+import { initChangelog, initOutput } from './conf';
 
 const program = new Command();
 
@@ -40,29 +40,51 @@ program
     .command(`extract <spaceKey>`)
     .description(`extract all content and media from a confluence space`)
     .option('--force', 'enforce extracting content assets', false)
+    .option('--dest <dest>', 'with output destination', 'output')
+    .option(
+        '--changelog <changelog>',
+        'with changelog destination',
+        'changelog'
+    )
     .action(async (spaceKey: string, options) => {
-        const destination = path.resolve(process.cwd(), 'output');
-        const output = initOutput({ spaceKey, destination });
-        await extractSpace(spaceKey, output, { ...options });
+        const outputDestination = path.resolve(process.cwd(), options.dest);
+        const changelogDestination = path.resolve(
+            process.cwd(),
+            options.changelog
+        );
+        const output = initOutput({ spaceKey, destination: outputDestination });
+        const changelog = initChangelog({
+            spaceKey,
+            destination: changelogDestination
+        });
+        await extractSpace(spaceKey, output, changelog, { ...options });
         await extractSiteEmojis(output, options);
     });
 
 program
     .command('extract-blogs <spaceKey>')
     .description('extract all blogs from a confluence space')
-    .action(async (spaceKey: string) => {
-        const destination = path.resolve(process.cwd(), 'output');
-        const output = initOutput({ spaceKey, destination });
-        await extractBlogs(spaceKey, output);
+    .option('--dest <dest>', 'with output destination', 'output')
+    .option('--changelog <log>', 'with changelog destination', 'changelog')
+    .action(async (spaceKey: string, options) => {
+        const outputDestination = path.resolve(process.cwd(), options.dest);
+        const changelogDestination = path.resolve(process.cwd(), options.log);
+        const output = initOutput({ spaceKey, destination: outputDestination });
+        const changelog = initChangelog({
+            spaceKey,
+            destination: changelogDestination
+        });
+        await extractBlogs(spaceKey, output, changelog);
     });
 
 program
     .command('generate-thumbnails <spaceKey>')
     .description('generate attachment thumbnails for a confluence space')
     .option('--force', 'enforce generating thumbnails', false)
+    .option('--dest <dest>', 'with output destination', 'output')
     .action(async (spaceKey: string, options) => {
-        const destination = path.resolve(process.cwd(), 'output');
-        const output = initOutput({ spaceKey, destination });
+        const outputDestination = path.resolve(process.cwd(), options.dest);
+        const output = initOutput({ spaceKey, destination: outputDestination });
         await generateAttachmentsThumbnails(output, options);
     });
 
@@ -70,11 +92,18 @@ program
     .command('extract-content <spaceKey> <contentId>')
     .description('extract specific content from a confluence space')
     .option('--force', 'enforce extracting content assets', false)
+    .option('--dest <dest>', 'with output destination', 'output')
+    .option('--changelog <log>', 'with changelog destination', 'changelog')
     .action(async (spaceKey: string, id: string, options) => {
-        const destination = path.resolve(process.cwd(), 'output');
-        const output = initOutput({ spaceKey, destination });
+        const outputDestination = path.resolve(process.cwd(), options.dest);
+        const changelogDestination = path.resolve(process.cwd(), options.log);
+        const output = initOutput({ spaceKey, destination: outputDestination });
+        const changelog = initChangelog({
+            spaceKey,
+            destination: changelogDestination
+        });
         const content = await confluence.getContentById({ id }, false);
-        await extractContent(content, output, options);
+        await extractContent(content, output, changelog, options);
     });
 
 program
@@ -82,10 +111,16 @@ program
     .description('extract specific page tree from a confluence space')
     .option('--force', 'enforce extracting content assets', false)
     .option('--dest <dest>', 'with output destination', 'output')
+    .option('--changelog <log>', 'with changelog destination', 'changelog')
     .action(async (spaceKey: string, id: string, options) => {
-        const destination = path.resolve(process.cwd(), options.dest);
-        const output = initOutput({ spaceKey, destination });
-        await extractPageTree({ id, title: '' }, output, {
+        const outputDestination = path.resolve(process.cwd(), options.dest);
+        const changelogDestination = path.resolve(process.cwd(), options.log);
+        const output = initOutput({ spaceKey, destination: outputDestination });
+        const changelog = initChangelog({
+            spaceKey,
+            destination: changelogDestination
+        });
+        await extractPageTree({ id, title: '' }, output, changelog, {
             ...options,
             asHomepage: true
         }).catch((error) => console.error(error.response.data));

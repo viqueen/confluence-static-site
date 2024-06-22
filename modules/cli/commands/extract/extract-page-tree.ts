@@ -15,22 +15,23 @@
  */
 import { Content, Identifier } from '../../../apis';
 import { confluence } from '../../clients';
-import { Output } from '../../conf';
+import { Changelog, Output } from '../../conf';
 
 import { extractContent } from './extract-content';
 
 export const extractPageTree = async (
     id: Identifier,
     output: Output,
+    changelog: Changelog,
     options = { asHomepage: false, force: false }
 ): Promise<Content> => {
     const { asHomepage, force } = options;
     const content = await confluence.getContentById(id, asHomepage);
-    await extractContent(content, output, { force });
+    await extractContent(content, output, changelog, { force });
 
     if (content.childPages) {
         for (const child of content.childPages) {
-            await extractPageTree(child, output, {
+            await extractPageTree(child, output, changelog, {
                 ...options,
                 asHomepage: false
             });
