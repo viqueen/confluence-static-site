@@ -27,13 +27,14 @@ import { hydrateRoot, createRoot } from 'react-dom/client';
 
 import { SiteContent } from './site-content';
 import { SiteLeftNavigation } from './site-left-navigation';
+import { siteProperties } from './site-properties';
 import { SiteTopNavigation } from './site-top-navigation';
 
 import '@atlaskit/css-reset/dist/bundle.css';
 
 const StaticSite = () => {
     return (
-        <AppProvider defaultColorMode="dark">
+        <AppProvider defaultColorMode={siteProperties.theme.mode}>
             <PageLayout>
                 <TopNavigation>
                     <SiteTopNavigation />

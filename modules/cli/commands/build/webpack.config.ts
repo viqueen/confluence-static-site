@@ -33,7 +33,8 @@ export const defaultSiteProperties: SiteProperties = {
     theme: {
         name: 'confluence-static-site',
         backgroundColor: 'rgb(0, 102, 68)',
-        highlightColor: '#FFFFFF'
+        highlightColor: '#FFFFFF',
+        mode: 'light'
     }
 };
 

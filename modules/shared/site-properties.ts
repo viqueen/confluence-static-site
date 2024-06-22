@@ -19,7 +19,7 @@ interface SiteProperties {
     title: string;
     iconUrl: string;
     name: string;
-    theme: GenerateThemeArgs;
+    theme: GenerateThemeArgs & { mode: 'light' | 'dark' };
 }
 
 export type { SiteProperties };
