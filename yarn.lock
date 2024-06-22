@@ -75,7 +75,7 @@
     prop-types "^15.5.10"
     use-memo-one "^1.1.1"
 
-"@atlaskit/app-provider@1.3.3", "@atlaskit/app-provider@^1.3.0":
+"@atlaskit/app-provider@1.3.3", "@atlaskit/app-provider@^1.3.0", "@atlaskit/app-provider@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/app-provider/-/app-provider-1.3.3.tgz#1957103bf7393fffe7a2a22a809205b72a654ba0"
   integrity sha512-xtRJcKlFg2uLYQsd2fQgv2kukHu2YzhkqCXDXqLvl5W9Plbm69dqiAeenN1tyBULrU7OJqVhyghxajpzj1Uzvg==
@@ -266,6 +266,15 @@
   resolved "https://registry.yarnpkg.com/@atlaskit/codemod-utils/-/codemod-utils-4.2.4.tgz#995a8060486f35bf77b8114b863688e551641eb1"
   integrity sha512-ETeLShTnEpLvsEhm0wmIlC7toRPy9hrMGbttdsiKzyUeGQQ3VqBxvOOPZNA6Uvi0660Jjd3lS7n5u7R/Ku0OHg==
   dependencies:
+    "@babel/runtime" "^7.0.0"
+
+"@atlaskit/css-reset@^6.9.1":
+  version "6.9.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/css-reset/-/css-reset-6.9.1.tgz#eb80f9bcccc18d7d625de37d24d499fc952301f1"
+  integrity sha512-Ul42/9TNZ69HHM5Ap+zubYIoo2a90YXVuzf0oB7LeNnIfmPwfN/1XkkzIpRhaSjTGJrd8HTdzU0iGOjIo7o5HQ==
+  dependencies:
+    "@atlaskit/theme" "^12.9.0"
+    "@atlaskit/tokens" "^1.49.0"
     "@babel/runtime" "^7.0.0"
 
 "@atlaskit/css@^0.1.0":

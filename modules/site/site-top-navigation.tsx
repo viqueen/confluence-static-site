@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import {
     AtlassianNavigation,
@@ -48,10 +48,11 @@ const Home = () => {
 };
 
 export const SiteTopNavigation = () => {
+    const items = [<HomeLink key={0} />] as ReadonlyArray<ReactNode>;
     return (
         <AtlassianNavigation
             label="confluence-static-site"
-            primaryItems={[<HomeLink key={0} />]}
+            primaryItems={items}
             renderProductHome={Home}
             theme={theme}
         />

@@ -15,6 +15,7 @@
  */
 import React from 'react';
 
+import AppProvider from '@atlaskit/app-provider';
 import {
     PageLayout,
     TopNavigation,
@@ -22,16 +23,17 @@ import {
     Main,
     LeftSidebar
 } from '@atlaskit/page-layout';
-import { fontFamily } from '@atlaskit/theme';
 import { hydrateRoot, createRoot } from 'react-dom/client';
 
 import { SiteContent } from './site-content';
 import { SiteLeftNavigation } from './site-left-navigation';
 import { SiteTopNavigation } from './site-top-navigation';
 
+import '@atlaskit/css-reset/dist/bundle.css';
+
 const StaticSite = () => {
     return (
-        <div style={{ fontFamily: fontFamily() }}>
+        <AppProvider defaultColorMode="dark">
             <PageLayout>
                 <TopNavigation>
                     <SiteTopNavigation />
@@ -45,7 +47,7 @@ const StaticSite = () => {
                     </Main>
                 </Content>
             </PageLayout>
-        </div>
+        </AppProvider>
     );
 };
 
