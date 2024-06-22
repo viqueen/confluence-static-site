@@ -82,7 +82,7 @@ const RecentlyUpdatedMacro = ({ max }: RecentlyUpdatedMacroProps) => {
                             <RecentlyUpdatedItem
                                 item={item}
                                 homepage={recentlyUpdated?.homepage}
-                                key={index}
+                                key={`recently-updated-${index}`}
                             />
                         ))}
                     </div>

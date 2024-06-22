@@ -38,14 +38,17 @@ export const MediaFile = ({
     const min = width ? Math.min(width, height) : height;
     return (
         <div className="media-file">
-            <img
-                src={`/attachments/${fileId}`}
-                alt={fileId}
-                style={{ height: min, maxHeight: 600, width }}
-                className={layoutClass}
+            <div
                 onClick={() => openMediaViewer(fileId)}
                 onKeyDown={() => noop()}
-            />
+            >
+                <img
+                    src={`/attachments/${fileId}`}
+                    alt={fileId}
+                    style={{ height: min, maxHeight: 600, width }}
+                    className={layoutClass}
+                />
+            </div>
         </div>
     );
 };

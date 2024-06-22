@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import noop from 'lodash/noop';
 // eslint-disable-next-line import/no-named-as-default
@@ -43,7 +43,9 @@ const MediaViewerProvider = ({
         setIsViewerOpen(true);
     }, []);
 
-    const value = { openMediaViewer };
+    const value = useMemo(() => {
+        return { openMediaViewer };
+    }, [openMediaViewer]);
     return (
         <MediaViewerContext.Provider value={value}>
             {children}

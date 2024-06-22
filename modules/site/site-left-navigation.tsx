@@ -52,23 +52,33 @@ const resolveStack = () => {
     return [];
 };
 
+const resolveIcon = (props: {
+    item: NavigationItem;
+    type: 'blogpost' | 'page';
+}) => {
+    const { item, type } = props;
+    if (item.emoji) {
+        return (
+            <img
+                src={`/assets/emojis/${item.emoji}.png`}
+                height={18}
+                width={18}
+                alt="content"
+            />
+        );
+    }
+    if (type === 'page') {
+        return <PageIcon label="content" />;
+    }
+    return <BookIcon label="content" />;
+};
+
 const NavigationLinkItem = (props: {
     item: NavigationItem;
     type: 'blogpost' | 'page';
 }) => {
     const { item, type } = props;
-    const iconBefore = item.emoji ? (
-        <img
-            src={`/assets/emojis/${item.emoji}.png`}
-            height={18}
-            width={18}
-            alt="content"
-        />
-    ) : type === 'page' ? (
-        <PageIcon label="content" />
-    ) : (
-        <BookIcon label="content" />
-    );
+    const iconBefore = resolveIcon({ item, type });
     return (
         <LinkItem iconBefore={iconBefore} href={item.href}>
             {item.title}
@@ -83,7 +93,11 @@ const ArticlesByYear = (props: {
     return (
         <Section title={props.createdYear}>
             {props.items.map((item, index) => (
-                <NavigationLinkItem item={item} key={index} type="blogpost" />
+                <NavigationLinkItem
+                    item={item}
+                    key={`article-${props.createdYear}-${index}`}
+                    type="blogpost"
+                />
             ))}
         </Section>
     );

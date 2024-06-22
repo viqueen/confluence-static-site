@@ -45,6 +45,7 @@ const BlogPostItemCover = ({ content }: { content: Content }) => {
     const { fileId } = content.cover;
     return (
         <img
+            alt={fileId}
             src={`/attachments/${fileId}-thumbnail`}
             className="blog-post-item-cover"
         />
