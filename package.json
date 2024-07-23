@@ -68,7 +68,7 @@
     "@atlaskit/media-core": "^34.2.1",
     "@atlaskit/media-state": "^1.1.0",
     "@atlaskit/page": "^12.4.0",
-    "@atlaskit/page-layout": "^3.3.1",
+    "@atlaskit/page-layout": "^3.4.4",
     "@atlaskit/renderer": "^109.35.0",
     "@atlaskit/side-navigation": "^3.2.0",
     "@atlaskit/smart-card": "^27.6.5",
