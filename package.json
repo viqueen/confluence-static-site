@@ -64,7 +64,7 @@
     "@atlaskit/breadcrumbs": "^12.2.3",
     "@atlaskit/css-reset": "^6.9.1",
     "@atlaskit/date": "^0.10.10",
-    "@atlaskit/link-provider": "^1.10.0",
+    "@atlaskit/link-provider": "^1.12.2",
     "@atlaskit/media-core": "^34.2.1",
     "@atlaskit/media-state": "^1.1.0",
     "@atlaskit/page": "^12.4.0",
