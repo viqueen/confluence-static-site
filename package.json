@@ -70,7 +70,7 @@
     "@atlaskit/page": "^12.4.0",
     "@atlaskit/page-layout": "^3.3.1",
     "@atlaskit/renderer": "^109.35.0",
-    "@atlaskit/side-navigation": "^3.2.0",
+    "@atlaskit/side-navigation": "^3.3.4",
     "@atlaskit/smart-card": "^27.6.5",
     "@atlaskit/theme": "^12.8.0",
     "@atlaskit/tokens": "^1.52.0",
