@@ -75,7 +75,7 @@
     "@atlaskit/theme": "^12.8.0",
     "@atlaskit/tokens": "^1.52.0",
     "@labset/fs-directory": "^1.1.0",
-    "axios": "^1.6.7",
+    "axios": "^1.7.4",
     "copy-webpack-plugin": "^12.0.2",
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.10.0",
