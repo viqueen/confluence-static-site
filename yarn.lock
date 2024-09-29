@@ -2318,7 +2318,7 @@
     "@atlaskit/tokens" "^2.0.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/tokens@^1.28.0", "@atlaskit/tokens@^1.43.0", "@atlaskit/tokens@^1.44.0", "@atlaskit/tokens@^1.45.0", "@atlaskit/tokens@^1.48.0", "@atlaskit/tokens@^1.52.0":
+"@atlaskit/tokens@^1.28.0", "@atlaskit/tokens@^1.43.0", "@atlaskit/tokens@^1.44.0", "@atlaskit/tokens@^1.45.0", "@atlaskit/tokens@^1.48.0":
   version "1.52.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/tokens/-/tokens-1.52.0.tgz#e5b11eaf27a903e9d6437e6702e596d69e2d8b0b"
   integrity sha512-OILjFDxYLg8M1AqxvczQH9txwk8XuTewjCf+YDTMvEGGi++4V2KrLyTup12e1S6Yh/eXUy9AWI2Zr+1ZTTv+nQ==
@@ -2330,7 +2330,7 @@
     "@babel/types" "^7.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/tokens@^1.42.0", "@atlaskit/tokens@^1.49.0", "@atlaskit/tokens@^1.50.0", "@atlaskit/tokens@^1.51.0", "@atlaskit/tokens@^1.58.0":
+"@atlaskit/tokens@^1.42.0", "@atlaskit/tokens@^1.49.0", "@atlaskit/tokens@^1.50.0", "@atlaskit/tokens@^1.51.0", "@atlaskit/tokens@^1.52.0", "@atlaskit/tokens@^1.58.0":
   version "1.61.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/tokens/-/tokens-1.61.0.tgz#101856f96be03daaaeb3a756d68a665af297de06"
   integrity sha512-gRkBDZOaQffJHg9g+hYFgPjQ0Hz4XIDaK5WEttIGyhi2USsGsvDvUeED8liqcQNwssH/5UFxIFp3FmEwo0DoFA==
