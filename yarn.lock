@@ -1722,9 +1722,9 @@
     raf-schd "^4.0.3"
 
 "@atlaskit/page@^12.4.0":
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/@atlaskit/page/-/page-12.5.0.tgz#16131f4c470f29c470cd2fe4f4520127f352815d"
-  integrity sha512-uwNqRJHIByFDqdZQDaKjqnajciyFtK3aOiUK/jm15IUiYagoemVqbJq+EMzyiVr2HUEKBoLugQ5ssK26QPfcTA==
+  version "12.6.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/page/-/page-12.6.0.tgz#e24af867ce4715932c21257d9321d2363b658bd0"
+  integrity sha512-bKH7rxA42NmgRyqIEtzHYY1IcUDgKQ5agZKRiedbZWlqq7bhjX+SmzdfTQqJdOKzbfR3fB9TBswzk9NsqrUOVA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
