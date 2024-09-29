@@ -25,7 +25,7 @@ jobs:
         if: failure()
         with:
           name: wdio-artifacts
-          path: .tmp/
+          path: artifacts/
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

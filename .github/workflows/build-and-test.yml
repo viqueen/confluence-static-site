@@ -25,4 +25,4 @@ jobs:
         if: failure()
         with:
           name: wdio-artifacts
-          path: .tmp/
+          path: artifacts/
