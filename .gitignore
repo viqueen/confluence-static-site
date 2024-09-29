@@ -7,7 +7,8 @@ dist/
 changelog/
 
 .env
-.tmp/
+
+artifacts/
 
 local/site/**/*.js
 local/site/**/*.txt

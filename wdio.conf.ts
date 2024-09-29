@@ -51,7 +51,7 @@ export const config: Options.Testrunner = {
             {
                 baselineFolder: path.join(process.cwd(), 'test', 'baseline'),
                 formatImageName: `{tag}-${testEnvironment}-{width}x{height}`,
-                screenshotPath: path.join(process.cwd(), '.tmp'),
+                screenshotPath: path.join(process.cwd(), 'artifacts'),
                 savePerInstance: true,
                 autoSaveBaseline: true,
                 blockOutStatusBar: true,
