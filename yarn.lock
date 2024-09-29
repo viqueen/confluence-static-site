@@ -1359,9 +1359,9 @@
     uuid-validate "^0.0.3"
 
 "@atlaskit/media-core@^34.2.1":
-  version "34.2.1"
-  resolved "https://registry.yarnpkg.com/@atlaskit/media-core/-/media-core-34.2.1.tgz#8036b478122d21299ef90c2d8c6a21e5e0e13ef3"
-  integrity sha512-LVaazp8WtTC6MSf3W74mryzrSKmgO/oLJ/qPj2pAMcyeaxWfMHKms9rItLZJucxBujRMawPNJzogwiYYR7Ua6Q==
+  version "34.3.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/media-core/-/media-core-34.3.0.tgz#7cf2094c6e30f678563f57de58a192ef602379c4"
+  integrity sha512-dFLXC/L8pm1RsbVUMevGGQZwWdp5bAYBkU61SubrexefMZ456QIL8eXQRPDtuBdRqgAXwOQdyCwMysb12i+7RQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     eventemitter2 "^4.1.0"
