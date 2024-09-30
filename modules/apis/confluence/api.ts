@@ -62,9 +62,15 @@ const confluenceApi = (client: AxiosInstance): ConfluenceApi => {
     };
 
     const getSpaceBlogs = async (spaceKey: string): Promise<BlogSummary[]> => {
+        const expands = [
+            'content.history',
+            'content.metadata.labels',
+            'content.children.attachment.metadata.labels',
+            'content.metadata.properties.cover_picture_id_published'
+        ];
         const query = new URLSearchParams({
             cql: `space=${spaceKey} and type=blogpost order by created desc`,
-            expand: 'content.history,content.metadata.labels,content.children.attachment.metadata.labels'
+            expand: expands.join(',')
         });
         const { data } = await client
             .get<SearchResult>(`/wiki/rest/api/search?${query.toString()}`)
