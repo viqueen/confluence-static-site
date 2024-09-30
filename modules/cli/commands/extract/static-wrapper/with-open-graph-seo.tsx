@@ -20,17 +20,11 @@ import { environment } from '../../../conf';
 
 export const withOpenGraphSeo = (content: Content) => {
     const withImage = () => {
-        if (!content.cover) return <></>;
+        if (!content.coverUrl) return <></>;
         return (
             <>
-                <meta
-                    name="og:image"
-                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
-                />
-                <meta
-                    property="og:image"
-                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
-                />
+                <meta name="og:image" content={content.coverUrl} />
+                <meta property="og:image" content={content.coverUrl} />
             </>
         );
     };

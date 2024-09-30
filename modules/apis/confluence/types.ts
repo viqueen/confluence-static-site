@@ -22,7 +22,6 @@ interface Attachment {
     fileId: string;
     downloadUrl: string;
     mediaType: string;
-    isCover: boolean;
 }
 
 interface AttachmentData {
@@ -47,13 +46,13 @@ interface Content {
     parentPages?: Identifier[];
     childPages?: (Identifier & { emoji?: string })[];
     attachments?: Attachment[];
-    cover?: Attachment;
+    coverUrl?: string;
     emoji?: string;
 }
 
 type BlogSummary = Pick<
     Content,
-    'identifier' | 'type' | 'excerpt' | 'cover' | 'createdDate' | 'createdYear'
+    'identifier' | 'type' | 'excerpt' | 'createdDate' | 'createdYear'
 > & {
     author: Identifier;
 };

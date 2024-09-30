@@ -22,11 +22,10 @@ type ContentCoverProps = {
 };
 
 export const ContentCover = ({ content }: ContentCoverProps) => {
-    if (!content.cover) return <></>;
-    const { fileId } = content.cover;
+    if (!content.coverUrl) return <></>;
     return (
         <img
-            src={`/attachments/${fileId}`}
+            src={content.coverUrl}
             style={{
                 height: '28rem',
                 objectFit: 'cover',

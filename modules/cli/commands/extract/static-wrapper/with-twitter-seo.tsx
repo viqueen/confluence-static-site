@@ -20,17 +20,11 @@ import { environment } from '../../../conf';
 
 export const withTwitterSeo = (content: Content) => {
     const withImage = () => {
-        if (!content.cover) return <></>;
+        if (!content.coverUrl) return <></>;
         return (
             <>
-                <meta
-                    name="twitter:image:src"
-                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
-                />
-                <meta
-                    property="twitter:image:src"
-                    content={`${environment.TARGET_SITE}/attachments/${content.cover.fileId}`}
-                />
+                <meta name="twitter:image:src" content={content.coverUrl} />
+                <meta property="twitter:image:src" content={content.coverUrl} />
             </>
         );
     };
