@@ -27,7 +27,7 @@ export const ContentCover = ({ content }: ContentCoverProps) => {
         <img
             src={content.coverUrl}
             style={{
-                height: '28rem',
+                height: '20rem',
                 objectFit: 'cover',
                 width: '100%',
                 display: 'flex'

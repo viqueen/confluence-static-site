@@ -52,7 +52,12 @@ interface Content {
 
 type BlogSummary = Pick<
     Content,
-    'identifier' | 'type' | 'excerpt' | 'createdDate' | 'createdYear'
+    | 'identifier'
+    | 'type'
+    | 'excerpt'
+    | 'coverUrl'
+    | 'createdDate'
+    | 'createdYear'
 > & {
     author: Identifier;
 };

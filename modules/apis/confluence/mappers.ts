@@ -64,6 +64,11 @@ const mapSearchResultItemToContent = (
         (i) => i.name === 'export-to-pdf'
     );
 
+    const coverValue = JSON.parse(
+        metadata.properties['cover-picture-id-published']?.value || '{}'
+    );
+    const coverUrl = coverValue.id;
+
     return {
         author,
         identifier: { id, title },
@@ -78,7 +83,8 @@ const mapSearchResultItemToContent = (
         parentPages,
         attachments,
         emoji,
-        hasPdf
+        hasPdf,
+        coverUrl
     };
 };
 
@@ -90,6 +96,11 @@ const mapSearchResultItemToBlogSummary = (
     const { createdBy, createdDate } = history;
     const createdAt = new Date(createdDate);
 
+    const coverValue = JSON.parse(
+        content.metadata.properties['cover-picture-id-published']?.value || '{}'
+    );
+    const coverUrl = coverValue.id;
+
     return {
         identifier: { id, title },
         type,
@@ -99,7 +110,8 @@ const mapSearchResultItemToBlogSummary = (
             title: createdBy.displayName
         },
         createdDate: createdAt.getTime(),
-        createdYear: createdAt.getFullYear()
+        createdYear: createdAt.getFullYear(),
+        coverUrl
     };
 };
 

@@ -112,7 +112,8 @@ const confluenceApi = (client: AxiosInstance): ConfluenceApi => {
             'content.ancestors',
             'content.history',
             'content.metadata.properties.emoji_title_published',
-            'content.metadata.labels'
+            'content.metadata.labels',
+            'content.metadata.properties.cover_picture_id_published'
         ];
         const query = new URLSearchParams({
             cql: cql,
