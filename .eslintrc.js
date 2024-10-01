@@ -8,6 +8,7 @@ module.exports = {
         ecmaFeatures: {
             modules: true,
         },
+        warnOnUnsupportedTypeScriptVersion: false,
     },
     plugins: ['@typescript-eslint', 'import', 'react', 'license-notice'],
     extends: [
