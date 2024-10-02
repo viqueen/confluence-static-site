@@ -21,8 +21,7 @@ type WidgetConnectorMacroProps = {
 
 const SPOTIFY_TRACK =
     /^https:\/\/open\.spotify\.com\/track\/(?<trackId>[a-zA-Z0-9]+)(\?.*)?$/;
-const YOUTUBE_VIDEO =
-    /^https:\/\/www\.youtube\.com\/watch\?v=(?<videoId>[\w]+)$/;
+const YOUTUBE_VIDEO = /^https:\/\/www\.youtube\.com\/watch\?v=(?<videoId>\w+)$/;
 
 const SpotifyEmbed = (props: { trackId?: string }) => {
     const { trackId } = props;
@@ -31,11 +30,11 @@ const SpotifyEmbed = (props: { trackId?: string }) => {
     return (
         <div style={{ textAlign: 'center' }}>
             <iframe
-                style={{ borderRadius: 12 }}
+                style={{ borderRadius: 12, border: 'none' }}
                 src={embedUrl}
                 width="50%"
                 height="380"
-                frameBorder="0"
+                title={trackId}
                 allowFullScreen={false}
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             />

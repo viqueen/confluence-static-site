@@ -29,11 +29,11 @@ export const rewriteUrl = (url: string): string => {
     if (!isInternalUrl(url)) {
         return url;
     }
-    const isBlog = url.match(blogUrl);
+    const isBlog = blogUrl.exec(url);
     if (isBlog) {
         return `${environment.TARGET_SITE}/articles/${isBlog.groups?.id}/`;
     }
-    const isPage = url.match(pageUrl);
+    const isPage = pageUrl.exec(url);
     if (isPage) {
         return `${environment.TARGET_SITE}/notes/${isPage.groups?.id}/`;
     }

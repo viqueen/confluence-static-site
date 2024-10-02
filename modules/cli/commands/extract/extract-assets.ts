@@ -52,7 +52,7 @@ const fetchEmoji = async (
 ) => {
     const targetFile = path.resolve(output.assets.emojis, `${id}.png`);
     if (fs.existsSync(targetFile)) return;
-    if (RegExp(UUID_REGEX).exec(id)) return;
+    if (UUID_REGEX.exec(id)) return;
 
     const targetUrl = id.startsWith('atlassian')
         ? `/atlassian/${id.split('-')[1]}_64.png`

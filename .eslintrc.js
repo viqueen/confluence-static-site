@@ -27,7 +27,7 @@ module.exports = {
             'error',
             {
                 license: 'Apache-2.0',
-                copyRightYear: '2023',
+                copyRightYear: '2024',
                 copyRightName: 'Hasnae Rehioui',
             },
         ],
