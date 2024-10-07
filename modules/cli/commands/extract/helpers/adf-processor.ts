@@ -24,17 +24,7 @@ const identityProcessor = (node: ADFEntity) => {
     return node;
 };
 
-const inlineCardProcessor = (node: ADFEntity) => {
-    const url = rewriteUrl(node.attrs?.url);
-    return {
-        type: node.type,
-        attrs: {
-            url
-        }
-    };
-};
-
-const blockCardProcessor = (node: ADFEntity) => {
+const cardProcessor = (node: ADFEntity) => {
     const url = rewriteUrl(node.attrs?.url);
     return {
         type: node.type,
@@ -58,7 +48,7 @@ const mediaSingleProcessor = (node: ADFEntity) => {
 const scrubContent = (doc: any) => {
     return scrubAdf(doc, {
         nodeReplacements: {
-            blockCard: blockCardProcessor,
+            blockCard: cardProcessor,
             bulletList: identityProcessor,
             codeBlock: identityProcessor,
             date: identityProcessor,
@@ -66,7 +56,7 @@ const scrubContent = (doc: any) => {
             expand: identityProcessor,
             extension: identityProcessor,
             heading: identityProcessor,
-            inlineCard: inlineCardProcessor,
+            inlineCard: cardProcessor,
             inlineExtension: identityProcessor,
             media: identityProcessor,
             mediaSingle: mediaSingleProcessor,
