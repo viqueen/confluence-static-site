@@ -34,18 +34,30 @@ export const extractObjects = async (content: Content, output: Output) => {
             resourceUrl: item.attrs?.url
         };
     });
-    if (inlineCards.length < 1) return;
+    const blockCards = filter(
+        content.body,
+        (node) => node.type === 'blockCard'
+    ).map((item) => {
+        return {
+            resourceUrl: item.attrs?.url
+        };
+    });
 
-    const resolvedObjects = await confluence.getObjects(inlineCards);
+    const cards = [...inlineCards, ...blockCards];
+
+    if (cards.length < 1) return;
+
+    const resolvedObjects = await confluence.getObjects(cards);
     resolvedObjects.forEach((item) => {
         if (!item.body) {
             return;
         }
         const data = item.body.data;
-        const { url, name, generator } = data;
+        const { url, name, generator, summary } = data;
         const definition = {
             name,
             generator,
+            summary,
             url: rewriteUrl(url),
             '@type': data['@type']
         };

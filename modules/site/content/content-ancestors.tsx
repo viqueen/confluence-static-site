@@ -27,7 +27,7 @@ type ContentAncestorsProps = {
 export const ContentAncestors = ({ content }: ContentAncestorsProps) => {
     if (content.type === 'blogpost' || content.asHomepage) return <></>;
     return (
-        <div style={{ margin: 40 }}>
+        <div style={{ margin: 20 }}>
             <Breadcrumbs>
                 {content.parentPages?.map((item: Identifier, index: number) => {
                     const href =
