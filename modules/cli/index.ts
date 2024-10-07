@@ -65,10 +65,17 @@ program
     .command('extract-blogs <spaceKey>')
     .description('extract all blogs from a confluence space')
     .option('--dest <dest>', 'with output destination', 'output')
-    .option('--changelog <log>', 'with changelog destination', 'changelog')
+    .option(
+        '--changelog <changelog>',
+        'with changelog destination',
+        'changelog'
+    )
     .action(async (spaceKey: string, options) => {
         const outputDestination = path.resolve(process.cwd(), options.dest);
-        const changelogDestination = path.resolve(process.cwd(), options.log);
+        const changelogDestination = path.resolve(
+            process.cwd(),
+            options.changelog
+        );
         const output = initOutput({ spaceKey, destination: outputDestination });
         const changelog = initChangelog({
             spaceKey,
@@ -93,10 +100,17 @@ program
     .description('extract specific content from a confluence space')
     .option('--force', 'enforce extracting content assets', false)
     .option('--dest <dest>', 'with output destination', 'output')
-    .option('--changelog <log>', 'with changelog destination', 'changelog')
+    .option(
+        '--changelog <changelog>',
+        'with changelog destination',
+        'changelog'
+    )
     .action(async (spaceKey: string, id: string, options) => {
         const outputDestination = path.resolve(process.cwd(), options.dest);
-        const changelogDestination = path.resolve(process.cwd(), options.log);
+        const changelogDestination = path.resolve(
+            process.cwd(),
+            options.changelog
+        );
         const output = initOutput({ spaceKey, destination: outputDestination });
         const changelog = initChangelog({
             spaceKey,
@@ -111,10 +125,17 @@ program
     .description('extract specific page tree from a confluence space')
     .option('--force', 'enforce extracting content assets', false)
     .option('--dest <dest>', 'with output destination', 'output')
-    .option('--changelog <log>', 'with changelog destination', 'changelog')
+    .option(
+        '--changelog <changelog>',
+        'with changelog destination',
+        'changelog'
+    )
     .action(async (spaceKey: string, id: string, options) => {
         const outputDestination = path.resolve(process.cwd(), options.dest);
-        const changelogDestination = path.resolve(process.cwd(), options.log);
+        const changelogDestination = path.resolve(
+            process.cwd(),
+            options.changelog
+        );
         const output = initOutput({ spaceKey, destination: outputDestination });
         const changelog = initChangelog({
             spaceKey,

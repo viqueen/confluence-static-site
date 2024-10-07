@@ -34,6 +34,16 @@ const inlineCardProcessor = (node: ADFEntity) => {
     };
 };
 
+const blockCardProcessor = (node: ADFEntity) => {
+    const url = rewriteUrl(node.attrs?.url);
+    return {
+        type: node.type,
+        attrs: {
+            url
+        }
+    };
+};
+
 const mediaSingleProcessor = (node: ADFEntity) => {
     return extension({
         extensionType: 'org.viqueen.media',
@@ -48,6 +58,7 @@ const mediaSingleProcessor = (node: ADFEntity) => {
 const scrubContent = (doc: any) => {
     return scrubAdf(doc, {
         nodeReplacements: {
+            blockCard: blockCardProcessor,
             bulletList: identityProcessor,
             codeBlock: identityProcessor,
             date: identityProcessor,
