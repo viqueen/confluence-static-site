@@ -23,11 +23,7 @@ import { Command } from 'commander';
 import { confluence } from './clients';
 import { webpackBuild } from './commands/build/webpack.build';
 import { defaultSiteProperties } from './commands/build/webpack.config';
-import {
-    extractBlogs,
-    extractSpace,
-    generateAttachmentsThumbnails
-} from './commands/extract';
+import { extractBlogs, extractSpace } from './commands/extract';
 import { extractContent } from './commands/extract/extract-content';
 import { extractPageTree } from './commands/extract/extract-page-tree';
 import { extractSiteEmojis } from './commands/extract/extract-site-emojis';
