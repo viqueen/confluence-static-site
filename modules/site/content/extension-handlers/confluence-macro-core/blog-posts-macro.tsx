@@ -45,7 +45,7 @@ const BlogPostItemCover = ({ content }: { content: Content }) => {
     return (
         <img
             alt={`its-a-cover-up`}
-            src={content.coverUrl}
+            src={`${content.coverUrl}&h=300`}
             className="blog-post-item-cover"
         />
     );
