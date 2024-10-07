@@ -65,7 +65,6 @@ export const RegularPageChildrenMacro = ({
                                     href={`/notes/${titleToPath(child.title)}/`}
                                     style={{
                                         textDecoration: 'none',
-                                        color: '#0052CC',
                                         fontSize: 16
                                     }}
                                 >

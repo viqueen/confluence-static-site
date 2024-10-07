@@ -70,6 +70,7 @@ interface ResourceDefinition {
     url: string;
     generator: { icon: { url: string } };
     name: string;
+    summary?: string;
     '@type': string;
 }
 
