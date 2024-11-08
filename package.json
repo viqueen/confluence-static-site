@@ -69,7 +69,7 @@
     "@atlaskit/media-state": "^1.1.0",
     "@atlaskit/page": "^12.4.0",
     "@atlaskit/page-layout": "^3.4.4",
-    "@atlaskit/renderer": "^109.35.0",
+    "@atlaskit/renderer": "^112.3.2",
     "@atlaskit/side-navigation": "^3.3.4",
     "@atlaskit/smart-card": "^30.1.1",
     "@atlaskit/theme": "^12.8.0",
