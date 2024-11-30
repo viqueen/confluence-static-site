@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 Hasnae Rehioui
+ * Copyright 2024 Hasnae Rehioui
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,5 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './confluence';
-export * from './confluence-v1';
+import type { AxiosInstance } from 'axios';
+
+import { contentApiV1, ContentApiV1 } from './content-api';
+
+interface ConfluenceApiV1 {
+    contentApi: ContentApiV1;
+}
+
+const confluenceApiV1 = (client: AxiosInstance): ConfluenceApiV1 => ({
+    contentApi: contentApiV1(client)
+});
+
+export { confluenceApiV1 };
